@@ -16,7 +16,55 @@ This idea have been inspire by Wesbos [JavaScript 30 Challenge] (https://javascr
 
 ## Interesting Bite
 
+  inspiration
+
+    [Quackit HTML5 tags] (https://www.quackit.com/html_5/tags/) 
+
+    [Tutorial Republic] (https://www.tutorialrepublic.com/html-reference/html5-tags.php)
+
+    [MDN HTML elements reference] (https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+    
+    [html5 cmarix cheat sheet] (http://www.cmarix.com/Infographics-HTML5-Cheat-Sheet/) 
+
+    [MDN Web APIs reference] (https://developer.mozilla.org/en-US/docs/Web/Reference/API)
+
+    [MDN WebAPI] (https://developer.mozilla.org/en-US/docs/WebAPI)
+
+    [MDN Web APIs] (https://developer.mozilla.org/en-US/docs/Web/API)
+
+    [Chrome Web APIs] (https://developer.chrome.com/apps/api_other)
+
+
 * First Bite
+
+* Second Bite
+
+* Bite audio tag
+
+* Bite svg
+
+* Bite application cache
+
+
+* Bite geolocalisation
+
+* Bite local storage
+
+* Bite notifications
+
+* Bite CSS Object Model
+
+* Bite webGL
+
+* Bite pointer lock
+
+* Bite web database
+
+* Bite Accelerated Mobile Project (AMP)  
+
+* Bite Services workers
+
+* Bite Web Sharing API
 
 ## Ressources 
 
