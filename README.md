@@ -35,22 +35,23 @@ This idea have been inspire by Wesbos [JavaScript 30 Challenge] (https://javascr
     [Chrome Web APIs] (https://developer.chrome.com/apps/api_other)
 
 
-* First Bite
-
-* Second Bite
-
-* Bite audio tag
+* Bite All transformation that can be apply to images : blur, .....
 
 * Bite svg
 
+* Bite audio tag
+
 * Bite application cache
 
-
 * Bite geolocalisation
+
+* Bite Device Orientation Events
 
 * Bite local storage
 
 * Bite notifications
+
+* Bite create custom RSS feed
 
 * Bite CSS Object Model
 
