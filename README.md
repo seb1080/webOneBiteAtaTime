@@ -35,9 +35,13 @@ This idea have been inspire by Wesbos [JavaScript 30 Challenge] (https://javascr
     [Chrome Web APIs] (https://developer.chrome.com/apps/api_other)
 
 
+* Bite svg
+
 * Bite All transformation that can be apply to images : blur, .....
 
-* Bite svg
+* Bite EsLint
+
+* Bite Webpack
 
 * Bite audio tag
 
@@ -46,6 +50,8 @@ This idea have been inspire by Wesbos [JavaScript 30 Challenge] (https://javascr
 * Bite geolocalisation
 
 * Bite Device Orientation Events
+
+* Bite cookies
 
 * Bite local storage
 
@@ -56,6 +62,8 @@ This idea have been inspire by Wesbos [JavaScript 30 Challenge] (https://javascr
 * Bite CSS Object Model
 
 * Bite webGL
+
+* Bite create a heatmap of the user behavior
 
 * Bite pointer lock
 
