@@ -39,6 +39,12 @@ This idea have been inspire by Wesbos [JavaScript 30 Challenge] (https://javascr
 
 * Bite All transformation that can be apply to images : blur, .....
 
+* Bite CSS Object Model
+
+* Bite CSS Animations
+
+* Bite Web Animation API
+
 * Bite EsLint
 
 * Bite Webpack
@@ -59,9 +65,9 @@ This idea have been inspire by Wesbos [JavaScript 30 Challenge] (https://javascr
 
 * Bite create custom RSS feed
 
-* Bite CSS Object Model
-
 * Bite webGL
+
+* Bite Socket
 
 * Bite create a heatmap of the user behavior
 
@@ -74,6 +80,8 @@ This idea have been inspire by Wesbos [JavaScript 30 Challenge] (https://javascr
 * Bite Services workers
 
 * Bite Web Sharing API
+
+* Bite WebVR API
 
 ## Ressources 
 
