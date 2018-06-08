@@ -79,6 +79,12 @@ Directives are special attributes with the v- prefix. The porpuse of of a direct
   * v-model
   * v-bind
 
+## Shorthands
+
+v-on: === @  
+
+v-bind: === :
+
 ### Arguments 
 
 Some directive can take "arguments"
@@ -102,6 +108,7 @@ new Vue({
   data: {
     urlPath: 'sblaisfernandez.com'
   }
+})
 </script>
 ```
 ### Modifiers
@@ -147,7 +154,6 @@ A method invocation will always run the function whenever a re-render happens.
     button(v-on:click="warn('Message', $event)") Warn Message
 <template>
 
-})
 <script>
 new Vue({
   el: '#app',
@@ -246,7 +252,7 @@ new Vue({
 
 ## Watchers Properties
 
-Watchers are more usefull when you want to perform async or expensive operations in response to changing data, like a API call.
+Watchers are more useful when you want to perform async or expensive operations in response to changing data, like a API call.
 
 ```js
 <template lang="pug">
@@ -350,20 +356,13 @@ Slot element serve as distribution outlets for content. Slots can render templat
   Your Profile
 </navigation-link>
 
+<a v-bind:href="url" class="nav-link">
+  <slot></slot><!--Display Your Profile-->
+</a>
 
-<<<<<<< HEADink">
+<template>
+```
 
-<<<<<<< HEADrofile-->
-
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-
-<<<<<<< HEAD
 ### Names Slots
 
 ```html
@@ -394,58 +393,24 @@ Slot element serve as distribution outlets for content. Slots can render templat
 <template>
 ```
 
+## Dynamic Component
+
+Dynamic Component allow to swtich dynamicly between component.
+
+```html
+<!-- Component changes when currentTabComponent changes -->
+<component v-bind:is="currentTabComponent"></component>
+```
+
+## Special Attributes
+
+### key
+
+ref is used to register a reference to a element or a child component.
+
 # Vue CLI
 
 # Vuex
-
-Vues is a state management pattern + library for Vue.js applications, it serve a centralized store for all the components.
-
-## State
-
-Vuex uses a single state tree that object contain all the application level state and serves as the "single source of truth".
-
-The best way to accesss the state of the store is by passing by a computed property.
-
-```js
-  computed: {
-    count () {
-      return this.$store.state.count
-    }
-  }
-```
-
-### The mapState Helper
-
-Whene a component nned to access multiple store state or getters the mapState can help by generating getter functions.
-
-
-## Getters
-
-Getters are computed properties for the stores. Like a CP,a  getter result is cached based on its dependencies, and will only re-evaluate when some of its dependencies have changed.
-
-```js
-  computed: {
-    count () {
-      return this.$store.getters.doneTodosCount
-    }
-  }
-```
-
-### mapGetters Helper
-
-The mapGetters helper simply maps store getters to local CP.
-
-```js
-  computed: {
-    ...mapGetters([
-      'doneTodosCount',
-      'anotherGetter'
-    ])
-  }
-```
-## Mutations
-
-To change the state of the store it is needed to commit a mutation.
 
 # Vue Router
 
