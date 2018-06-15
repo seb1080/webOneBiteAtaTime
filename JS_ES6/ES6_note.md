@@ -74,11 +74,21 @@ Specific list of 'truthy' values:
 *true
 *[], {}, () => {} // Array, Object, Functions
 
+It's important to remember that a non-boolean value only follows this "truthy"/"falsy" coercion if it's actually coerced to a boolean
 
+### Equality
+
+There are four equality operators: ==, ===, !=, and !== . The ! forms are of course the symmetric "not equal" versions of their counterparts; non-equality should not be confused with inequality.
+
+The loose-equality comparison == checks for value equality with coercion allowed, and === checks for value equality without allowing coercion; === is often called "strict equality" for this reason.
+
+### Inaquality
 
 
 
 # Module_1  New Variables
+
+In JavaScript, variable names (including function names) must be valid identifiers. An identifier must start with a-z, A-Z, $, or _. It can then contain any of those characters plus the numerals 0-9.
 
 ## Before 
 
