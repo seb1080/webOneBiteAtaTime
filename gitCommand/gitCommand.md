@@ -83,16 +83,16 @@ git branch -d |name of the file| -> to delete a branch
 
 
 
-*/ ------------- To clone a repo ------------------------------*/
+*/ ------------- To clone a repo ---------------------------*/
 
- git clone |name of the file|  --> to clone a repo
+git clone |name of the file|  --> to clone a repo
 
 EX: https://github.com/sylvainnicole/hh2015.git 
 
 git commit -a -> pour commenter un fichier .txt 
 
 
-*/ ---------------- To pull request----------------------------*/
+*/ ---------------- To pull request  ------------------------*/
 
 git pull --> to pull
 
@@ -101,8 +101,19 @@ git status
 git status
 
 
-*/ ---------------- To pull request----------------------------*/
+*/ ---------------- To pull request  ------------------------*/
 
 node server/app.js  --> Pour activer le serveur en local
+
+*/ ---------------- git stash  ------------------------*/
+
+
+
+
+git stash   // to stash the actual change
+
+git branch <name-branch> // to change branch
+
+git stash apply // to apply stash change to the local branch
 
 
