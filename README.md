@@ -18,22 +18,23 @@ This idea have been inspire by Wesbos [JavaScript 30 Challenge] (https://javascr
 
   inspiration
 
-    [Quackit HTML5 tags] (https://www.quackit.com/html_5/tags/) 
+  [Quackit HTML5 tags] (https://www.quackit.com/html_5/tags/) 
 
-    [Tutorial Republic] (https://www.tutorialrepublic.com/html-reference/html5-tags.php)
+  [Tutorial Republic] (https://www.tutorialrepublic.com/html-reference/html5-tags.php)
 
-    [MDN HTML elements reference] (https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
-    
-    [html5 cmarix cheat sheet] (http://www.cmarix.com/Infographics-HTML5-Cheat-Sheet/) 
+  [MDN HTML elements reference] (https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+  
+  [html5 cmarix cheat sheet] (http://www.cmarix.com/Infographics-HTML5-Cheat-Sheet/) 
 
-    [MDN Web APIs reference] (https://developer.mozilla.org/en-US/docs/Web/Reference/API)
+  [MDN Web APIs reference] (https://developer.mozilla.org/en-US/docs/Web/Reference/API)
 
-    [MDN WebAPI] (https://developer.mozilla.org/en-US/docs/WebAPI)
+  [MDN WebAPI] (https://developer.mozilla.org/en-US/docs/WebAPI)
 
-    [MDN Web APIs] (https://developer.mozilla.org/en-US/docs/Web/API)
+  [MDN Web APIs] (https://developer.mozilla.org/en-US/docs/Web/API)
 
-    [Chrome Web APIs] (https://developer.chrome.com/apps/api_other)
+  [Chrome Web APIs] (https://developer.chrome.com/apps/api_other)
 
+* Bite Chrome Dev Tool
 
 * Bite svg
 
