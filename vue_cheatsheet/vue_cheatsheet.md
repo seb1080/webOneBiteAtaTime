@@ -367,31 +367,63 @@ Slot element serve as distribution outlets for content. Slots can render templat
 
 ```html
 <template>
-  <!-- in the child component -->
-  <div class="container">
-  <header>
-    <slot name="header"></slot>
-  </header>
-  <main>
-    <slot name="main"></slot>
-  </main>
-  <!-- in the parent component -->
-  <base-layout>
-    <template slot="header">
-      <h1>Here might be a page title</h1>
-    </template>
+    <!-- in the child component -->
+    <div class="container">
+      <header>
+        <slot name="header"></slot>
+      </header>
+      <main>
+        <slot name="main"></slot>
+      </main>
+      <!-- in the parent component -->
+      <base-layout>
+        <template slot="header">
+          <h1>Here might be a page title</h1>
+        </template>
 
-    <p>A paragraph for the main content.</p>
-    <p>And another one.</p>
+        <p>A paragraph for the main content.</p>
+        <p>And another one.</p>
 
-    <template slot="footer">
-      <p>Here's some contact info</p>
-    </template>
-</base-layout>
-</div>
-
+        <template slot="footer">
+          <p>Here's some contact info</p>
+        </template>
+    </base-layout>
+  </div>
 <template>
 ```
+
+### Default Slot Content
+
+The default Slot Content allow to define default content.
+
+
+```html
+<button type="submit">
+  <slot>Submit</slot> // The default value of Sumbit can be replace.
+</button>
+```
+
+### Compilation Scope 
+
+Everyting in the parent template is compiled in the parent  scope; everything in the child template is compiled in the child scope.
+
+### Scoped Slots
+
+```html
+<ul>
+  <li
+    v-for="todo in todos"
+    v-bind:key="todo.id">
+    <!-- We have a slot for each todo, passing it the -->
+    <!-- `todo` object as a slot prop.                -->
+    <slot v-bind:todo="todo">
+      <!-- Fallback content -->
+      {{ todo.text }}
+    </slot>
+  </li>
+</ul>
+```
+
 
 ## Dynamic Component
 
