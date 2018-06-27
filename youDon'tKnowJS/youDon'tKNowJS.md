@@ -9,13 +9,13 @@ Ref : [wesbos](https://courses.wesbos.com/account/)
 
 [You don't know JS](https://github.com/getify/You-Dont-Know-JS)
 
-There is 7 types of values in ES2015.
-*string
-*number
-*boolean
-*null and undefined
-*object
-*symbol
+There is 7 types of values in ES2015
+* string
+* number
+* boolean
+* null and undefined
+* object
+* symbol
 
 Notice typeof "abc" returns "string", not string. Notice how in this snippet the a variable holds every different type of value, and that despite appearances, typeof a is not asking for the "type of a", but rather for the "type of the value currently in a." Only values have types in JavaScript; variables are just simple containers for those values.
 
@@ -44,7 +44,9 @@ typeof a;				// "object"
 ```
 ### Coercion
 
-Coercion comes in two forms in JavaScript: explicit and implicit. Explicit coercion is simply that you can see obviously from the code that a conversion from one type to another will occur, where as implicit coercion is when the type conversion can happen as more of a non-obvious side effect of some other operation.
+Coercion meen converting between types, Coercion comes in two forms in JavaScript: explicit and implicit. 
+
+Explicit coercion is simply that you can see obviously from the code that a conversion from one type to another will occur, where as implicit coercion is when the type conversion can happen as more of a non-obvious side effect of some other operation.
 
 ```js
 // implicit coercion
@@ -80,7 +82,13 @@ It's important to remember that a non-boolean value only follows this "truthy"/"
 
 ### Equality
 
-There are four equality operators: ==, ===, !=, and !== . The ! forms are of course the symmetric "not equal" versions of their counterparts; non-equality should not be confused with inequality.
+There are four equality operators: 
+* == (loose-equals), 
+* === (strict-equals), 
+* != (loose not-equals), 
+* !== (strict not-equals). 
+
+The ! forms are of course the symmetric "not equal" versions of their counterparts; non-equality should not be confused with inequality.
 
 The loose-equality comparison == checks for value equality with coercion allowed, and === checks for value equality without allowing coercion; === is often called "strict equality" for this reason.
 
