@@ -132,7 +132,7 @@ The arrow  functions should not be use for :
 ### Default argument
 
 ```js
-function calculateBill(total, tax =0.13, tip=0.15) {
+function calculateBill(total, tax = 0.13, tip = 0.15) {
   return total * tax + total * tip 
 }
 ```
@@ -274,7 +274,7 @@ function tipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
     return total + (tip * total) + (tax * total)
   }
   
-// Arguments can't be pass in a different oroder
+// Arguments can't be pass in a different order
 const bill = tipCalc({ tip: 0.20, total: 200 })
 ```
 
@@ -287,13 +287,12 @@ const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib']
 
 // Before ES6
 // Confusing syntax
-for(let i =0 i< cuts.length i++){
+for(let i = 0; i < cuts.length; i++){
   console.log(cuts[i])
 }
 // Can't be abord the loop, can't use rthe break keyword
-cuts.forEach( cut => {
-  console.log(cut)
-})
+cuts.forEach( cut => console.log(cut))
+
 // loop over the prototype
 for(let cut in cuts) {
   console.log(cuts[cut])
