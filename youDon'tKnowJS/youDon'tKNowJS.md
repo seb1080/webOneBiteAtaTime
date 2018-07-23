@@ -1,24 +1,44 @@
-# Review of the ES for Everyone
-
-Ref : [wesbos](https://courses.wesbos.com/account/)
-
-      [MDN Doc](https://developer.mozilla.org)
-
-
-## Review of You don't know JS 
+# Review of You don't know JS 
 
 [You don't know JS](https://github.com/getify/You-Dont-Know-JS)
 
 There is 7 types of values in ES2015
-* string
-* number
-* boolean
-* null and undefined
-* object
-* symbol
+* Boolean
+* String
+* Number
+* Null and Undefined
+* Object
+* Symbol
+
+##Boolean
+
+Boolean can be true or false.
+
+##Number
+
+A Number ca be +Infinity, -Infinity, NaN. 
+
+##String
+
+In JS Strings are immutable. They have to be between '',"" or ``.
+
+##Null
+
+Null have one value null. It is explicitly nothing.
+
+##Undefined
+
+A variable that has no vlaue is undefined.
+
+##Symbol
+
+Symbol arrive with ES6. A Symbol is an immutable primitive value that is unique.
+
+## Object
+
+Object are not primitive data Type.
 
 Notice typeof "abc" returns "string", not string. Notice how in this snippet the a variable holds every different type of value, and that despite appearances, typeof a is not asking for the "type of a", but rather for the "type of the value currently in a." Only values have types in JavaScript; variables are just simple containers for those values.
-
 
 ```js
 var a;
@@ -42,6 +62,21 @@ typeof a;				// "undefined"
 a = { b: "c" };
 typeof a;				// "object"
 ```
+
+null: is a empty or no-existent value. It most be assigned.
+
+```
+let a = null;
+console.log(a) // null
+```
+
+undefined : a variable have been declared, but not defined.
+
+```
+let b;
+console.log(b) // undefined
+```
+
 ### Coercion
 
 Coercion meen converting between types, Coercion comes in two forms in JavaScript: explicit and implicit. 
@@ -66,10 +101,12 @@ b;				// 42 -- the number!
 
 When a non-boolean value is coerced to a boolean, does it become true or false it depend
 
-Specific list of 'falsy' values: 
+Specific list of the 6 'falsy' values: 
 *""
-*0, -0, NaN
-*null, undefined
+*0, -0,
+*NaN
+*null
+*undefined
 *false
 
 Specific list of 'truthy' values:
