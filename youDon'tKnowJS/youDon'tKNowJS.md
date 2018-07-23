@@ -38,6 +38,10 @@ Symbol arrive with ES6. A Symbol is an immutable primitive value that is unique.
 
 Object are not primitive data Type.
 
+### Methods
+
+      Objects.freeze() : Prevent the creation of new properties.
+
 Notice typeof "abc" returns "string", not string. Notice how in this snippet the a variable holds every different type of value, and that despite appearances, typeof a is not asking for the "type of a", but rather for the "type of the value currently in a." Only values have types in JavaScript; variables are just simple containers for those values.
 
 ```js
@@ -132,4 +136,50 @@ The loose-equality comparison == checks for value equality with coercion allowed
 ### Inaquality
 
 
+## Function Scope
 
+The var keywork will is fonction scope or the global scope if at the top level. let and const are block scope.
+
+
+### Hoisting
+
+a var inside a function belong to the entire scope  and is accessible everywhere.
+
+```
+var a = 2;
+foo();       // declaration is 'hoisted'
+
+function foo() {
+      b = 3;
+      console.log(b) // 3 
+      var b; // declaration is "hoisted"
+}
+console.log(a) // 2
+```
+
+## Function as Value
+
+Function itself is a value, just like 42 pr [1,2,3] are. A function itself can be a value that is assigned to variables, or pass to or returned from a function. Function should be consider has a expression.
+
+```
+const foo = () = > {} // assign a anonymous function
+
+let x = function bar(){}
+```
+## Immediately Invoked Function Expressions (IIFEs)
+
+IIFEs are use to create variable scope that wont't affect the surrounding code outside the IIFE.
+
+```
+var x = (function IIFE(){
+	return 42;
+})();
+
+x;	// 42
+```
+
+## Closure
+
+
+
+// I am at Closure : https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md
