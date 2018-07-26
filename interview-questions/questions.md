@@ -9,7 +9,10 @@ Question: What is the difference betwween undefined and null ?
 
 undefined: Variable have been created, but not value have been assigned to the variable.
 
-null: Variable is not created or the null have been crated, but no value have been explicitly assign to the variable by the developer.
+null: Variable is not created or the null have been created, but no value have been explicitly assign to the variable by the developer.
+
+typeof undefine // undefined
+typeof null // "object" 
 
 Question: What will be the output of the following code?
 
@@ -20,9 +23,6 @@ if (function f() {}) {
 }
 console.log(y);
 ```
-
-Question: What is the difference between function statement and function expression ?
-
 
 Question: What is the difference between var, let , const ?
 
@@ -51,7 +51,7 @@ Question: what are the falsy values in JS ?
 
 Question: What is the use of arrow functions ? 
 
-Arrow functions are use and like for there concise syntax. AF are anonymous and change the 'this' binds in the function.
+Arrow functions are use and like for there concise syntax. AF are anonymous function and change the 'this' binds in the function.
 
 Question: What is prototypal inheritance ?
 
