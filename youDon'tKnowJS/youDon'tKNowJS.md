@@ -2,6 +2,8 @@
 
 [You don't know JS](https://github.com/getify/You-Dont-Know-JS)
 
+# Values & Types
+
 There is 7 types of values in ES2015
 * Boolean
 * String
@@ -10,39 +12,33 @@ There is 7 types of values in ES2015
 * Object
 * Symbol
 
-##Boolean
+## Boolean
 
 Boolean can be true or false.
 
-##Number
+## Number
 
 A Number ca be +Infinity, -Infinity, NaN. 
 
-##String
+## String
 
 In JS Strings are immutable. They have to be between '',"" or ``.
 
-##Null
+## Null
 
 Null have one value null. It is explicitly nothing.
 
-##Undefined
+## Undefined
 
 A variable that has no vlaue is undefined.
 
-##Symbol
+## Symbol
 
 Symbol arrive with ES6. A Symbol is an immutable primitive value that is unique.
 
 ## Object
 
 Object are not primitive data Type.
-
-### Methods
-
-      Objects.freeze() : Prevent the creation of new properties.
-
-Notice typeof "abc" returns "string", not string. Notice how in this snippet the a variable holds every different type of value, and that despite appearances, typeof a is not asking for the "type of a", but rather for the "type of the value currently in a." Only values have types in JavaScript; variables are just simple containers for those values.
 
 ```js
 var a;
@@ -67,7 +63,7 @@ a = { b: "c" };
 typeof a;				// "object"
 ```
 
-null: is a empty or no-existent value. It most be assigned.
+null: is a empty or no-existent value. It most be assigned by the developer.
 
 ```
 let a = null;
@@ -84,13 +80,21 @@ console.log(b) // undefined
 ### Coercion
 
 Coercion meen converting between types, Coercion comes in two forms in JavaScript: explicit and implicit. 
+## Object
 
-Explicit coercion is simply that you can see obviously from the code that a conversion from one type to another will occur, where as implicit coercion is when the type conversion can happen as more of a non-obvious side effect of some other operation.
+Explicit coercion is simply that you can see obviously from the code that a conversion from one type to another will occur, where as implicit coercion is when the type conve## Object
+rsion can happen as more of a non-obvious side effect of some other operation.## Object
 
-```js
-// implicit coercion
-var a = "42";
-var b = Number( a );
+## Object
+
+```js## Object
+
+// implicit co## Object
+ercion
+var a = "42";## Object
+
+var b = Number## Object
+( a );
 a;				// "42"
 b;				// 42 -- the number!
 
@@ -136,14 +140,14 @@ The loose-equality comparison == checks for value equality with coercion allowed
 ### Inaquality
 
 
-## Function Scope
+##  Function Scope
 
 The var keywork will is fonction scope or the global scope if at the top level. let and const are block scope.
 
 
 ### Hoisting
 
-a var inside a function belong to the entire scope  and is accessible everywhere.
+IN JS, every Variable and function declaration will bring to the top of its current scope.
 
 ```
 var a = 2;
@@ -166,7 +170,60 @@ const foo = () = > {} // assign a anonymous function
 
 let x = function bar(){}
 ```
-## Immediately Invoked Function Expressions (IIFEs)
+
+##  Closure
+
+
+
+// I am at Closure : https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md
+
+
+# Objects
+
+
+## Object Methods
+
+Objects.freeze() : Prevent the creation of new properties.
+
+Notice typeof "abc" returns "string", not string. Notice how in this snippet the a variable holds every different type of value, and that despite appearances, typeof a is not asking for the "type of a", but rather for the "type of the value currently in a." Only values have types in JavaScript; variables are just simple containers for those values.
+
+
+## Arrays
+
+An Array is an Object that holds values ina numerically indexed positions.
+
+## Functions
+
+Functions are subtype of Object. It can be called by other code or by itself or a variable refers to the function. A function in can be a declaration f(){} or expression f(){}.
+
+```
+// function declaration 
+function getArea(width, height){
+      return width * height;
+}
+console.log(getArea(2 * 4))
+
+// function expression
+const feetToMeter = function(feet) {
+      return feet * 0.3048
+}
+```
+
+### Anonymous function 
+```
+function () {};
+// or using the ECMAScript 2015 arrow notation
+() => {};
+```
+
+### Named function 
+```
+function functionName() {};
+// or using the ECMAScript 2015 arrow notation
+const funcName() => {};
+```
+
+### Immediately Invoked Function Expressions (IIFEs)
 
 IIFEs are use to create variable scope that wont't affect the surrounding code outside the IIFE.
 
@@ -174,12 +231,15 @@ IIFEs are use to create variable scope that wont't affect the surrounding code o
 var x = (function IIFE(){
 	return 42;
 })();
-
 x;	// 42
 ```
 
-## Closure
+### Arrows Functions
 
+THE AF is a sorter syntax than a function expressionand does not have its own 'this', 'arguments', 'super', 'new.target'. AF do not have their own 'this' value, the value of 'this' inside a AF is always inherited from the enclosing scope. AF cannot be used as constructors.
 
+```
+() => {}
 
-// I am at Closure : https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md
+param => param + 1
+```
