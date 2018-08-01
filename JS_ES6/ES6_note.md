@@ -608,7 +608,39 @@ of plugin.
 
 # Module_15 Classes
 
-Review the pre ES2015 syntax for prototype.based Object.
+Review the pre ES2015 syntax for prototype.based Object. The body of a class is executed in strict mode.
+
+Class declaration are not hoisted.
+```
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+```
+
+Class expressions are not hoisted, class expressions can be named or unnamed.
+```
+// unnamed
+let Rectangle = class {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle.name); // output: "Rectangle"
+
+// named
+let Rectangle = class Rectangle2 {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle.name); // output: "Rectangle2"
+```
+
 ```js
 // Building a Dog prototype 
   function Dog(name, breed) {
@@ -623,7 +655,7 @@ Review the pre ES2015 syntax for prototype.based Object.
   const snoopy = new Dog('snoopy', 'King Charles')
 ```
 
-ES6 Js Classes are syntactical sugar over prototype-based inheritance.
+ES6 JS Classes are syntactical sugar over prototype-based inheritance.
 ```js
 class Dog {
   constructor(name, breed) {
@@ -680,7 +712,6 @@ class Animal {
     }
   }
 ```
-
 
 Extending the Array Object 
 ```js
