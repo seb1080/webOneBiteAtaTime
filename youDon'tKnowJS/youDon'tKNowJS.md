@@ -9,8 +9,8 @@ There is 7 types of values in ES2015
 * Boolean
 * String
 * Number
-* Null and Undefined
 * Object
+* Null and Undefined
 * Symbol
 
 ## Boolean
@@ -31,15 +31,15 @@ Null have one value null. It is explicitly nothing.
 
 ## Undefined
 
-A variable that has no vlaue is undefined.
-
-## Symbol
-
-Symbol arrive with ES6. A Symbol is an immutable primitive value that is unique.
+A variable that has no value is undefined.
 
 ## Object
 
 Object are not primitive data Type.
+
+## Symbol
+
+Symbol arrive with ES6. A Symbol is an immutable primitive value that is unique.
 
 ```js
 var a;
@@ -80,26 +80,18 @@ console.log(b) // undefined
 
 ### Coercion
 
-Coercion meen converting between types, Coercion comes in two forms in JavaScript: explicit and implicit. 
-## Object
+Coercion meen converting between types, Coercion comes in two forms in JavaScript: explicit and implicit.
 
-Explicit coercion is simply that you can see obviously from the code that a conversion from one type to another will occur, where as implicit coercion is when the type conve## Object
-rsion can happen as more of a non-obvious side effect of some other operation.## Object
+Explicit coercion is simply that you can see obviously from the code that a conversion from one type to another will occur, where as implicit coercion is when the type conversion can happen as more of a non-obvious side effect of some other operation.
 
-## Object
-
-```js## Object
-
-// implicit co## Object
-ercion
-var a = "42";## Object
-
-var b = Number## Object
-( a );
+```js
+// explicit coercion
+var a = "42";
+var b = Number( a );
 a;				// "42"
 b;				// 42 -- the number!
 
-// explicit coercion
+// implicit coercion
 var a = "42";
 var b = a * 1;	// "42" implicitly coerced to 42 here
 a;				// "42"
@@ -124,7 +116,7 @@ Specific list of 'truthy' values:
 *true
 *[], {}, () => {} // Array, Object, Functions
 
-It's important to remember that a non-boolean value only follows this "truthy"/"falsy" coercion if it's actually coerced to a boolean
+It's important to remember that a non-boolean value only follows this "truthy"/"falsy" coercion if it's actually coerced to a boolean.
 
 ### Equality
 
@@ -148,7 +140,7 @@ The var keywork will is fonction scope or the global scope if at the top level. 
 
 ### Hoisting
 
-IN JS, every Variable and function declaration will bring to the top of its current scope.
+IN JS, every var variable and function declaration will bring to the top of its current scope.
 
 ```
 var a = 2;
@@ -166,21 +158,20 @@ console.log(a) // 2
 
 Function itself is a value, just like 42 pr [1,2,3] are. A function itself can be a value that is assigned to variables, or pass to or returned from a function. Function should be consider has a expression.
 
-```
-const foo = () = > {} // assign a anonymous function
+```js
+const foo = () => {} // assign a anonymous function
 
 let x = function bar(){}
 ```
 
 ##  Closure
 
-
+A closure is the combination of a function and the lexical environment within which that function was declared.
 
 // I am at Closure : https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md
 
 
 # Objects
-
 
 ## Object Methods
 
@@ -237,9 +228,9 @@ x;	// 42
 
 ### Arrows Functions
 
-THE AF is a sorter syntax than a function expressionand does not have its own 'this', 'arguments', 'super', 'new.target'. AF do not have their own 'this' value, the value of 'this' inside a AF is always inherited from the enclosing scope. AF cannot be used as constructors.
+The AF is a shorter syntax than a function expression and does not have its own 'this', 'arguments', 'super', 'new.target'. AF do not have their own 'this' value, the value of 'this' inside a AF is always inherited from the enclosing scope. AF cannot be used as constructors.
 
-```
+```js
 () => {}
 
 param => param + 1
