@@ -7,7 +7,6 @@ This is a Cheat Sheet for Vue.js.
 ```js
 new Vue({
   data: { ... }
-  props: ['size'],
   props: { size: Number },
   computed: { fullname() { return this.name + ' ' + this.lastName } },
   methods: { go() { ... } },
@@ -35,6 +34,7 @@ new Vue({
   partials: {}
 })
 ```
+
 ## Vue Lifecycle
 
 ![Vue Lifecycle](./vue-lifecycle.png)
@@ -42,7 +42,6 @@ new Vue({
 ## Vue Reactivity
 
 ![Vue Lifecycle](./vue-reactivity.png)
-
 
 ## JS Expressions
 
@@ -67,33 +66,36 @@ new Vue({
 })
 </script>
 ```
+
 ## Directives
 
-Directives are special attributes with the v- prefix. The porpuse of of a directive is to reactively apply effects to the DOM when the value of its expression change.
-  * v-if
-  * v-else
-  * v-else-if
-  * v-show
-  * v-for
-  * v-on
-  * v-model
-  * v-bind
+Directives are special attributes with the v- prefix. The porpuse of a directive is to reactively apply effects to the DOM when the value of its expression change.
+
+- v-if
+- v-else
+- v-else-if
+- v-show
+- v-for
+- v-on
+- v-model
+- v-bind
 
 ## Shorthands
 
-v-on: === @  
+v-on:click="" === @click=""
 
-v-bind: === :
+v-bind:href="" === :href=""
 
-### Arguments 
+### Arguments
 
 Some directive can take "arguments"
 
 ```html
 <a v-bind:href="url"> ... </a>
 <!-- OR -->
-<a v-on:click  =  "doSomething"> ... </a>
-  <!-- argument    expression -->
+
+  <!-- argument expression -->
+<a v-on:click="doSomething"> ... </a>
 ```
 
 ```js
@@ -111,9 +113,11 @@ new Vue({
 })
 </script>
 ```
+
 ### Modifiers
 
 Some directive can take "modifiers". Exammple, .prevent call event.preventDefault()
+
 ```html
 <form v-on:submit.prevent="onSubmit">...</form>
 ```
@@ -178,21 +182,21 @@ new Vue({
 
 The events modifiers handle propagation of event in the DOM.
 
-* .stop
-* .prevent
-* .capture
-* .self
-* .once
-* .passive
+- .stop
+- .prevent
+- .capture
+- .self
+- .once
+- .passive
 
-## Computed Properties (CP) 
+## Computed Properties (CP)
 
 The computed properties are cached based on their dependencies, a CP will only re-evaluate when some of its dependencies have changed.
 
 ```js
 <template lang="pug">
   div
-    p Reserved Message: "{{ reverseMsg }}" 
+    p Reserved Message: "{{ reverseMsg }}"
 <template>
 
 <script>
@@ -216,7 +220,7 @@ new Vue({
 <template lang="pug">
   div
     button(v-on:click="changeName") ChangeName
-    button(v-on:click="changeNameSetter") ChangeNameSetter 
+    button(v-on:click="changeNameSetter") ChangeNameSetter
 <template>
 <script>
 new Vue({
@@ -262,8 +266,8 @@ Watchers are more useful when you want to perform async or expensive operations 
     div(v-else)
       ol
         li(v-for="result in results") {{ result }}
-  
 <template>
+
 <script>
 new Vue({
   el: '#app',
@@ -279,13 +283,14 @@ new Vue({
       const vm = this
       setTimeout(() => {
         vm.result = ['JS', 'Python', 'Java']
-        vm.isSearching = false 
+        vm.isSearching = false
       }, 500)
     }
   }
 })
 </script>
 ```
+
 ## Filters
 
 Filters can be use to apply common text formating. Filters can be use in 2 places {{ }} moustaches and v-bind expressions.
@@ -380,10 +385,8 @@ Slot element serve as distribution outlets for content. Slots can render templat
         <template slot="header">
           <h1>Here might be a page title</h1>
         </template>
-
         <p>A paragraph for the main content.</p>
         <p>And another one.</p>
-
         <template slot="footer">
           <p>Here's some contact info</p>
         </template>
@@ -396,16 +399,15 @@ Slot element serve as distribution outlets for content. Slots can render templat
 
 The default Slot Content allow to define default content.
 
-
 ```html
 <button type="submit">
   <slot>Submit</slot> // The default value of Sumbit can be replace.
 </button>
 ```
 
-### Compilation Scope 
+### Compilation Scope
 
-Everyting in the parent template is compiled in the parent  scope; everything in the child template is compiled in the child scope.
+Everyting in the parent template is compiled in the parent scope; everything in the child template is compiled in the child scope.
 
 ### Scoped Slots
 
@@ -423,7 +425,6 @@ Everyting in the parent template is compiled in the parent  scope; everything in
   </li>
 </ul>
 ```
-
 
 ## Dynamic Component
 
@@ -462,12 +463,11 @@ The best way to accesss the state of the store is by passing by a computed prope
 
 ### The mapState Helper
 
-Whene a component nned to access multiple store state or getters the mapState can help by generating getter functions.
-
+Whene a component need to access multiple store state or getters the mapState can help by generating getter functions.
 
 ## Getters
 
-Getters are computed properties for the stores. Like a CP,a  getter result is cached based on its dependencies, and will only re-evaluate when some of its dependencies have changed.
+Getters are computed properties for the stores. Like a CP, a getter result is cached based on its dependencies, and will only re-evaluate when some of its dependencies have changed.
 
 ```js
   computed: {
@@ -489,14 +489,11 @@ The mapGetters helper simply maps store getters to local CP.
     ])
   }
 ```
+
 ## Mutations
 
 To change the state of the store it is needed to commit a mutation.
 
 # Vue Router
 
-
 # Vue DevTools
-
-
-
