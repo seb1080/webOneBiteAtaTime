@@ -53,7 +53,6 @@ ref: (https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/)
 
   Arrow functions are anonymous function that don't have it own this, arguments, super, new.target.
 
-
 ```js
 // Implicite return
 const arr2 = numbers.map(number => `${number} arr2`)
@@ -71,16 +70,16 @@ console.log(arr4)
 const race = `100m Dash`
 const winners = ['seb', 'seb1080', 'paco']
 // The () of the return 
-const win = winners.map( (winner, i) =>  ({name:winner, race:race, place: i}))
+const win = winners.map( (winner, i) =>  ({ name:winner, race:race, place: i }))
 // so cool
 console.table(win)
 ```
 
 ### This, arrow functions 
 
-  Arrow functions inherit the this context from the parent context.
+Arrow functions inherit the this context from the parent context.
 
-  Arrow functions don't access the arguments object. 
+Arrow functions don't access the arguments object. 
 
 The arrow  functions should not be use for : 
 
@@ -196,9 +195,7 @@ str.includes('Str') // true
 str.repeat(3) // newStringnewStringnewString
 ```
 
-
 # Module_5 Destructuring
-
 
 Destructuring allow to extract properties, key from a object, map, set into a variable.
 
@@ -227,14 +224,14 @@ const seb = {
     }
   }
 
-    // rename facebook for fb
-  const { twitter, facebook: fb } = seb.links.social
+  // rename facebook for fb
+const { twitter, facebook: fb } = seb.links.social
 
-  // Create a object
-  const settings = { 
-                    width: 300, 
-                    color: 'black'
-                  }
+// Create a object
+const settings = { 
+                  width: 300, 
+                  color: 'black'
+                }
 
 // Set default value if the settings object don't have the prop
   const { width = 100, height = 100, color = 'blue', fontSize = 25} = settings
@@ -267,6 +264,16 @@ let var1 = 'variable1', var2 = 'variable1'
 [var1, var2] = [var2, var1] // Swapping variables
 ```
 
+## Ignoring values
+
+Get the first value and the last value.
+```js
+function f() {
+  return [1, 2, 3];
+}
+let [a, , b] = f();
+```
+
 ## Destructuring Functions
 
 ```js
@@ -274,7 +281,7 @@ function tipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
     return total + (tip * total) + (tax * total)
   }
   
-// Arguments can't be pass in a different order
+// Arguments can be pass in a different order
 const bill = tipCalc({ tip: 0.20, total: 200 })
 ```
 
@@ -285,16 +292,15 @@ const bill = tipCalc({ tip: 0.20, total: 200 })
 ```js
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib']
 
-// Before ES6
-// Confusing syntax
+// ES5 Confusing syntax
 for(let i = 0; i < cuts.length; i++){
   console.log(cuts[i])
 }
-// Can't be abord the loop, can't use rthe break keyword
+// Can't be abord the loop, can't use the break keyword
 cuts.forEach( cut => console.log(cut))
 
 // loop over the prototype
-for(let cut in cuts) {
+for(const cut in cuts) {
   console.log(cuts[cut])
 }
 // New ES6 for looping
@@ -326,7 +332,6 @@ const itemsArray = Array.from(nodeList, item => {
 
 //Array.of()
 const str = `item1,item2,item3,item4,item5`
-
 const newArr = Array.of(str.split(','))
 
 // Array.find()
@@ -363,10 +368,11 @@ let major = ages.some(age => (age >= 18) ) // true
 let allMajor = ages.every(age => (age >= 18) ) // false
 ```
 
-# Module_8 ...Spread And ..Rest
+# Module_8 ...Spread Syntax And ...Rest parameters
 
 ...Spread syntax allows an iterable to be expendanded where zero or more arguments are expected. It will apply a array as a individual elements.
 
+## ...Spread in Array literal
 ```js
   const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian']
   const specialty = ['Meatzza', 'Spicy Mama', 'Margherita']
@@ -376,7 +382,6 @@ let allMajor = ages.every(age => (age >= 18) ) // false
   const fridayPizzas = [...pizzas]
 
   const partyMixt = [...featured, ...firends, ...specialty]
-
 
   const people = Array.from('nodeList') // Convert arrayList into array
 
@@ -390,17 +395,17 @@ let allMajor = ages.every(age => (age >= 18) ) // false
   // Create a new Array 'arr' not the reference to deepDish.ingredients
 ```
 
-## The ...Rest Param
+## The ...Rest Params
 
-  The rest parameter allows us to represent an indefinite number of arguments as an array.
+  The ...Rest parameter allows us to represent an indefinite number of arguments as an array.
 
-
-  ```js
-                              // take amounts has a array
+```js
+// take amounts has a array
 function  calCurrency(rate, ...amounts){
   return amounts.map( amount => amount * rate)
 }
-  ```
+```
+
 # Module_9 Object Literal Upgrades
 
 Object can be initialized using New Object(), Object.create(), or Literal notation.
@@ -410,7 +415,10 @@ Objects consist of properties, wich are used to describe an object. Values of ob
 const fName = 'Seb', lName = 'Blais', age = 11, job = `Web Dev`
 
 const person = { fName, lName, age, job} // Object Literal,
-                // don't need to specify the name of the property
+// don't need to specify the name of the property
+
+const me = Object.create(person)
+
 console.log(person)
 const modal = {
   create() {  // same as create: function() {}
@@ -454,10 +462,9 @@ A Promise can have 3 States :
 
 A pending Promise can eiter be fulfilled with a return value, or rejected with a reason (Error).
 
-js is a single threaded, bits of scripts can't run
-at the same time, they have to run one after another. js share a thread with the same queue as painting, updating styles and event handling. One of the activity will dealy the others one.
+JS is a single threaded, bits of scripts can't run at the same time, they have to run one after another. JS share a thread with the same queue as painting, updating styles and event handling. One of the activities will dealy the others one.
 
-asynchronous : In programming, asynchronous events are those occuring independently of the main program flow.
+Asynchronous : In programming, asynchronous events are those occuring independently of the main program flow.
 
 ```js
 // Fetching data using fetch that implement a Promise
@@ -504,13 +511,13 @@ Promise.all([p1,p2]).then( responses => {
   console.log( `responses : `, wheater, responses, tweet)
 })
 ```
+
 # Module_11 Symbol
 
 A symbol value may be used as an identifier, but symbol are not enumerabal it is not possible to loop over them.
 Every symbol value returned from Symbol() is unique.
 
-Actual data type : Number, String, Object, boolean, Null, undefined and new ES6 Symbol
-
+Actual data type : Number, String, Object, boolean, Null, undefined and new ES6 Symbol.
 
 ```js
 const sym1 = Symbol()
@@ -544,7 +551,7 @@ export const CONSTANT = 234242
 export const str = `sfsdfsdfdsfsdf`
 export newFunc function() { return true }
 ```
-The import statement allw to import bindings which are exported by another module.
+The import statement allow to import bindings which are exported by another module.
 ```js
 // app.js
 import { _ } from 'lodash'
@@ -554,7 +561,7 @@ import { apiKey as key,  old, dog } from './src/config'
 ```
 # Module_14 ES6 Tooling
 
-### Webpack
+## Webpack
 
 Webpack is a static module bundler for modern JavaScript applications.
 
@@ -599,9 +606,7 @@ export function calculTip(amount, taxRate) {
 
 Babel is a JS compiler, it has 3 stages that it runs code in: parsing, transforming, and generation.
 
-Babel use JS plugins to convert the latest and greatest
-version of ES into older browser supported JS. A preset is a collection
-of plugin.
+Babel use JS plugins to convert the latest and greatest version of ES into older browser supported JS. A preset is a collection of plugin.
 
 ### Polyfill
 
@@ -611,7 +616,7 @@ of plugin.
 Review the pre ES2015 syntax for prototype.based Object. The body of a class is executed in strict mode.
 
 Class declaration are not hoisted.
-```
+```js
 class Rectangle {
   constructor(height, width) {
     this.height = height;
@@ -621,8 +626,8 @@ class Rectangle {
 ```
 
 Class expressions are not hoisted, class expressions can be named or unnamed.
-```
-// unnamed
+```js
+// unnamed class
 let Rectangle = class {
   constructor(height, width) {
     this.height = height;
@@ -631,7 +636,7 @@ let Rectangle = class {
 };
 console.log(Rectangle.name); // output: "Rectangle"
 
-// named
+// named class
 let Rectangle = class Rectangle2 {
   constructor(height, width) {
     this.height = height;
@@ -682,8 +687,8 @@ class Dog {
   }
 }
 ```
-  Static method calls are made directly on the class and
-  not callable on instance of the class. Static methods are ofthen used to create utility functions.
+  Static method calls are made directly on the class and not callable on
+  instance of the class. Static methods are ofthen used to create utilities functions.
 
 Extending a Class into a new Class
 ```js
@@ -738,7 +743,6 @@ class MovieCollection extends Array {
 
 The Generator object is returned by a generator function and it conforms to both the iterable protocol and the iterator protocol.
 
-
 ```js
   const inventors = [
     { first: 'Albert', last: 'Einstein', year: 1879 },
@@ -757,7 +761,6 @@ The Generator object is returned by a generator function and it conforms to both
     }
   }
   const inventorGen = loop(inventors)
-
   inventorGen.next().value // to be call
 ```
 Generator can be usefull for multi fetching calls.
@@ -786,7 +789,8 @@ Generator can be usefull for multi fetching calls.
 ```
 # Module_17 Proxies
 
-The Proxy object is used to define custom behavior for fundamental operations. Proxy allow to overwright default behavior of default Object.
+The Proxy object is used to define custom behavior for fundamental operations. 
+Proxy allow to overwright default behavior of default Object.
 
 ```js 
 
@@ -839,8 +843,7 @@ dogs.set(`snoopy`, 3)
 dogs.set(`Summy`, 2)
 dogs.set(`Hugo`, 6)
 ```
-WeakMap object is a collection of key/value pairs in which
-the keys are weakly referenced.The keys must be objects and the values can be arbitrary values.
+WeakMap object is a collection of key/value pairs in which the keys are weakly referenced.The keys must be objects and the values can be arbitrary values.
 
 WeakMap do not have a size.
 
@@ -861,9 +864,9 @@ The async function declaration defines an asynchronous function, which returns a
 ```js
 function resolveAfterSec(nbSec) {
   return new Promise(resolve => {
-    setTimeout(  () => {
+    setTimeout(() => {
       resolve('resolved')
-    }, nbSec)
+    }, nbSec * 1000)
   })
 }
 async function asyncCall(){
@@ -955,10 +958,6 @@ Object.entries(inventory).forEach( [key, val] => {
   console.log(key, val)
 })
 ```
-
-
-
-
 
 # Glossary
 

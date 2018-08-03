@@ -122,8 +122,6 @@ ReactDOM.render(
 
 ### Form and Inputs Controlled Components
 
-
-
 ```
 class NameForm extends React.Component {
   constructor(props) {
@@ -166,6 +164,22 @@ Compoents let you split the UI into independent, reusable pieces that can stand 
 function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
 }
+// full functional Component single file
+import React from 'react';
+
+const Action = (props) => (
+  <div>
+    <button
+      className="lg-btn"  
+      onClick={props.handlePick}
+      disabled={!props.hasOptions}
+    >
+      What should I do?
+      </button>
+  </div>
+);
+
+export default Action;
 ```
 ### Class Component
 ```
@@ -198,14 +212,12 @@ act like pure functions with respect to their props.
 
 ### State
 
-
-
 ### Stateless Components
 
-
 ## Lifecycle
-
 
 ### Mounting
 
 ### Updating
+
+### Unmount
