@@ -11,12 +11,12 @@ undefined: Variable have been created, but not value have been assigned to the v
 
 null: Variable is not created or the null have been created, but no value have been explicitly assign to the variable by the developer.
 
-typeof undefine // undefined
+typeof undefined // undefined
 typeof null // "object" 
 
 Question: What will be the output of the following code?
 
-```
+```js
 var y = 1;
 if (function f() {}) {
   y += typeof f;
@@ -44,10 +44,10 @@ Question: what are the falsy values in JS ?
 
 *false
 *0
+*""
+*NaN
 *null
 *undefined
-*NaN
-*""
 
 Question: What is the use of arrow functions ? 
 
@@ -109,7 +109,7 @@ Question: What is closure and how do you use it ?
 
 A closure is the combination of a function and the lexical env. within that function was declared.
 
-```
+```js
 var myFunc = makeFunc();
 myFunc();
 
@@ -126,15 +126,19 @@ This code is working because JS form Closures. A closure is the combination of a
 Consequently, you can use a closure anywhere that you might normally use an object with only a single method.
 
 
-Question: What is the Heap, the Stack, the Web API Container, the Callback Queue and the Event loop and how a callBack task get send to the stack ?
+Question: What is the Heap, the Call Stack, the Web API Container, the Callback Queue and the Event loop and how a callBack task get send to the stack ?
 
-In V8 JS runtime Engine
+![V8 JS runtime Engine](../assets/img/JS_runtime_env.png)
 
-Heap: the memory heap store variables and functions it is the first container in the environement.
+Heap: The memory heap store variables and objects it is the mostly a unstructured region of memory.
 
-Stack: Call Stack actionable item like function call are add to the Stack.
+Call Stack: is the data structure that record the functions calls. During execution, we push function on the stack, and when we return from a function, we pop off the top of the stack.
 
+Web API: Browser threads that handle async events like DOM events, http request, setTimeout. 
 
+Callback Queue: A message Queue, it is a list of messages to be processed and the associated callback functions to execute. When the stack have enough capacity, a message is taking from the queue then call a function to the Call Stack.
+
+Event Loop: is responsible for the execution of the Callbacks in the Task Queue then pushing it in the stack, when it is empty.
 
 Question: Explain the single thread execution of JS in the V8 engine ?
 
