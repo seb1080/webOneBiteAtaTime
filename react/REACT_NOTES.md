@@ -210,6 +210,14 @@ class MessageBox extends React.PureComponent {
 }
 ```
 
+### Controlled Component
+
+A controlled component is a component where React is in control and is the single source of truth for the form data.
+
+### Uncontrolled Component
+
+An uncontrolled component is where your form data is handled by the DOM, instead of inside your React component.
+
 ### Pros
 
 Props stand for properties, they are Read-only. All React components must
@@ -277,7 +285,7 @@ class Counter extends React.Component {
     this.handleAddOne = this.handleAddOne.bind(this);
     this.state = {
       count: 0
-    };  
+    };
   }
 
   handleAddOne() {
@@ -303,11 +311,51 @@ class Counter extends React.Component {
 
 ## Lifecycle
 
+React's rendering executes in three different intervals: Mounting, Updating, Unmounting.
+
 ### Mounting
+
+- constructor()
+
+  Initialization of the state of the component, super(props) get called so the constructor() function has access to this.props.
+
+* componentWillMount()
+
+  This is called before render(). So setting state or deitin props will not cause re-render().
+
+* render()
+
+* componentDidMount()
+
+  Will ba call directly after render(), setting state or editing any props will cause a re-render().
 
 ### Updating
 
+The methods in the 'Updated' interval are conditional on the change in data.
+
+- componentWillReceiveProps(nextProps)
+
+  This methods is invoked before data (props or state) actually change. This function can be call if data don't change if his parent re-render().
+
+- shouldComponentUpdate(nextProps, nextState)
+
+  React will re-render whenever props or state change within a component(s). This method will let React know that the component’s output is not affected by the change in data (props and/or state). This method is invoked before re-rendering after new props and/or state are being received.
+
+* componentWillUpdate()
+
+  This method fires before the re-rendering with new props/state. React teaches that this is a good place to prepare your component for the new data that is coming through. Note that you cannot call this.setState() here.
+
+* render()
+
+* componentDidUpdate(prevProps, prevState)
+
+  This method fires after the re-render occurs. This is the place to access or re-access the browser DOM.
+
 ### Unmount
+
+- componentWillUnmount()
+
+  This method is fired immediately before a component is unmounted and destroyed.
 
 # Redux
 

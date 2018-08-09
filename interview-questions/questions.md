@@ -52,6 +52,41 @@ Question: What is the use of arrow functions ?
 
 Arrow functions are use and like for there concise syntax. AF are anonymous function and change the 'this' binds in the function.
 
+What is 'this' keyword in JavaScript?
+
+The 'this' keyword have different between strict mode and non-strict mode.
+
+In Global context, 'this' refers to the global object in strict mode or not.
+
+```js
+// In web browsers, the window object is also the global object:
+console.log(this === window); // true
+```
+
+In a function, 'this' depend on how the function is called. IN not strict mode, 'this' will default to the global object.
+
+```js
+// no stric mode
+function f1() {
+  return this;
+}
+// In a browser:
+f1() === window; // true
+// In Node:
+f1() === global; // true
+```
+
+Strict modem the value of 'this' remains at whatever it was set to when entering the execution context.
+
+```js
+function f2() {
+  "use strict"; // see strict mode
+  return this;
+}
+
+f2() === undefined; // true
+```
+
 Question: What is prototypal inheritance ?
 
 In JS every Object has a property prototype, when a Object is created from a parent Object it inherante the parent properties. If you need to create 100 000 child object then some 100 of them use a methods from the parent rater then having the method in all the child, the method can be add to the prototype of the parent then will be accesible to his child with out carrying arrow the method.
@@ -140,3 +175,74 @@ Callback Queue: A message Queue, it is a list of messages to be processed and th
 Event Loop: is responsible for the execution of the Callbacks in the Task Queue then pushing it in the stack, when it is empty.
 
 Question: Explain the single thread execution of JS in the V8 engine ?
+
+## What is the delete operator in JS?
+
+The JavaScript delete operator removes a property from an object.
+
+```js
+var Employee = {
+  firstname: "Mohammed",
+  lastname: "Haddad"
+};
+
+console.log(Employee.firstname);
+// expected output: "Mohammed"
+
+delete Employee.firstname;
+
+console.log(Employee.firstname);
+// expected output: undefined
+```
+
+## What are the different types of errors in JavaScript?
+
+There are three types of errors:
+
+### Load time errors:
+
+Errors which come up when loading a web page like improper syntax errors are known as Load time errors and it generates the errors dynamically.
+
+### Run time errors:
+
+Errors that come due to misuse of the command inside the HTML language.
+
+### Logical Errors:
+
+These are the errors that occur due to the bad logic performed on a function which is having different operation.
+
+# WEB questions
+
+## What are Javascript Cookies ?
+
+An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to the user's web browser. The browser may store it and send it back with the next request to the same server.
+
+It's used to tell if two requests came from the same browser, keeping a user logged-in.
+
+The Domain and Path directives define thescope of the cookie: what URLs the cookies should be sent to.
+
+### Session management
+
+Logins, shopping carts, game scores, or anything else the server should remember
+
+### Personalization
+
+User preferences, themes, and other settings
+
+### Tracking
+
+Recording and analyzing user behavior
+
+```js
+// Set-Cookie with Node.js
+response.setHeader("Set-Cookie", ["type=ninja", "language=javascript"]);
+```
+
+Accesing Cookie in the Browser
+
+```js
+document.cookie = "yummy_cookie=choco";
+document.cookie = "tasty_cookie=strawberry";
+console.log(document.cookie);
+// logs "yummy_cookie=choco; tasty_cookie=strawberry"
+```
