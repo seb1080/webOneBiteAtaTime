@@ -1,0 +1,140 @@
+netstat -antp : get the list of use port
+
+kill-9 **** : to kill the process PID of ****
+
+
+sudo apt-get purge tomcat6 && sudo apt-get autoremove : to uninstall and remove package
+
+apt-cache search tomcat : recherche package by name tomcat
+
+sudo apt-get remove --auto-remove tomcat7 : remove tomcat and his dependancies
+
+
+sudo tar -xvf name of the package
+
+dpkg --get-selections : list of all applications
+
+
+xdg-open : to open the folder GUI of a file.
+gnom-open  <file/folder name>: to open the folder GUI of a file.
+
+atom . : to open atom the the current directory
+
+rm -r <folderName> : To remove a folder  
+
+
+
+
+***** git command *******
+
+git reset --hard HEAD : dangerous command to go back at the previous commit.
+
+Permanently authenticating with Git repositories
+
+$ git config credential.helper store
+$ git push http://example.com/repo.git
+Username: <type your username>
+Password: <type your password>
+
+git config --global credential.helper 'cache --timeout 7200'
+
+To rebase a branch on master
+
+$ git checkout <branchName>
+$ git rebase master
+
+
+To create a branch from the local machine
+
+$ git checkout -b [name_of_your_new_branch]
+$ git push origin [name_of_your_new_branch]
+$ git branch
+
+To merge a second branch into the master in the git CLI
+
+git checkout master
+git pull origin master
+git merge [name_of_your_new_branch]
+git push origin master
+
+To merge the master in a second branch
+
+git checkout master
+git pull
+git checkout secondBranch
+git merge master
+
+
+To merge git add . & commit -m ' '
+
+git config --global alias.add-commit '!git add -A && git commit'
+or 
+git commit -a -m "message"
+or 
+git add -A && git commit -m "comment" 
+
+OR 
+git commit -am "comment"
+
+
+
+***** SQL command *******
+
+mysql -u root -p : to lauch mysql
+
+mysql -u <userName> -p : to lauch mysql
+
+show DATABASES;
+
+use database_name;  :select the database that will by use for the manipulation.
+
+show tables;
+
+SHOW COLUMNS FROM db_name.db_table; : display database columns for specific table;
+
+source home/pwd/sql_code.sql : to execute .sql file
+
+
+***** conda command *******
+
+conda -V : conda version
+conda update conda : to update conda
+python --version : to get the version of python
+conda create -n yourenvname python=v.v
+
+
+
+source activate envname : to switch to the envname  
+
+***** yeoman command *******
+
+Test the version : npm -v, bower -v, yo -v 
+
+To start a project 
+
+	yo <generator name>
+
+	bower install
+
+	sudo npm install gulp --save-dev
+
+***** generator-gulp-angular command *******
+
+		yo --version
+		gulp --version
+		bower --version
+
+		mkdir <projectFolderName> & cd _
+
+		yo gulp-angular
+
+		gulp serve
+
+
+-------------------------------------------------------------
+
+
+référence installation linux mint 
+
+
+https://www.linuxbabe.com/desktop-linux/install-phpstorm-ubuntu-15-10

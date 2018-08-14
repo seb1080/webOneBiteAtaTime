@@ -327,6 +327,7 @@ Props are custom attributes you can register on a component. Props attribute tha
 
 ```js
 <template>
+  <blog-post v-bind:childprop="parentData"></blog-post>
   <blog-post title="My journey with Vue"></blog-post>
   <blog-post
     v-for="post in posts"
