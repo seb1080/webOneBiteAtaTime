@@ -151,22 +151,6 @@ Logical (or signal) topology refers to the nature of the paths the signals follo
 
 ## Transmission Control Protocol/Internet Protocol (TCP/IP)
 
-# Hypertext Transfer Protocol (HTTP)
-
-HTTP is application protocol for distributed collaborative and hypermedia information systems. HTTP is the fondation of data communication for the `World Wide Web`.
-
-Development of HTTP was initiated by `Tim Berners-Lee` at CERN in 1989. Standards development of HTTP was coordinated by the `Internet Engineering Task Force` (IETF) and the World `Wide Web Consortium` (W3C).
-
-The first definition of HTTP/1.1, the version of HTTP in common use, occurred in RFC 2068 in 1997. The successor HTTP/2, was standardized in 2015, and is now supported by major web servers and browsers.
-
-![HTTP-request](./img/http_request.png)
-
-HTTP functions as a request-response protocol in the client-server computing model. A browser has a client request a ressource to application running on a computer hosting a website on a server.
-
-## Request
-
-## Response
-
 # Point-to-Point Protocol (PPTP)
 
 # Glossary
