@@ -23,7 +23,7 @@ if (function f() {}) {
 console.log(y);
 ```
 
-Question: What is the difference between var, let , const ?
+Question: What is the difference between var, let, const ?
 
 var is function scoped variable, 'var' variables get hoisted.
 
@@ -39,7 +39,7 @@ Question: What is the difference between '==' and '===' ?
 
 '===' strict-equals operator that will not implicitly convert the type to match the corresponding value. Will look for equality of types and values.
 
-Question: what are the falsy values in JS ?
+Question: what are the 6 falsy values in JS ?
 
 *false
 *0
@@ -63,7 +63,7 @@ In Global context, 'this' refers to the global object in strict mode or not.
 console.log(this === window); // true
 ```
 
-In a function, 'this' depend on how the function is called. IN not strict mode, 'this' will default to the global object.
+In a function, 'this' depend on how the function is called. In not strict mode, 'this' will default to the global object.
 
 ```js
 // no stric mode
@@ -76,7 +76,7 @@ f1() === window; // true
 f1() === global; // true
 ```
 
-Strict modem the value of 'this' remains at whatever it was set to when entering the execution context.
+Strict mode the value of 'this' remains at whatever it was set to when entering the execution context.
 
 ```js
 function f2() {
@@ -91,16 +91,16 @@ Question: What is prototypal inheritance ?
 
 In JS every Object has a property prototype, when a Object is created from a parent Object it inherante the parent properties. If you need to create 100 000 child object then some 100 of them use a methods from the parent rater then having the method in all the child, the method can be add to the prototype of the parent then will be accesible to his child with out carrying arrow the method.
 
-```
+```js
 // define a Object, using function has a constructor
 const car = function(model) {
   this.model = model;
-}
+};
 car.prototype.getModel = function() {
   return this.model;
-}
-const toyota = new car('toyota')
-console.log(toyota.getModel())
+};
+const toyota = new car("toyota");
+console.log(toyota.getModel());
 ```
 
 Question: What is the diffenre between function declaration and function expression ?
@@ -168,7 +168,7 @@ Heap: The memory heap store variables and objects it is the mostly a unstructure
 
 Call Stack: It is the data structure that record the functions calls. During execution, we push function on the stack, and when we return from a function, we pop off the top of the stack.
 
-Web API: Browser threads that handle async events like DOM events, http request, setTimeout.
+JS Web APIs: Browser threads that handle async events like DOM events, http request, setTimeout.
 
 Callback Queue: A message Queue, it is a list of messages to be processed and the associated callback functions to execute. When the stack have enough capacity, a message is taking from the queue then call a function to the Call Stack.
 
@@ -219,11 +219,11 @@ An HTTP cookie (web cookie, browser cookie) is a small piece of data that a serv
 
 It's used to tell if two requests came from the same browser, keeping a user logged-in.
 
-The Domain and Path directives define thescope of the cookie: what URLs the cookies should be sent to.
+The Domain and Path directives define the scope of the cookie: what URLs the cookies should be sent to.
 
 ### Session management
 
-Logins, shopping carts, game scores, or anything else the server should remember
+Logins, shopping carts, game scores, or anything else the server should remember.
 
 ### Personalization
 
