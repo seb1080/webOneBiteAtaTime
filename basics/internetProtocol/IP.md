@@ -34,11 +34,37 @@ In a data communications, physical network nodes include data communications equ
 
 - Router: In packet-switched networks such as the internet, a router is a device or, in some cases, software on a computer that determines the best way for a packet to be a forwarded to its destination.
 
+## Network Communication Model
+
+- client/server:
+
+- master/slave:
+
+- peer-to-peer:
+
 ### OSI Model
 
-The Open Systems Interconnection is a reference model for how applications communicatie over a network.
+The Open Systems Interconnection(OSI) is a reference model for how applications communicatie over a network. The goal of OSI reference model is a guide to vendors and developers to help interoperatibility.
 
-to be completed https://searchnetworking.techtarget.com/definition/OSI
+The main concept of OSI is that the process of communication between two endpoints in a netwoek can be divided into seven distinct groups of related functions, or layers.
+
+In a given message between users, there will be a flow of data down through the layers in the source computer, across the network, and then up through the layers in the receiving computer.
+
+![OSI model](./img/networking-osi_layer_mobile.png)
+
+- L-7 The application layer: This is the layer at which communication partners are identified -- is there some one to talks to? This layer is not the application itself, it is the set of services an application should be able to make use of directly, although some applications may perform application-layer functions.
+
+- L-6 The presentation layer: This ayer is usually part of an Operation System (OS) and converts incoming and outgoing data form one presentation format to another.
+
+- L-5 The session layer: This layer sets up, coordinates and terminates conversations. Its services include authentication and reconnection after an interruption. On the internet, TCP and UDP provide there services for most applications.
+
+- L-4 The presentation layer:
+
+- L-3 The network layer:
+
+- L-2 The data-link layer:
+
+- L-1 The physical layer:
 
 ## Protocol & Methods
 
@@ -48,9 +74,15 @@ In information technology, a protocol is the special set of rules that end point
 
 IP suite is the standard network model and communication protocol stack used on the Internet, the IP suite is overwhelmingly the global standard for computer-to-computer communication.
 
+The IP suite follows a 'client/server' model, in which multiple client programs share the services of a common server progrm.
+
 - IP: The Internet Protocol
 
 - IPsec: Also know as Internet Protocol Security defines the architecture for security services for IP network traffic.
+
+#### TCP
+
+#### UDP
 
 ## Vocabulary
 
