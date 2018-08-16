@@ -12,9 +12,13 @@ In a data communications, physical network nodes include data communications equ
 
 ## Networks
 
-- Intranet: An intranet is a prive network that is contained within an entreprise.
+### Ethernet
 
-- Ethernet: The Eternet is the most widely installed LAN.
+The Eternet is the most widely installed LAN. Eternet is a `link layer` protocol in the TCP/IP stack, describing how networking devices can format data for transmission to other network connection. It touches both layer 1 and layer 2 on the OSI model.
+
+Ethernet defines tow units of transmission, `packet` and `frame`. The `frame` includes not just the "payload" of data being transmitted but also addressing information identifyinh the physical "Media Access Control" (MAC) addressses of both sender and receiver.
+
+- Intranet: An intranet is a prive network that is contained within an entreprise.
 
 * Extranet: An extranet is a private netpaywork that uses Internet technology and public telecommuncations system to securely shapayre part a business's information or operations with suppliers, vendors, partpayners or customers. The extranet can be view as part of a compagny intranet that is epayxtended to users outside the compagny.
 
@@ -64,7 +68,7 @@ In a given message between users, there will be a flow of data down through the 
 
 - L-2 The data-link layer: This layer sets up linksa across the physical network, putting packets into network frames. This layer has 2 sub-layers: the logical link control layer and the Media Access Control Layer(MAC layer). The
 
-- L-1 The physical layer:
+- L-1 The physical layer: The pysical layer: This layer conveys the bit stream across the network either electrically, mechanically or radio waves. the physical layer covers a variety of devices and mediums including: cabling, connectors, receivers, transceivers and repeaters.
 
 ## Protocol & Methods
 
@@ -72,9 +76,11 @@ In information technology, a protocol is the special set of rules that end point
 
 ### Internet Protocol suite
 
-IP suite is the standard network model and communication protocol stack used on the Internet, the IP suite is overwhelmingly the global standard for computer-to-computer communication.
+IP suite is the standard network model and communication protocol stack used on the Internet, the IP suite is overwhelmingly the global standard for computer-to-computer communication. Each computer or Host on the Internet has at least one IP address that uniquely identifies it from all other computers on the Internet.
 
 The IP suite follows a 'client/server' model, in which multiple client programs share the services of a common server progrm.
+
+When you send or receive dat, the message gts divided
 
 - IP: The Internet Protocol
 
@@ -82,7 +88,9 @@ The IP suite follows a 'client/server' model, in which multiple client programs 
 
 #### TCP
 
-#### UDP
+#### User Datagram Protocol (UDP)
+
+#### SCTP
 
 ## Vocabulary
 
@@ -145,7 +153,21 @@ Logical (or signal) topology refers to the nature of the paths the signals follo
 
 # Hypertext Transfer Protocol (HTTP)
 
-# Point-to-Point Protocol (PPTP)pay
+HTTP is application protocol for distributed collaborative and hypermedia information systems. HTTP is the fondation of data communication for the `World Wide Web`.
+
+Development of HTTP was initiated by `Tim Berners-Lee` at CERN in 1989. Standards development of HTTP was coordinated by the `Internet Engineering Task Force` (IETF) and the World `Wide Web Consortium` (W3C).
+
+The first definition of HTTP/1.1, the version of HTTP in common use, occurred in RFC 2068 in 1997. The successor HTTP/2, was standardized in 2015, and is now supported by major web servers and browsers.
+
+![HTTP-request](./img/http_request.png)
+
+HTTP functions as a request-response protocol in the client-server computing model. A browser has a client request a ressource to application running on a computer hosting a website on a server.
+
+## Request
+
+## Response
+
+# Point-to-Point Protocol (PPTP)
 
 # Glossary
 
