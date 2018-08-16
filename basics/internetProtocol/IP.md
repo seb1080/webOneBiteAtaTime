@@ -58,11 +58,11 @@ In a given message between users, there will be a flow of data down through the 
 
 - L-5 The session layer: This layer sets up, coordinates and terminates conversations. Its services include authentication and reconnection after an interruption. On the internet, TCP and UDP provide there services for most applications.
 
-- L-4 The presentation layer:
+- L-4 The presentation layer: This layer manage packetization of data, then the delivery of the packets, including checking for erros in the dta once it arrives. On the internet, TCP, and UDP provide there services for most applications.
 
-- L-3 The network layer:
+- L-3 The network layer: This layer handles addressing and routing the data -- sending it in the right direction to the right destination on outgoing transmissions and receiving incoming transmissions at t he packet level. Ip is the network layer for the internet.
 
-- L-2 The data-link layer:
+- L-2 The data-link layer: This layer sets up linksa across the physical network, putting packets into network frames. This layer has 2 sub-layers: the logical link control layer and the Media Access Control Layer(MAC layer). The
 
 - L-1 The physical layer:
 
