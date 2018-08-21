@@ -64,6 +64,8 @@ This idea have been inspire by Wesbos [JavaScript 30 Challenge] (https://javascr
 
 * Bite notifications
 
+* Bite HIstory API
+
 * Bite create custom RSS feed
 
 * Bite webGL
