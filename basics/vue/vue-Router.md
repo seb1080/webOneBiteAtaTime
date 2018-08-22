@@ -275,3 +275,26 @@ router.beforeResolve((to, from, next) => {
 
 ```
 
+### Data Fetching
+
+Data can be fetch from the server 'Afther Navigation' or 'Before Navigation'.
+
+### Scroll Behavior
+
+Scroll Behavior can allow to scroll to the top of the page when navigating to a new route or preserve the scrolling position of history.
+
+*This features work if the browser supports `history.pushState`*
+
+### Lazy Loading Routes
+
+Lazy Loading allow to load JS bundle only if the route is visible.
+
+```js
+const Foo = () => import('./Foo.vue')
+
+const router = new VueRouter({
+  routes: [
+    { path: '/foo', component: Foo }
+  ]
+})
+```
