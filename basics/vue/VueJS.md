@@ -1,6 +1,15 @@
-# VueJS CheatSheet
+# VueJS
 
-This is a Cheat Sheet for Vue.js.
+This my personal notes about vueJS.
+
+## MVVM
+
+Vue use the Model-View-ViewModel architecture pattern.
+
+|         View         |     ViewModel        |         Model          |
+| -------------------- |:--------------------:| ----------------------:|
+| Template or render() |    Vue instance      |        Back End    	   |
+
 
 ## Vue component Instance
 
