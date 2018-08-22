@@ -10,7 +10,6 @@ Vue use the Model-View-ViewModel architecture pattern.
 | -------------------- |:--------------------:| ----------------------:|
 | Template or render() |    Vue instance      |        Back End    	   |
 
-
 ## Vue component Instance
 
 ```js
@@ -263,11 +262,11 @@ new Vue({
 </script>
 ```
 
-## Watchers Properties
+## Watchers Properties (WP)
 
-Watchers are more useful when you want to perform async or expensive operations in response to changing data, like a API call.
+WP are more useful when you want to perform async or expensive operations in response to changing data, like a API call.
 
-```js
+```html
 <template lang="pug">
   div
     input(type="text" v-model="searchQuery")
@@ -330,9 +329,37 @@ new Vue({
 </script>
 ```
 
+## Components Basics
+
+Components are reusable Vue instances with a name: `<custom-comp></custom-comp>`. Components can by Extends or Composes.
+
+```html
+<template>
+  <input :placeholder="placeholder" />
+</template>
+<script>
+  import SurveyInputBase from './SurveyInputBase.vue';
+  export default {
+    extends: SurveyInputBase,
+    props: [ 'placeholder' ],
+    data: function () {
+      return {
+        count: 0
+      }
+    }
+  }
+</script>
+```
+
+Data must be a function, so that each instance can maintain an independent copy of the returned data object.
+
+Components can be locally registrated or globally register, it is a better practice to register components locally.
+
 ## Props
 
 Props are custom attributes you can register on a component. Props attribute that are passed becomes property on that component instance.
+
+All Props form a *one-way-down binding* between the child props and the parent one, when parent updates child update.
 
 ```js
 <template>
@@ -359,7 +386,59 @@ new Vue({
 </script>
 ```
 
-## Emits
+### Props Types
+
+Props can have specific group of Types : `String, Number, Boolean, Array, Object, Date,  Function, Symbol`.
+
+```js
+props: {
+  title: String,
+  likes: Number,
+  isPublished: Boolean,
+  commentIds: Array,
+  author: Object
+}
+```
+### Props Validations & Type Checks
+
+Components can specify requirements for its props, such as the types.
+
+*Note that props are validated before a component instance is created, so instance properties (e.g. data, computed, etc) will not be available inside default or validator functions.*
+
+## Emits & events
+
+*We recommend you always use kebab-cas for event names*
+
+In some context we may want to pass event and data from child to parent compoment.
+
+`$emit()` can be call in the template or in the script tag. Once in the parent component the event will trigger a action.
+
+```html
+<!-- child componment -->
+<button v-on:click="$emit('enlarge-text')">
+  Enlarge text
+</button>
+
+<!-- parent componment -->
+<blog-post
+  v-on:enlarge-text="postFontSize += 0.1"
+></blog-post>
+```
+
+We can pass data as a second argument to the $emit() function.
+
+```html
+<!-- child componment -->
+<button v-on:click="$emit('enlarge-text', 0.1)">
+  Enlarge text
+</button>
+
+<!-- parent componment -->
+<blog-post
+  ...
+  v-on:enlarge-text="postFontSize += $event"
+></blog-post>
+```
 
 ## Slots
 
@@ -445,10 +524,44 @@ Dynamic Component allow to swtich dynamicly between component.
 <component v-bind:is="currentTabComponent"></component>
 ```
 
+`Keep-alive` will cached the component instances once it have been created.
+
+```html 
+<keep-alive>
+  <component v-bind:is="currentTabComponent"></component>
+</keep-alive>
+```
+
+### Async Components
+
+Vue allow to define a component as a factory function that asynchronously resolves your component definition. Vue will only trigger the factory function when the component needs to be rendered and will cache the result for future re-renders.
+
+```js
+Vue.component('async-example', function (resolve, reject) {
+  setTimeout(function () {
+    // Pass the component definition to the resolve callback
+    resolve({
+      template: '<div>I am async!</div>'
+    })
+  }, 1000)
+})
+```
+
+## 
+
 ## Special Attributes
 
 ### key
 
+### Refs
+
 ref is used to register a reference to a element or a child component.
 
-# Vue DevTools
+
+## Transitions & Animations
+
+## Mixins
+
+## Filters
+
+## Plugins
