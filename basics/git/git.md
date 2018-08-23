@@ -117,3 +117,54 @@ git branch <name-branch> // to change branch
 git stash apply // to apply stash change to the local branch
 
 
+
+***** git command *******
+
+git reset --hard HEAD : dangerous command to go back at the previous commit.
+
+Permanently authenticating with Git repositories
+
+$ git config credential.helper store
+$ git push http://example.com/repo.git
+Username: <type your username>
+Password: <type your password>
+
+git config --global credential.helper 'cache --timeout 7200'
+
+To rebase a branch on master
+
+$ git checkout <branchName>
+$ git rebase master
+
+
+To create a branch from the local machine
+
+$ git checkout -b [name_of_your_new_branch]
+$ git push origin [name_of_your_new_branch]
+$ git branch
+
+To merge a second branch into the master in the git CLI
+
+git checkout master
+git pull origin master
+git merge [name_of_your_new_branch]
+git push origin master
+
+To merge the master in a second branch
+
+git checkout master
+git pull
+git checkout secondBranch
+git merge master
+
+
+To merge git add . & commit -m ' '
+
+git config --global alias.add-commit '!git add -A && git commit'
+or 
+git commit -a -m "message"
+or 
+git add -A && git commit -m "comment" 
+
+OR 
+git commit -am "comment"
