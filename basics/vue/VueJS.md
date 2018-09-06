@@ -444,17 +444,26 @@ We can pass data as a second argument to the $emit() function.
 
 Slot element serve as distribution outlets for content. Slots can render template code, html or component.
 
+To allow parent component to pass DOM elements to child component.
+
 ```html
+<!-- Parent Component -->
 <template>
-<navigation-link url="/profile">
-  Your Profile
-</navigation-link>
+  <div>
+    <child-component>
+      <p>I'm injected content from the parent!</p>
+      <p>I can still bind to data in the parent's scope, like this! {{myVariable}}</p>
+    </child-component>
+  </div>
+</template>
 
-<a v-bind:href="url" class="nav-link">
-  <slot></slot><!--Display Your Profile-->
-</a>
-
+<!-- Child Component -->
 <template>
+  <div>
+    <p>I'm the child component!</p>
+    <slot><!-- Content from the parent gets rendered here. --></slot>
+  </div>
+</template>
 ```
 
 ### Names Slots
