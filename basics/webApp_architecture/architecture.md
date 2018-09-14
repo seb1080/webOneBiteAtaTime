@@ -15,11 +15,21 @@
 To avoid statefull nature cookies need to be use on the client side.
 
 
+...SPA, 
+
+...PWA  
+
+
+...RESTful API
+
+
 # ProgressiveWorkOut Case Study
 
-Front-end   HTTPS request       Back-end                 Database
-PWA                          Cloud Functions        Firebase RealTime Database
-Vue.js                          
+Front-end     HTTPS request       Back-end                 Database
+PWA
+Vue.js                          Cloud Functions        Firebase RealTime Database
+Vue-router
+Vuex                            Firebase Auth
 
 
 
@@ -28,7 +38,9 @@ Vue.js
 
 Example base on the progressiveWorkOut
 
+- root: 
 
+- Page: The page comp. are
 
 root                                      App.vue
                                             |

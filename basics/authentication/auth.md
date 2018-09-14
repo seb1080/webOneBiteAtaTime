@@ -1,12 +1,6 @@
 
 # Web Security
 
-## Authentication vs. Authorization
-
-- Authentication: The process of identifying a user as the person they clain to be, ex: password, driving License.
-
-- Authorization: The process to validate that the use have the proper right to access part of the web application.  
-
 ## Securing a Web Application
 
 - Strong Passwords
@@ -16,6 +10,41 @@
 - 2-factor-Authetification
 - Password Recovery
 - Man-in-the-middle-attacks
+
+## Authentication vs. Authorization
+
+- Authentication: The process of identifying a user as the person they clain to be, ex: password, driving License.
+
+- Authorization: The process to validate that the use have the proper right to access part of the web application.  
+
+### Cookie-based Sessions
+
+At the first visit of a user on a web app. a ID get store into the browser has a Cookie. That cookie link the user browser to a session maintained on the server side.
+
+### Token-based Authentication
+
+
+### JSON Web Tokens (JWTs)
+
+JWT Structure
+```
+header.payload.signature
+```
+
+
+### Multi-factor Authetifcation (2FA) 
+
+### TOTP Hardaware device
+
+## OAuth 2.0
+
+
+
+
+
+
+
+
 
 
 
@@ -52,6 +81,11 @@ The session Hijacking can take the `source-routed` IP packets or the `blind hija
 # Reference
 
 
+[Token Based Authentication for SPA](https://stormpath.com/blog/token-auth-spa)
+[OAuth 2.0 Autorization Framework](https://tools.ietf.org/html/rfc6749)
+
 [Session Management OWASP Foundation](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)
 
 [keycdn](https://www.keycdn.com/blog/x-xss-protection/)
+
+[Token Auth for stateless SPA](https://medium.com/lightrail/getting-token-authentication-right-in-a-stateless-single-page-application-57d0c6474e3)
