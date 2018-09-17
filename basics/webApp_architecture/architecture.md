@@ -31,21 +31,54 @@ Vue.js                          Cloud Functions        Firebase RealTime Databas
 Vue-router
 Vuex                            Firebase Auth
 
-
+[Hot to structure Vue project](https://itnext.io/how-to-structure-a-vue-js-project-29e4ddc1aeeb)
 
 
 ## Front end Architecture
 
 Example base on the progressiveWorkOut
 
-- root: 
+- main: Set the Vue app.
 
-- Page: The page comp. are
+- root: Can contain the element that repeat on every page, Ex: toolbar, content frame and     router-view
 
-root                                      App.vue
-                                            |
-pages   
-LoginPage.vue HomePage.vue ExercisePage.vue MetricPage.vue SettingsPage.vue ProfilePage.vue   
+- Pages: Containt the structure of the page
+
+- Smart components that containt logic Ex: TheLoginForm
+
+- Base components: Dumb or Pure comp. that only recieve props and render to the page.
+
+- Functional Components: Comp. is render has a template with props. Func. comp. are not reactive.
+
+
+# root                                      
+  App.vue
+                v-toolbar
+                v-content
+                  router-view
+# pages
+  LoginPage.vue
+                TheLoginForm
+
+  HomePage.vue 
+
+
+  ExercisePage.vue 
+                ExerciseCreation
+                ExerciseList
+
+  MetricPage.vue
+
+
+  SettingsPage.vue 
+
+
+  ProfilePage.vue   
 
 
 
+
+## Restful API
+
+
+[API Design by Microsoft](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design)

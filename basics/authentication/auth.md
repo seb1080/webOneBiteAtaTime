@@ -26,10 +26,78 @@ At the first visit of a user on a web app. a ID get store into the browser has a
 
 ### JSON Web Tokens (JWTs)
 
-JWT Structure
+JWT is a JSON-based open standard (RFC 7519) for creating access tokens that assert claims.
+FOr example,a server could generate a token that has the claim "loggined in as admin" for a client. The client could then use that token to prove that it is logged in as admin.
+
+JSON Web Token (JWT) is a compact token format intended for space constrained environments such as HTTP Authorization headers and URI query parameters.
+
+JWT are use for Authorization, Single Sign On or information Exchange.
+
+
+#### JWT Structure
+
+`header.payload.signature`
+
 ```
-header.payload.signature
+eyJ0eXAiOiJKV1QiLA0KICJhbGciOiJIUzI1NiJ9
+.
+eyJpc3MiOiJqb2UiLA0KICJleHAiOjEzMDA4MTkzODAsDQogImh0dHA6Ly9leGFt
+cGxlLmNvbS9pc19yb290Ijp0cnVlfQ
+.
+dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk
 ```
+
+#### Header
+
+The header typically consists of two parts the type of token and the hashing algorithm. The header will be encode using Base64Url to form the first part of th JWT.
+```
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+
+#### Payload
+
+The payload contains the claims, the claims are statements about an entity (typically the user). The claims can be registered, public or private. The payload will be encode using Base64Url to form the first part of th JWT.
+
+```
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
+}
+```
+
+#### Signature
+
+The signature is used to verify the message wasn't changed along the way, in the case of toekns signed with a private key, it can also verify that the send of the JWT is who it says it is.
+
+```
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  secret)
+```
+
+- JSON Web Signature (JWS)
+
+
+- JSON Web Encryption (JWE)
+
+
+- Base64url is a group of similiar binary-to-text encoding schemes that represent binary data in a ASCII string format by translating it into radix-64 representation with url safe character.
+
+- HMAC: 
+
+- RSA: 
+
+- ECDSA:
+
+
+
+[JWT specs OpenID](https://openid.net/specs/draft-jones-json-web-token-07.html#anchor1)
+[JWT Claims](https://www.iana.org/assignments/jwt/jwt.xhtml)
 
 
 ### Multi-factor Authetifcation (2FA) 
@@ -40,7 +108,11 @@ header.payload.signature
 
 
 
+## Encryption 
 
+- public/private key pair 
+
+- HMAC algorithm
 
 
 
@@ -69,8 +141,6 @@ The session Hijacking can take the `source-routed` IP packets or the `blind hija
 
 - Denial of service (Dos):  
 
-
-## JSON Web Tokens (JWT)
 
 
 
