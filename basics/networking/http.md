@@ -22,7 +22,7 @@ Between the resquest and the response there are numerous entities, collectively 
 
   - caching (the cache can be public or private)
   - filtering (like an antivirus scan)
-  - lkoad balancing
+  - load balancing
   - authentication
   - logging
 
