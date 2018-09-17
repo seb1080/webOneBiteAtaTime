@@ -43,26 +43,53 @@ Treat the resource like a noun and HTTP methods as verbs.
 
 `GET /authors/3/blogposts` get all the blogpost of the author with id 3
 
-`PUT ` ??
+`PUT /blogposts/12` create and idempotent update (send all the fields required)
 
-`PATCH` ??
+**idempotent requests** Multiple requests will have the same effects.
+
+`PATCH /blogposts/12` partial change
+
+- Idenpotent: 
 
 ## Status Codes
 
 Use the HTTP Status Codes to return feed back to the user.
 
 - 200 OK
-- 400 Bad Request
-- 500 Internal Server Error
 - 201 Created
 - 204 No Content
+- 400 Bad Request
 - 401 Unauthorized
 - 403 Forbidden
 - 404 Not Found 
+- 500 Internal Server Error
+
+## Actions
+
+- Sorting: To sort a list of item in a list
+        
+    `GET /blogposts?sort=date`
+
+- Filtering: To filter a list of item in a list
+        
+    `GET /blogposts?language=french&location=canada`
+
+- Searching: To search a value in the database
+
+    `GET /compagnies?search=TheNewWeb`
+
+- Pagination: To GET a slice of the list by page
+
+    `GET /blogposts?page=23`
+
+
 
 ## REST API Versioning
 
 Adding versioning prefix to a endpoints can provide rich information to the API user.
+
+`https://api.example.com/v1.0.0/authors/2/blogposts/13`
+
 
 ## Documentation
 
@@ -71,7 +98,6 @@ Adding versioning prefix to a endpoints can provide rich information to the API 
 [Twilio](https://www.twilio.com/docs/api/rest/)
 [Google Map](https://developers.google.com/maps/documentation/)
 
-`https://api.example.com/v1/authors/2/blogposts/13`
 
 ## Error Handling
 
