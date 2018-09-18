@@ -6,7 +6,7 @@
 
 
 
-## Stateless web architecture vs. Statful web architecture
+## Stateless web architecture vs. Stateful web architecture
 
 - Stateless: dependent only on the input parameters that are supplied.
 
@@ -74,3 +74,16 @@ Example base on the progressiveWorkOut
 
 
   ProfilePage.vue
+
+# Semantic Versioning
+
+Consider a version format of X.Y.Z (Major.Minor.Patch) increment the:
+
+1. MAJOR version when you make incompatible API changes,
+2. MINOR version when you add functionality in a backwards-compatible manner
+3. PATCH version when you make backwards-compatible bug fixes.
+
+Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+
+[Reference](file:///C:/Users/sebas/Desktop/Semantic%20Versioning%202.0.0%20_%20Semantic%20Versioning.mhtml)
