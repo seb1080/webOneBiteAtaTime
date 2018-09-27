@@ -107,3 +107,13 @@ Define the name of a resource on the network.
 ## Response
 
 - Proxy server:
+
+
+## Header
+
+`Accept-language`: can be used by the client to indicate the set of natuaral languages  preferred in the response.
+
+Ex: ` Accept-Language: da, en-gb;q=0.8, en;q=0.7` 
+
+
+[Accept-language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
