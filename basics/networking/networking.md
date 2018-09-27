@@ -86,7 +86,13 @@ When you send or receive dat, the message gts divided
 
 - IPsec: Also know as Internet Protocol Security defines the architecture for security services for IP network traffic.
 
-#### TCP
+#### Transmission Control Protocol (TCP) or TCP/IP
+
+TCP/IP is compose of 4 layers: 
+- Application Layer: DNS, HTTP, SMTP
+- Transport Layer: TCP, UDP
+- Network Layer: TCP/IP, ICMP, IGMP
+- Data Link Layer: Ethernet 
 
 #### User Datagram Protocol (UDP)
 

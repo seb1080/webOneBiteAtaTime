@@ -88,7 +88,7 @@ console.table(win);
 
 #### bind()
 
-ECMAScript 5 introduced Function.prototype.bind. Calling f.bind(someObject) creates a new function with the same body and scope as f, but where this occurs in the original function.
+ECMAScript6 introduced Function.prototype.bind. Calling f.bind(someObject) creates a new function with the same body and scope as f, but where this occurs in the original function.
 
 ```js
 function f() {
@@ -350,7 +350,6 @@ for(const cut of cuts){
 ```
 
 # Module_7 An Array of Array Improvements
-
 ```js
 // Array.from()
 const nodeList = document.querySelectorAll('.items p')
@@ -587,7 +586,6 @@ export newFunc function() { return true }
 ```
 
 The import statement allow to import bindings which are exported by another module.
-
 ```js
 // app.js
 import { _ } from "lodash";

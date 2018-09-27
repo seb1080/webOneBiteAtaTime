@@ -141,9 +141,6 @@ The session Hijacking can take the `source-routed` IP packets or the `blind hija
 
 - Denial of service (Dos):  
 
-
-
-
 # Interesting technologie
 
 

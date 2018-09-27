@@ -133,9 +133,9 @@ console.log('functiuon expression')
 
 Question: What is promises and why do we use it?
 
-JS Promise is a snippet of code that will execute with the expectation to return either (resolve or reject)
-
 The Promise object represents the eventual completion or failure of an asynchronous operation, and this resulting value.
+
+JS Promise is a snippet of code that will execute with the expectation to return either (resolve or reject)
 
 The Promise that have been introduced to JS with the ES6 implementation avoid using function callback making the code cleaner and easier to read and maintain.
 

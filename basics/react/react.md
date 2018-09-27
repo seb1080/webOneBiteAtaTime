@@ -238,7 +238,7 @@ class Parent extends React.component {
     return (
       <div>
         <Child name={childName}/>
-    <div />
+      <div />
     );
   }
 }
