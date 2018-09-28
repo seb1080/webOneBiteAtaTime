@@ -1,18 +1,36 @@
 # Git Command
 
-git add . -> "Ajoute les fichiers au git"
+`$ git init` // init local Git repo
 
-git commit -m "commentaire" -> cela permet d'ajouter un commentaire
+`$ git config --global user.name 'Seb'` // define the username 
+
+`$ git config --global user.email 'Seb@email.com'` // define the email
+
+`$ git add <file>`  // add file to index 
+
+`$ git status` // check status of the working tree
+
+`$ git commit` // Commit Changes to the index
+git commit -m "commentaire" -> Add comment after a change in the file.
+
+`$ git push` // Push to Remote repo
+
+`$ git pull` // Pull from Remote repo
+
+`$ git clone` // Clone from Remote repo
+
+`$ git rm --cached <file>` // To unstrack a file
+
+`$ git log` //
+
+# Vim editor in Git bash
+
+Press `i` // to go in edit mode
 
 git log -> Give the information about the git file and this list of the commit .
 
 git log --author="name of the author" -> will give you the change make by the author
 
-git status -> This compare your local repositery again your working directory
-
-git add "name of the file" ->  Add a file to the repository
-
-git commit -m "commentaire" -> Add comment after a change in the file.
 
 git diff -> Show you the difference between commits, commit and working tree
 
