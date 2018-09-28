@@ -1,3 +1,15 @@
+# Linux Commands
+
+pwd  -> Indication of the repertor
+
+cd ~  ->  change directory 
+
+cd ..  -> Move back 
+
+ls ->  List all the file in your project
+
+cd "name of the file" ex: cd desktop -> Allow you to move up file
+
 netstat -antp : get the list of use port
 
 kill-9 **** : to kill the process PID of ****
