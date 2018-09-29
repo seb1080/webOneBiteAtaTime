@@ -59,6 +59,7 @@ Creational patterns focus on ways to create objects of classes.
 - Factory Method
 - Prototype
 - Singleton
+- Module
 
 ### Structural 
 
@@ -83,6 +84,7 @@ Behaviroral patterns focus on communication between objets.
 - Mediator
 - Memento
 - Observer
+- Publish/Subscribe
 - State
 - Strategy
 - Template Method
@@ -100,8 +102,15 @@ MVC, MVP, MVVM
 
 # References
 
-[doFactory](https://www.dofactory.com/javascript/design-patterns)
 
+[pluralsight](https://www.pluralsight.com/courses/javascript-practical-design-patterns)
+[joezimjs](https://www.joezimjs.com/javascript/javascript-design-patterns-chain-of-responsibility/)
+
+[blog post](https://itnext.io/anyway-heres-how-to-do-ajax-api-calls-with-vue-js-e71e57d5cf12)
+[doFactory](https://www.dofactory.com/javascript/design-patterns)
 [Tut plus](https://code.tutsplus.com/tutorials/understanding-design-patterns-in-javascript--net-25930)
-[]()
-[]()
+[Scotch.io](https://scotch.io/bar-talk/4-javascript-design-patterns-you-should-know)
+[JS Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
+
+[nodeJistsu](https://blog.nodejitsu.com/scaling-isomorphic-javascript-code/)
+[Node.js Design Patterns](https://blog.risingstack.com/fundamental-node-js-design-patterns/)
