@@ -33,3 +33,4 @@ These DP deal with multi-threaded programming  paradigms.
 ### Architectural DP
 
 MVC, MVP, MVVM
+
