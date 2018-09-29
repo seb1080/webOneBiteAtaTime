@@ -3,6 +3,10 @@
 1. **Deconstructing** Define the JS patterns to cover.
 
 The skills will be properly acquire when I will by able to explain the patterns with code to someone. The patterns need to be implement in a markdown including code and explaination.
+  
+  - Learning JS DP
+  
+  - Learning JS DP for Front End Architecture (Vue.js or React.js) 
 
 
 2. **Self-Correct** Identify the Js Patterns to be learn and redefine the learning goal.
@@ -28,6 +32,10 @@ The skills will be properly acquire when I will by able to explain the patterns 
 # Learning JS Design Patterns
 
 Design patterns are reusable solution to commonly occuring problems in software design.
+Patterns are about reusable designs and interactions of objects.
+
+The 23 gang og Four(GoF) patterns are generally consided the fondation for all other patterns.
+DP are categorize has: Creational, Structural, Behavioral.
 
 - Design Patterns: represents good practice.
 - Anti-Patterns: bad practice. Ex: modifiy the `Object` clas prototype.
@@ -44,25 +52,45 @@ Js have multiple design Patterns(DP), they can be Front End, back End or Isomorp
 
 ### Creational DP
 
-These patterns deal with Object creation.
+Creational patterns focus on ways to create objects of classes.
 
-- Module
+- Abstract Factory
+- Builder
+- Factory Method
 - Prototype
-- Observer
 - Singleton
-- Abstract
 
 ### Structural 
 
-These patterns deal with  Object relationships.
+Structural patterns focus on ways to manage relationships between object to make the application architecture scalable.
+
+- Adapter
+- Bridge
+- Composite
+- Decorator
+- Facade
+- Flyweight
+- Proxy
 
 ### Behavioral DP
 
-These types of DP recognize, implement, and improve communication between disparate Objects in system.
+Behaviroral patterns focus on communication between objets.
+
+- Chain of Resp.
+- Command
+- Interpreter
+- Iterator
+- Mediator
+- Memento
+- Observer
+- State
+- Strategy
+- Template Method
+- Visitor
 
 ### Concurrency DP
 
-These DP deal with multi-threaded programming  paradigms.
+These DP deal with multi-threaded programming paradigms.
 
 ### Architectural DP
 
@@ -73,6 +101,7 @@ MVC, MVP, MVVM
 # References
 
 [doFactory](https://www.dofactory.com/javascript/design-patterns)
-[]()
+
+[Tut plus](https://code.tutsplus.com/tutorials/understanding-design-patterns-in-javascript--net-25930)
 []()
 []()
