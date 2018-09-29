@@ -6,6 +6,8 @@
 
 `$ git config --global user.email 'Seb@email.com'` // define the email
 
+`$ touch .gitignore` // to ignore files
+
 `$ git add <file>`  // add file to index 
 
 `$ git status` // check status of the working tree
@@ -21,11 +23,17 @@ git commit -m "commentaire" -> Add comment after a change in the file.
 
 `$ git rm --cached <file>` // To unstrack a file
 
-`$ git log` //
+`$ git log` // display the log of the previous commit
+
+`$ git merge <branch>` // merge the into the ongoing branch
+
 
 # Vim editor in Git bash
 
-Press `i` // to go in edit mode
+`i` // to go in edit mode
+`Esc` // to get out of the edit mode
+`:wq` // to save and exit
+
 
 git log -> Give the information about the git file and this list of the commit .
 
