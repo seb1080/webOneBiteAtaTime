@@ -55,12 +55,85 @@ Js have multiple design Patterns(DP), they can be Front End, back End or Isomorp
 
 Creational patterns focus on ways to create objects of classes.
 
+- Singleton
 - Abstract Factory
 - Builder
 - Factory Method
 - Prototype
-- Singleton
 - Module
+
+#### Singleton Pattern
+
+In JS **Singleton** is used mostly for *Namespacing* and reducing the number of global variables created by the application. 
+
+*Namespacing*: is a commonly structured as hierachies to allow reuse of name in different contexts. Ex: naming the file system, organizing variables or functions.
+
+Since it is an object literal, it do not need to be instantiated and there is only one copy of the object. One caracteristic of the **Singleton** is the *immuability*. 
+
+**The old way** using closures and IIFE it is possible to write and Store(Redux).
+`UserStore` will be set to the result of the IIF - an object that exposes 2 functions, but that does not grant direct access to the collection of data.
+
+```js
+var UserStore = (function(){
+  var _data = [];
+
+  function add(item){
+    _data.push(item);
+  }
+  function get(id){
+    return _data.find(d => {
+      return d.id === id;
+    });
+  }
+  return {
+    add: add,
+    get: get
+  };
+
+}());
+```
+**The ES2015+ way**
+```js
+const _data = [];
+
+const UserStore = {
+  add: item => _data.push(item),
+  get: id => _data.find(d => d.id === id)
+}
+
+Object.freeze(UserStore)
+export default UserStore.
+// OR
+class UserStoreB {
+  constructor(){
+    this._data = [];
+  }
+  add(item) {
+    this._data.push(item)
+  }
+  get(id){
+    return this._data.find(d => d.id === id)
+  }
+}
+const instance = new UserStoreB();
+Object.freeze(instance);
+export default instance;
+```
+
+```js
+// Singleton
+const singleton = { 
+  attr: 1, 
+  attr1: 'value'
+  
+  method: function() {
+    return
+  }
+}
+
+singleton.attr++;
+singleton.method();
+```
 
 ### Structural 
 
@@ -130,29 +203,38 @@ Divide the application in 3 parts:
 
 ![Vue.js Design Pattern](./img/MVVMPattern.png)
 
-
-
-
-
-
+    **View**               **ViewModel**           **Model**        **Lib**                 
+        DOM       <--->         Vue       <---       Vuex   <---     DAL     <---  API
+                                          --->              --->             --->
+|---------------|           App.js                      Store        
+|               |           -Page(Vue-Router) 
+|               |            -Layout(mobile,
+|               |              table, desktop)
+|               |             -Smart Comp.    
+|               |              -Dumb Comp.
+|---------------|
 
 
 [Architectural pattern](https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013)
 
-
-
 # References
 
 [pluralsight](https://www.pluralsight.com/courses/javascript-practical-design-patterns)
-[joezimjs](https://www.joezimjs.com/javascript/javascript-design-patterns-chain-of-responsibility/)
+
+[joezimjs](https://www.joezimjs.com/javascript/javascript-design-patterns-singleton/)
 
 [blog post](https://itnext.io/anyway-heres-how-to-do-ajax-api-calls-with-vue-js-e71e57d5cf12)
+
 [doFactory](https://www.dofactory.com/javascript/design-patterns)
+
 [Tut plus](https://code.tutsplus.com/tutorials/understanding-design-patterns-in-javascript--net-25930)
+
 [Scotch.io](https://scotch.io/bar-talk/4-javascript-design-patterns-you-should-know)
+
 [JS Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
 
 [nodeJistsu](https://blog.nodejitsu.com/scaling-isomorphic-javascript-code/)
+
 [Node.js Design Patterns](https://blog.risingstack.com/fundamental-node-js-design-patterns/)
 
 
