@@ -118,7 +118,6 @@ GET
 
 
 
-
 ## Error Handling
 
 **Don't leave the user hanging with our proper error response**

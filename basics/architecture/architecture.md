@@ -1,7 +1,6 @@
 # Web Application Architecture
 
 
-
 ## Stateless web architecture vs. Stateful web architecture
 
 - Stateless: dependent only on the input parameters that are supplied.

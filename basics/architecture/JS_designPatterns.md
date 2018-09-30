@@ -13,15 +13,16 @@ The skills will be properly acquire when I will by able to explain the patterns 
 
 3. **Removing barier to learning**
   - have a clean desk
+  - have cofee cup on the desk
   - have a apple on the desk
   - have delicious chocolate bar on the desk
   - have water to the desk
-  - have great chair, kweyboard, mouse, 2 monitors
+  - have great chair, keyboard, mouse, 2 monitors
   - have ritual of schedule learning time during the week
 
 4. **Pre-commit** 
   - Do the research phase of 2-3 hrs.
-  - Define in the commitment of 20 hrsis worted.
+  - Define in the commitment of 20 hrs is worted.
   - Put in place the scheduale to learn the next skill.
   - Evaluate what could interfer the success of the time frame. 
   - Have a ultimate goal to over at the end of the learning process and a reward.
@@ -96,12 +97,51 @@ These DP deal with multi-threaded programming paradigms.
 
 ### Architectural DP
 
-MVC, MVP, MVVM
+An **Architectural Pattern** is a general, reusable solution to a commonly occuring problem in software architecture within a given context. Achitectural patterns are similar to software design pattern but have a broader scope.
+
+- Model-View-Controller Pattern
+- Model-View-ViewModel Pattern
+- Model-View-Presenter Pattern
+- Layered Pattern
+- Client-Server Pattern
+- Master-Slave Pattern
+- Pipe-filter Pattern
+- Broker Pattern
+- Peer-to-peer Pattern
+- Event-bus Pattern
+- Blackboard Pattern
+- Interpreter Pattern
+
+#### Model-View-Controller Pattern (MVC)
+
+Divide the application in 3 parts:
+  * **Model**: contain the core fonctionality and data
+  * **View**: display the information to the user
+  * **Controller**: handle the input from the user
+
+#### Model-View-ViewModel Pattern (MVVM)
+
+Divide the application in 3 parts:
+  * **Model**: Represents the actual State of the application.
+  * **View**: Represent the layout and apperance of what a user interact with.
+  * **ViewModel**: It is a abstraction of the **View** exposing public proterties and commands. MVVM have a binder, which automates communication between the view and its bound properties in the view model.
+
+  **MVVM** vs. **MVP** A view directly binds to properties on the viewModel to send and receive updates.   
+
+![Vue.js Design Pattern](./img/MVVMPattern.png)
+
+
+
+
+
+
+
+
+[Architectural pattern](https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013)
 
 
 
 # References
-
 
 [pluralsight](https://www.pluralsight.com/courses/javascript-practical-design-patterns)
 [joezimjs](https://www.joezimjs.com/javascript/javascript-design-patterns-chain-of-responsibility/)
@@ -114,3 +154,6 @@ MVC, MVP, MVVM
 
 [nodeJistsu](https://blog.nodejitsu.com/scaling-isomorphic-javascript-code/)
 [Node.js Design Patterns](https://blog.risingstack.com/fundamental-node-js-design-patterns/)
+
+
+[Architecture Patterns](http://pubs.opengroup.org/architecture/togaf8-doc/arch/chap28.html)
