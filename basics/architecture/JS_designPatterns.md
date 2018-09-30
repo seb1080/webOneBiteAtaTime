@@ -36,39 +36,39 @@ Design patterns are reusable solution to commonly occuring problems in software 
 Patterns are about reusable designs and interactions of objects.
 
 The 23 gang og Four(GoF) patterns are generally consided the fondation for all other patterns.
-DP are categorize has: Creational, Structural, Behavioral.
+DP are categorize has: Creational, Structural, Behavioral, Concurrency, Architectural.
 
 - Design Patterns: represents good practice.
 - Anti-Patterns: bad practice. Ex: modifiy the `Object` clas prototype.
 
 Js have multiple design Patterns(DP), they can be Front End, back End or Isomorphic JS (Universal JS).
 
-## Categorization
-
-- Creational DP
-- Structural DP
-- Behavioral DP
-- Concurrency DP
-- Architectural DP
-
 ### Creational DP
 
 Creational patterns focus on ways to create objects of classes.
 
 - Singleton
+- Prototype
 - Abstract Factory
 - Builder
 - Factory Method
-- Prototype
 - Module
+
+_Reference_
+
+[JavaScript Patterns](http://shop.oreilly.com/product/9780596806767.do)
+[JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
 
 #### Singleton Pattern
 
-In JS **Singleton** is used mostly for *Namespacing* and reducing the number of global variables created by the application. 
+**Singleton** is thus know because it restricts instantiation of a class to a single object. 
+It differ from static classes as we can delay their initialization, because it may require some information that is not available during the initialization time.
+
+In JS, **Singleton** serve as a shared resource *namespace* which isolate code from the global namespace, to provide a single point of access for functions.
 
 *Namespacing*: is a commonly structured as hierachies to allow reuse of name in different contexts. Ex: naming the file system, organizing variables or functions.
 
-Since it is an object literal, it do not need to be instantiated and there is only one copy of the object. One caracteristic of the **Singleton** is the *immuability*. 
+One caracteristic of the **Singleton** is the *immuability*. 
 
 **The old way** using closures and IIFE it is possible to write and Store(Redux).
 `UserStore` will be set to the result of the IIF - an object that exposes 2 functions, but that does not grant direct access to the collection of data.
@@ -92,6 +92,7 @@ var UserStore = (function(){
 
 }());
 ```
+
 **The ES2015+ way**
 ```js
 const _data = [];
@@ -121,7 +122,7 @@ export default instance;
 ```
 
 ```js
-// Singleton
+// Basic Singleton
 const singleton = { 
   attr: 1, 
   attr1: 'value'
@@ -134,6 +135,38 @@ const singleton = {
 singleton.attr++;
 singleton.method();
 ```
+
+**JS Namespacing**
+
+Using singleton for namespace/packages allow for better organisation of the code into logical chunks. Using *Namespaces* moves your code from the global context to the Singleton, leading to fewer accidental overwrites and bugs. 
+
+```js
+// Object Literal
+let Namespace = {
+  Util: {
+    util_method1: function() { return },
+    util_method2: function() { return },
+  },
+  Ajax: {
+    ajaxCall: function() { return data }
+  },
+  someMethod: function() {}
+}
+// Referencing the methods
+Namespace.Util.util_method1();
+Namespace.Ajax.ajaxCall();
+Namespace.someMethod();
+```
+
+#### Observer Pattern
+
+#### Factory Pattern
+
+The **Factory** pattern concerned wit hthe notion of creating objects. it doesn't explicitly require us to use a constructor.
+
+
+#### Prototype Pattern
+
 
 ### Structural 
 
