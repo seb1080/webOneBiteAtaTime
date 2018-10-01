@@ -48,8 +48,10 @@ Js have multiple design Patterns(DP), they can be Front End, back End or Isomorp
 Creational patterns focus on ways to create objects of classes.
 
 - Singleton
-- Prototype
 - Abstract Factory
+- Abstract Factories
+- Prototype
+- Mixins
 - Builder
 - Factory Method
 - Module
@@ -64,9 +66,7 @@ _Reference_
 **Singleton** is thus know because it restricts instantiation of a class to a single object. 
 It differ from static classes as we can delay their initialization, because it may require some information that is not available during the initialization time.
 
-In JS, **Singleton** serve as a shared resource *namespace* which isolate code from the global namespace, to provide a single point of access for functions.
-
-*Namespacing*: is a commonly structured as hierachies to allow reuse of name in different contexts. Ex: naming the file system, organizing variables or functions.
+In JS, **Singleton** serve as a shared resource *namespacing* which isolate code from the global namespace, to provide a single point of access for functions.
 
 One caracteristic of the **Singleton** is the *immuability*. 
 
@@ -158,14 +158,60 @@ Namespace.Ajax.ajaxCall();
 Namespace.someMethod();
 ```
 
-#### Observer Pattern
-
 #### Factory Pattern
 
-The **Factory** pattern concerned wit hthe notion of creating objects. it doesn't explicitly require us to use a constructor.
+The **Factory** pattern concerned wit the notion of creating objects. it doesn't explicitly require us to use a constructor. The **Factory** pattern provide a generic interface for creating objects, where we can specify the type of factory object we wish to be created.
 
+**When to use**
+* when a object involve a high level of complexity.
+* When a high
+* When working with high number of object sharing the same properties
+* This is useful for decoupling.
+
+```js
+// A constructor to create new Car 
+function Car( options ){
+  this.doors = options.doors || 4;
+  this.state = options.state || 'new';
+  this.color = options.color || "silver";
+}
+// A constructor to create new Truck
+function Truck( options ){
+  this.state = options.state || 'used';
+  this.wheelSize = options.wheelSize || 'large';
+  this.color = options.color || "blue";
+}
+
+function VehicleFactory() {
+  VehicleFactory.prototype.vehicleClass = Car;
+
+  VehicleFactory.prototype.createVehicle = function( options ) {
+      switch(options.vehicleType) {
+        case "car":
+          this.vehiculeClass = Car;
+          break;
+        case "truck":
+          this.vehiculeClass = Truck;
+          break;
+      }
+      return new this.vehiculeClass(options)
+  }
+};
+const canFactory = new VehiculeFactory()
+const var = carFactory.createVehicule({
+  vehiculeType: 'car',
+  color: 'red',
+  doors: 6
+})
+// We expect that car is a instance of the vehiculeClass/prototype Car
+console.log( car instanceof Car);
+
+```
+#### Abstract Factories Pattern
 
 #### Prototype Pattern
+
+#### Observer Pattern
 
 
 ### Structural 
@@ -249,6 +295,12 @@ Divide the application in 3 parts:
 
 
 [Architectural pattern](https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013)
+
+# Vocabulary
+
+*Namespacing*: is a commonly structured as hierachies to allow reuse of name in different contexts. Ex: naming the file system, organizing variables or functions.
+
+*Duck typing*: The duck test —"If it walks like a duck and it quacks like a duck, then it must be a duck"— to determine if an object can be used for a particular purpose, an object's suitability is determined by the presence of certain methods and properties, rather the type of the object itself.
 
 # References
 
