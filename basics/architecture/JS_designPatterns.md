@@ -207,9 +207,84 @@ const var = carFactory.createVehicule({
 console.log( car instanceof Car);
 
 ```
+
+#### Constructor Pattern
+
+Object Constructors are used to crate specific types of objects.
+
+**The old way**
+```js
+var newObject = {};
+
+var newObj = Object.create(Object.prototype)
+
+var newObj = new Object();
+
+// 4 ways to assign keys and values to an object.
+// Set properties
+newObj.somekey = 'Hello World'
+// Get properties
+var value = newObj.someKey
+
+// Square Bracket Syntax
+newObj["someKey"] = "Hello World"
+var val = newObj["someKey"] 
+
+// Object.defineProterty
+object.defineProterty( newObj, "someKey", {
+  value: "someVal",
+  writable: true,
+  enumerable: true,
+  configurable: true
+})
+// Or
+var defineProp = function(obj, key, value){
+  var config = {
+    value: value,
+    writable: true,
+    enumerable: true,
+    configurable: true
+  };
+  Object.defineProterty(obj, key, config)
+};
+// To use,  create a new empty "person" object
+var person = Object.create( Object.prototype)
+
+defineProp( perosn, "car", "Delorean")
+defineProp( perosn, "dateOfBirth", "1981")
+
+// Object.defineProperties
+Object.defineProperties(newObj, {
+  "someKey": {
+    val: "Hello",
+    writable: true
+  },
+  "secondKey": {
+    val: "World",
+    writable: false
+  },
+})
+
+// Creation of Object with 'new' and function
+
+
+
+```
+
+**The ES6+ way**
+```js
+
+```
+
+
+
+
+
 #### Abstract Factories Pattern
 
 #### Prototype Pattern
+
+#### Mixins Pattern
 
 #### Observer Pattern
 
