@@ -184,3 +184,11 @@ git add -A && git commit -m "comment"
 
 OR 
 git commit -am "comment"
+
+## Git rebase worflow
+
+`git rebase --continue`: to go to the next step of the rebasing
+
+`git rebase --abort`: to abort the rebasing
+
+`git rebase --skip`; to skip the step
