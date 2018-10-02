@@ -470,14 +470,6 @@ To allow parent component to pass DOM elements to child component.
 
 ```html
 <template>
-    <!-- in the child component -->
-    <div class="container">
-      <header>
-        <slot name="header"></slot>
-      </header>
-      <main>
-        <slot name="main"></slot>
-      </main>
       <!-- in the parent component -->
       <base-layout>
         <template slot="header">
@@ -489,6 +481,14 @@ To allow parent component to pass DOM elements to child component.
           <p>Here's some contact info</p>
         </template>
     </base-layout>
+    <!-- in the child component -->
+    <div class="container">
+      <header>
+        <slot name="header"></slot>
+      </header>
+      <main>
+        <slot name="main"></slot>
+      </main>
   </div>
 <template>
 ```
@@ -505,17 +505,18 @@ The default Slot Content allow to define default content.
 
 ### Compilation Scope
 
-Everyting in the parent template is compiled in the parent scope; everything in the child template is compiled in the child scope.
+Everyting in the parent template is compiled in the parent scope, everything in the child template is compiled in the child scope.
 
 ### Scoped Slots
+
+Scoped-slots allow to pass `template`, `component` or content from a parent to a child component.
 
 ```html
 <ul>
   <li
     v-for="todo in todos"
     v-bind:key="todo.id">
-    <!-- We have a slot for each todo, passing it the -->
-    <!-- `todo` object as a slot prop.                -->
+    <!-- We have a slot for each todo, passing it the `todo` object as a slot prop. -->
     <slot v-bind:todo="todo">
       <!-- Fallback content -->
       {{ todo.text }}
@@ -523,6 +524,10 @@ Everyting in the parent template is compiled in the parent scope; everything in 
   </li>
 </ul>
 ```
+
+#### Destructuring slot-scope
+
+
 
 ## Dynamic Component
 
