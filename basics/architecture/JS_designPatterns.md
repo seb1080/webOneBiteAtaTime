@@ -71,7 +71,7 @@ In JS, **Singleton** serve as a shared resource *namespacing* which isolate code
 One caracteristic of the **Singleton** is the *immuability*. 
 
 **The old way** using closures and IIFE it is possible to write and Store(Redux).
-`UserStore` will be set to the result of the IIF - an object that exposes 2 functions, but that does not grant direct access to the collection of data.
+`UserStore` will be set to the result of the IIFE - an object that exposes 2 functions, but that does not grant direct access to the collection of data.
 
 ```js
 var UserStore = (function(){
@@ -205,12 +205,59 @@ const var = carFactory.createVehicule({
 })
 // We expect that car is a instance of the vehiculeClass/prototype Car
 console.log( car instanceof Car);
+```
 
+```js
+/* The ES2015+ way */
+class Car {
+  constructor({ doors, state, color }) {
+    this.doors = doors || 4;
+    this.state = state || "brand new";
+    this.color = color || "silver";
+  }
+}
+
+class Truck {
+  constructor({state, wheelSize, color }) {
+    this.state = state || "used";
+    this.wheelSize = wheelSize || "large";
+    this.color = color || "blue";
+  }  
+}
+
+class VehicleFactory {
+  constructor(vehicleType){
+    this.vehicleClass = Car; // default vehiculeClass
+    if (vehicleType === "truck") {               
+        this.vehicleClass = Truck;
+    } 
+  }
+
+  createVehicle(options) {
+    switch(options.vehicleType) {
+      case "car":
+        this.vehicleClass = Car;
+        break;
+      case "truck":
+        this.vehicleClass = Truck;
+        break;
+    } 
+    return new this.vehicleClass( options );
+  }
+}
+//Instatiation
+const carFactory = new VehicleFactory();
+const car = carFactory.createVehicle( {
+            vehicleType: "car",
+            color: "red",
+            doors: 4 } );
+
+console.log( car instanceof Car ); // true
 ```
 
 #### Constructor Pattern
 
-Object Constructors are used to crate specific types of objects.
+Object Constructors are used to create specific types of objects.
 
 **The old way**
 ```js
@@ -281,11 +328,20 @@ console.log( civic.toString() )
 
 **The ES6+ way**
 ```js
+class Car {
+  constructor({ model, year, miles}) {
+    this.model = model,
+    this.year = year,
+    this.miles = miles
+  }
+  toString() {
+    return `${this.model} has done ${this.miles} miles.`
+  }
+}
 
+const jeep = new Car("Jeep", 2009, 20000)
+console.log( jeep.toString() )
 ```
-
-
-
 
 
 #### Abstract Factories Pattern
