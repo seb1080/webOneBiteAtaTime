@@ -210,8 +210,27 @@ Called just before Angular destroys the directive/component.
 
 Services handle the data access for components. Angular will use dependendcy injection to inject into component constructor to make data available to a component.
 
+```bash
+$ ng generate service <name>
+```
 
+Generate skeleton `NameService` in `src/app/name.service.ts`
 
+```ts
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class NameService {
+
+  constructor() { }
+
+}
+```
+Notice that the new service imports the Angular Injectable symbol and annotates the class with the @Injectable() decorator. This marks the class as one that participates in the dependency injection system.
+
+The NameService could get hero data from anywhere—a web service, local storage, or a mock data source.
 
 
 
