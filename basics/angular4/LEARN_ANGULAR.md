@@ -183,6 +183,26 @@ Notice that the new service imports the Angular Injectable symbol and annotates 
 
 The NameService could get hero data from anywhere—a web service, local storage, or a mock data source.
 
+Importing mock data in a service.
+
+```ts
+import { Injectable } from '@angular/core';
+import { Hero } from './hero';
+import { HEROES } from './mock-heroes';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class NameService {
+
+  constructor() { }
+
+  // Will return mock data HEROES
+  getHeroes(): Hero[] {
+  return HEROES;
+  }
+}
+```
 
 
 ### Services Providers
