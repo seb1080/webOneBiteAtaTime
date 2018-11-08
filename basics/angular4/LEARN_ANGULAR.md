@@ -1,13 +1,10 @@
-
 # Learning ANGULAR
 
 Reference [styleguide](https://angular.io/guide/styleguide)
 
-
 This is a simple view of the ANGULAR project structure. 
 
 Project of reference : [Angular Example](https://github.com/gothinkster/angular-realworld-example-app/tree/master/src)
-
                             
 src   -----------   app        ------   auth  -------------------- auth.module.ts   
 README.md         assets                home                       auth.module.html
@@ -15,52 +12,6 @@ package.json      environments          app.component.ts          auth.module.ts
 main.ts                                 app.component.html        auth.component.ts
 index.html                              app-routing.module.ts     auth-routing.module.ts
 test.ts                                 app.module.ts
-
-## Component Structure
-
-Component most be in a folder name such : `name.component.ts|.html|.css`
-
-```html
-// Example of templating with @angular/material
-<div ng-controller="DemoCtrl" layout="column" 
-  ng-cloak="" 
-  class="md-inline-form inputdemoBasicUsage" 
-  ng-app="MyApp">
-  <md-content 
-    md-theme="docs-dark" 
-    layout-gt-sm="row"
-    layout-padding="">
-    <div>
-      <md-input-container>
-        <label>Title</label>
-        <input ng-model="user.title">
-      </md-input-container>
-      <md-input-container>
-        <label>Email</label>
-        <input ng-model="user.email" type="email">
-      </md-input-container>
-    </div>
-  </md-content>
-</div>
-```
-
-```js
-angular
-  .module('MyApp', ['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
-  .controller('DemoCtrl', function($scope) {
-    $scope.user = {
-      title: 'Developer',
-      email: 'ipsum@lorem.com'
-    };
-    // can add data to bind
-  })
-  .config(function($mdThemingProvider) {
-    // Configure a dark theme with primary foreground yellow
-    $mdThemingProvider.theme('docs-dark', 'default')
-      .primaryPalette('yellow')
-      .dark();
-  });
-```
 
 ## NgModules
 
@@ -105,7 +56,7 @@ export class AppModule { }
 
 ## Components
 
-Components are pieces of View.
+Components are pieces of View. Component most be in a folder name such : `name.component.ts|.html|.css`.
 
 ```ts
 /* 
