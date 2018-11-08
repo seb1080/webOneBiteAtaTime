@@ -208,4 +208,28 @@ Called just before Angular destroys the directive/component.
 
 ## Services
 
-Components are pieces of View.
+Services handle the data access for components. Angular will use dependendcy injection to inject into component constructor to make data available to a component.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
