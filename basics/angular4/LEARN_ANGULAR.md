@@ -185,7 +185,9 @@ The NameService could get hero data from anywhere—a web service, local storage
 
 
 
+### Services Providers
 
+To make the `NameService` available for the dependency injection system it most be register has a `provider`.
 
 
 
