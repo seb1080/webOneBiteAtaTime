@@ -204,12 +204,18 @@ export class NameService {
 }
 ```
 
-
 ### Services Providers
 
 To make the `NameService` available for the dependency injection system it most be register has a `provider`.
 
 
+# Debugging in the Chrome console
+
+`$0` to select a element of the page.
+
+`ng.probe($0)` 
+
+`ng.probe($0).componentInstance` 
 
 
 
