@@ -2,10 +2,21 @@
 
 TypeScript is a language that aims at easing development of large scale applications written in JavaScript. TypeScript is just like ES2015 with type-checking.
 
+# Installation & lauch
+
+```ts
+npm install -g typescript
+```
+
+```ts
+// to compile
+tsc app.ts
+```
+
 ```ts
 // Hello World Example
 function greeter(person: string) {
-    return "Hello, " + person;
+    return `Hello, ${person}`;
 }
 let user = [0, 1, 2];
 document.body.innerHTML = greeter(user);
