@@ -6,13 +6,12 @@ TypeScript is a language that aims at easing development of large scale applicat
 
 ```ts
 class Student {
-    fullName: string; // defining the type ofa attribut
-
+    fullName: string;
     constructor(public firstName: string, public middleInitial: string, public lastName: string) {
         this.fullName = `${Person} ${middleInitial} ${lastName}`;
     }
 }
-// 
+
 interface Person {
     firstName: string;
     lastName: string;
