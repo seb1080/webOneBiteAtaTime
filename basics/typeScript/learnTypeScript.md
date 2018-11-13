@@ -2,6 +2,31 @@
 
 TypeScript is a language that aims at easing development of large scale applications written in JavaScript. TypeScript is just like ES2015 with type-checking.
 
+# Hello World
+
+```ts
+class Student {
+    fullName: string; // defining the type ofa attribut
+
+    constructor(public firstName: string, public middleInitial: string, public lastName: string) {
+        this.fullName = `${Person} ${middleInitial} ${lastName}`;
+    }
+}
+// 
+interface Person {
+    firstName: string;
+    lastName: string;
+}
+                                // type of the function
+function greeter(person : Person): string {
+  return `Hello, ${person.firstName} ${person.lastName}`;
+}
+
+let user = new Student("Jane", "M.", "User");
+
+document.body.innerHTML = greeter(user);
+```
+
 # Installation & lauch
 
 ```ts
@@ -10,6 +35,7 @@ npm install -g typescript
 // to compile
 tsc app.ts
 ```
+
 # Primitive Types
 
 Type      | Code      
@@ -19,84 +45,12 @@ void type | `void` (null or undefined, use for function returns only)
 Boolean   | `boolean`
 Number    | `number`
 String    | `string`
-
 Undefined | `undefined`
 Null      | `null`
 never     | `never`
 unknow    | `unknow`
+date      | `date`
 object    | `object`
-
-
-## Static Typing
-
-It is posisible to declare the types of variable and the compiler will make sure that aren't assigned thel wrong types of vlaues.
-
-```ts
-let burger: string = 'hamburger', // String 
-    calories: number = 300,       // Numeric
-    tasty: boolean = true;        // Boolean
-
-// The function expects a string and an integer.
-// It doesn't return anything so the type of the function itself is void.
-
-function speak(food: string, energy: number): void {
-  console.log("Our " + food + " has " + energy + " calories.");
-}
-
-speak(burger, calories);
-```
-
-## Type annotations
-
-`: string` add to a function argument will define the type of the argument.
-
-```ts
-* Number, String, Boolean, Any , Arrays Void
-```
-
-```ts 
-let sentence: string = `Hello, my name is ${ fullName }.` 
-//   varName   type       value
-
-// Array
-let list: number[] = [1, 2, 3];
-let list: Array<number> = [1, 2, 3];
-
-// Any
-let notSure: any = 4;
-```
-
-## Enum
-
-```ts
-enum Color {Red, Green, Blue}
-let c: Color = Color.Green;
-```
-
-## Void
-
-```ts
-function warnUser(): void {
-    console.log("This is my warning message");
-}
-```
-
-## Never
-
-```ts
-// Function returning never must have unreachable end point
-function error(message: string): never {
-    throw new Error(message);
-}
-```
-
-## Object
-
-```ts
-declare function create(o: object | null): void;
-create({ prop: 0 }); // OK
-create(null); // OK
-```
 
 ## Type assertions
 
@@ -108,6 +62,11 @@ let strLength: number = (<string>someValue).length;
 // OR
 let strLength: number = (someValue as string).length;
 ```
+
+# Names types
+
+Interface , Class, Enum
+
 
 
 ## Interfaces
