@@ -6,26 +6,12 @@ TypeScript is a language that aims at easing development of large scale applicat
 
 ```ts
 npm install -g typescript
-```
 
-```ts
 // to compile
 tsc app.ts
 ```
-
-```ts
-// Hello World Example
-function greeter(person: string) {
-    return `Hello, ${person}`;
-}
-let user = [0, 1, 2];
-document.body.innerHTML = greeter(user);
-```
-
 # Primitive Types
 
-
-### Primitive Types
 Type      | Code      
 --------- | ----
 Any type  | `any` (explicitly untyped) 
@@ -34,8 +20,11 @@ Boolean   | `boolean`
 Number    | `number`
 String    | `string`
 
-
-
+Undefined | `undefined`
+Null      | `null`
+never     | `never`
+unknow    | `unknow`
+object    | `object`
 
 
 ## Static Typing
