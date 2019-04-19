@@ -82,15 +82,64 @@ const EventEmitter = require('events')
 
 
 ```
+# Node package manager (npm)
 
+`npm view <package-name>` to view the `package.json` file of a dependency.
 
-
-
-
+`npm -g outdated`: to list the outdated depedencies.
 
 ```js
-
+{
+  "name": "test-npm",
+  "version": "1.0.0",
+  "description": "",
+  "bugs": "https://github.com/flaviocopes/package/issues",
+  "homepage": "https://flaviocopes.com/package",
+  "contributors": [
+    "Flavio Copes <flavio@flaviocopes.com> (https://flaviocopes.com)"
+  ],
+  "main": "index.js",
+  "scripts": {
+  "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+  "start": "npm run dev",
+  "unit": "jest --config test/unit/jest.conf.js --coverage",
+  "test": "npm run unit",
+  "lint": "eslint --ext .js,.vue src test/unit",
+  "build": "node build/build.js"
+},
+  "keywords": [
+  "email",
+  "machine learning",
+  "ai"
+  ],
+  "browserslist": [
+  "> 1%",
+  "last 2 versions",
+  "not ie <= 8"
+  ],
+  "engines": {
+  "node": ">= 6.0.0",
+  "npm": ">= 3.0.0",
+  "yarn": "^0.13.0"
+  },
+  "dependencies": {
+  "vue": "^2.5.2"
+  },
+  "devDependencies": {
+  "autoprefixer": "^7.1.2",
+  "babel-core": "^6.22.1"
+  },
+  "repository": "github:flaviocopes/testing",
+  "author": "",
+  "private": true,
+  "license": "ISC"
+}
 ```
+
+[npm-package.json](https://docs.npmjs.com/files/package.json)
+[The package.json guide](https://flaviocopes.com/package-json/)
+
+## Yarn
 
 
 # References
