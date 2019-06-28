@@ -196,3 +196,10 @@ git commit -am "comment"
 `git rebase --abort`: to abort the rebasing
 
 `git rebase --skip`; to skip the step
+
+
+## .gitignore file
+
+**References**
+
+[gitignore menerator](https://gitignore.io/)

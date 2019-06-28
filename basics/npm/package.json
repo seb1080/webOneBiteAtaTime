@@ -21,7 +21,8 @@
     "postgreet": "echo 'Running postgreet' ",
     "uglify": "echo \"Running reference to gulp script, \"",
     "watch:test": "npm run test -- -w -R min",
-    "watch:lint": "watch 'npm run lint' .  "
+    "watch:lint": "watch 'npm run lint' .  ",
+    "watch:server": "nodemon --ignore client --ignore public index.js"
   },
   "jshintConfig": {
     "esnext": "true",
@@ -31,9 +32,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jshint": "^2.10.2",
+    "jshint": "2.10.2",
     "mocha": "6.1.4",
-    "should": "^13.2.3",
+    "should": "13.2.3",
     "supertest": "4.0.2"
   },
   "dependencies": {

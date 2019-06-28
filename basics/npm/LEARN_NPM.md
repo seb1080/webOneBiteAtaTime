@@ -26,6 +26,8 @@ npm i express@1.x // latest version under 1.
 npm i underscore@">=1.1.0 <1.4.0"
 
 npm view express versions  --json
+npm --version, npm -v // to get the version of npm 
+
 
 npm uninstall karma --save, npm rm karma -D
 npm r underscore -g // to remove global package
@@ -130,13 +132,21 @@ Scripts can serve as single source of commadn to launch tasks in a project.
     "build:clean": "rimraf public/css/*, public/js/*",
     "prebuild": "npm run build:clean",
     "build": "npm run build:less && npm run build:bundle",
+    "version:major":"npm version major",
+    "version:minor":"npm version minor",
+    "version:patch":"npm version patch",
     // Using '-- ' allow to pass argument to the folloking command
-    "watch:test": "npm run test -- -w -R min"
+    "watch:test": "npm run test -- -w -R min",
+    "watch:lint": "watch 'npm run lint' .  ",
+    "watch:server": "nodemon --ignore client --ignore public index.js"
+    // Using '&' || '\B on window'
+
   },
 ```
 
 **References** 
 
+[Course Source](https://app.pluralsight.com/library/courses/npm-build-tool-introduction)
 [Npm asa build tool](https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
 
 ### Publishing on npm
@@ -157,7 +167,7 @@ npm init // name, version, entry-point matter
 
 npm publish
 npm info custom-package
-```
+``` 
 
 ## Npm Security
 
