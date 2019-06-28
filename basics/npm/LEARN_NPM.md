@@ -18,6 +18,7 @@ npm i karma // will install to dependencies
 npm i https://github.com/expressjs/express // to install package from git repo
 npm i karma, --save-dev, npm i karma -D // to save to the dev depedencies
 npm i package -D --save-exact // to set the exact version of the package
+npm install --save --save-exact package // to install the exact vesrsion without ^ or tilde
 
 npm i express@1.0.0 // installing specific version
 npm i express@1.x // latest version under 1.
@@ -41,7 +42,7 @@ npm ll --g true --long true
 npm ll --g true --json true
 
 npm start
-npm run test, npm tst, npm t
+npm run test, npm t, npm tst
 npm stop
 npm restart // if restart do not exsit will run start then stop script
  
@@ -88,6 +89,10 @@ npm init -author-name 'Seb1080' // to set the author name default as "Seb1080"
 }
 
 ```
+
+**References**
+
+[Flavio Copes](https://flaviocopes.com/package-json/)
 
 ### npm Scripts
 

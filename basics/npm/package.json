@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start:dev": "echo \"Running start:dev script\"",
+    "start:dev": "node index.js 4000",
     "stop": "echo \"Running stop script\"",
     "test": "mocha test -u bdd -R spec",
     "uglify": "echo \"Running reference to gulp script, \""
@@ -14,9 +14,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^6.1.4"
+    "mocha": "6.1.4",
+    "should": "^13.2.3",
+    "supertest": "4.0.2"
   },
   "dependencies": {
-    "should": "^13.2.3"
+    "koa": "2.7.0"
   }
 }
