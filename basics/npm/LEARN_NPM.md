@@ -129,7 +129,9 @@ Scripts can serve as single source of commadn to launch tasks in a project.
     "build:bundle": "browserify ./client/js/app.js | uglifyjs -mc > /public/js/bundle.js",
     "build:clean": "rimraf public/css/*, public/js/*",
     "prebuild": "npm run build:clean",
-    "build": "npm run build:less && npm run build:bundle"
+    "build": "npm run build:less && npm run build:bundle",
+    // Using '-- ' allow to pass argument to the folloking command
+    "watch:test": "npm run test -- -w -R min"
   },
 ```
 

@@ -19,7 +19,9 @@
     "greet": "echo 'Running greet' ",
     "pregreet": "echo 'Running pregreet' ",
     "postgreet": "echo 'Running postgreet' ",
-    "uglify": "echo \"Running reference to gulp script, \""
+    "uglify": "echo \"Running reference to gulp script, \"",
+    "watch:test": "npm run test -- -w -R min",
+    "watch:lint": "watch 'npm run lint' .  "
   },
   "jshintConfig": {
     "esnext": "true",
