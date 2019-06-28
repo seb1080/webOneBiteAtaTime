@@ -109,7 +109,6 @@ npm init // name, version, entry-point matter
 
 npm publish
 npm info custom-package
-
 ```
 
 ## Npm Security
