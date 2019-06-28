@@ -7,18 +7,35 @@
     "start": "node index.js",
     "start:dev": "node index.js 4000",
     "stop": "echo \"Running stop script\"",
+    "lint": "echo \"Running jshint script\" jshint ./",
     "test": "mocha test -u bdd -R spec",
+    "pretest": " echo \"Running pretest script\" npm run lint ",
+    "clean": "rimraf lib/*",
+    "compile": "npm run compile:ts && npm run comile:coffee",
+    "compile:coffee": " echo \"Running compile:coffee script\"  ",
+    "compile:ts": " echo \"Running compile:ts script\"  ",
+    "precompile": "npm run clean",
+    "posttest": " echo \"Running posttest script\" ",
+    "greet": "echo 'Running greet' ",
+    "pregreet": "echo 'Running pregreet' ",
+    "postgreet": "echo 'Running postgreet' ",
     "uglify": "echo \"Running reference to gulp script, \""
+  },
+  "jshintConfig": {
+    "esnext": "true",
+    "noyield": "true"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jshint": "^2.10.2",
     "mocha": "6.1.4",
     "should": "^13.2.3",
     "supertest": "4.0.2"
   },
   "dependencies": {
-    "koa": "2.7.0"
+    "koa": "2.7.0",
+    "rimraf": "2.6.3"
   }
 }
