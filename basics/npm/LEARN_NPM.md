@@ -140,8 +140,79 @@ Scripts can serve as single source of commadn to launch tasks in a project.
     "watch:lint": "watch 'npm run lint' .  ",
     "watch:server": "nodemon --ignore client --ignore public index.js"
     // Using '&' || '\B on window'
-
+  }
+```
+### Defining Engine and Repository
+```bash
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+   "push:origin": "git push --tags origin HEAD:master",
+   "push:heroku": "git push heroku master",
+   "push:s3": "s3-cli sync ./dist/ s3://example-com/prod-site/",
+   "launch:prod": "heroku open",
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    ...
+  },
+    "engine": {
+    "node": "4.0.0",
+    "npm": "6.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url":"https://gitlab.com/seb1080/webOneBiteAtaTime.git"
+  }
+}
+```
+### Scripts to go in production
+
+```bash
+ "scripts": {
+    "start": "node index.js",
+    "start:dev": "node index.js 4000",
+    "stop": "echo \"Running stop script\"",
+    "lint": "echo \"Running jshint script\" jshint ./",
+    "test": "mocha test -u bdd -R spec",
+    // pre hook
+    "pretest": " echo \"Running pretest script\" npm run lint ",
+    "clean": "rimraf lib/*",
+    // Using && to run 2 commands
+    "compile": "npm run compile:ts && npm run comile:coffee",
+    "compile:coffee": " echo \"Running compile:coffee script\"  ",
+    "compile:ts": " echo \"Running compile:ts script\"  ",
+    "precompile": "npm run clean",
+    // post hook
+    "posttest": " echo \"Running posttest script\" ", 
+    "greet": "echo 'Running greet' ",
+    "pregreet": "echo 'Running pregreet' ",
+    "postgreet": "echo 'Running postgreet' ",
+    "uglify": "echo \"Running reference to gulp script, \""
+    // Using '|' the 'pipe' result from command on the left to the operation to the right
+    // Using '>' the redirection operator create or overright a file by a new one
+    "build:less": "lessc client/less/demo.less public/css/site.css",
+    "build:bundle": "browserify ./client/js/app.js | uglifyjs -mc > /public/js/bundle.js",
+    "build:clean": "rimraf public/css/*, public/js/*",
+    "prebuild": "npm run build:clean",
+    "build": "npm run build:less && npm run build:bundle",
+    "version:major":"npm version major",
+    "version:minor":"npm version minor",
+    "version:patch":"npm version patch",
+    // Using '-- ' allow to pass argument to the folloking command
+    "watch:test": "npm run test -- -w -R min",
+    "watch:lint": "watch 'npm run lint' .  ",
+    "watch:server": "nodemon --ignore client --ignore public index.js",
+    
+    "deploy:prod": "nmp run test:deploy -s && npm run build -s && npm run version:patch",
+    "test:deploy": "npm t -- -R dot",
+    "deploy:prod": "",
+  }
 ```
 
 **References** 

@@ -20,9 +20,13 @@
     "pregreet": "echo 'Running pregreet' ",
     "postgreet": "echo 'Running postgreet' ",
     "uglify": "echo \"Running reference to gulp script, \"",
+    "push:origin": "git push --tags origin HEAD:master",
+    "push:heroku": "git push heroku master",
+    "push:s3": "s3-cli sync ./dist/ s3://example-com/prod-site/",
     "watch:test": "npm run test -- -w -R min",
     "watch:lint": "watch 'npm run lint' .  ",
-    "watch:server": "nodemon --ignore client --ignore public index.js"
+    "watch:server": "nodemon --ignore client --ignore public index.js",
+    "launch:prod": "heroku open",
   },
   "jshintConfig": {
     "esnext": "true",
@@ -40,5 +44,13 @@
   "dependencies": {
     "koa": "2.7.0",
     "rimraf": "2.6.3"
+  },
+  "engine": {
+    "node": "4.0.0",
+    "npm": "6.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url":"https://gitlab.com/seb1080/webOneBiteAtaTime.git"
   }
 }
