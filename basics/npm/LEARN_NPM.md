@@ -139,7 +139,7 @@ Scripts can serve as single source of commadn to launch tasks in a project.
     "watch:test": "npm run test -- -w -R min",
     "watch:lint": "watch 'npm run lint' .  ",
     "watch:server": "nodemon --ignore client --ignore public index.js"
-    // Using '&' || '\B on window'
+    // Using '&' || '\B on window' maen run in parallel
   }
 ```
 ### Defining Engine and Repository
@@ -177,7 +177,6 @@ Scripts can serve as single source of commadn to launch tasks in a project.
  "scripts": {
     "start": "node index.js",
     "start:dev": "node index.js 4000",
-    "stop": "echo \"Running stop script\"",
     "lint": "echo \"Running jshint script\" jshint ./",
     "test": "mocha test -u bdd -R spec",
     // pre hook
@@ -190,9 +189,7 @@ Scripts can serve as single source of commadn to launch tasks in a project.
     "precompile": "npm run clean",
     // post hook
     "posttest": " echo \"Running posttest script\" ", 
-    "greet": "echo 'Running greet' ",
-    "pregreet": "echo 'Running pregreet' ",
-    "postgreet": "echo 'Running postgreet' ",
+  
     "uglify": "echo \"Running reference to gulp script, \""
     // Using '|' the 'pipe' result from command on the left to the operation to the right
     // Using '>' the redirection operator create or overright a file by a new one
@@ -201,18 +198,24 @@ Scripts can serve as single source of commadn to launch tasks in a project.
     "build:clean": "rimraf public/css/*, public/js/*",
     "prebuild": "npm run build:clean",
     "build": "npm run build:less && npm run build:bundle",
-    "version:major":"npm version major",
-    "version:minor":"npm version minor",
     "version:patch":"npm version patch",
-    // Using '-- ' allow to pass argument to the folloking command
-    "watch:test": "npm run test -- -w -R min",
-    "watch:lint": "watch 'npm run lint' .  ",
-    "watch:server": "nodemon --ignore client --ignore public index.js",
-    
-    "deploy:prod": "nmp run test:deploy -s && npm run build -s && npm run version:patch",
+    // **Script to deploy** 
+    "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch && npm run push && npm run launch:prod",
     "test:deploy": "npm t -- -R dot",
     "deploy:prod": "",
   }
+```
+#### Move deploy:plod to deployProd.sh
+
+```bash
+"scripts": {
+// **Script to deploy** 
+    "deploy:prod": "bash ./deployProd.sh",
+    "test:deploy": "npm t -- -R dot",
+    "deploy:prod": "",
+}
+
+
 ```
 
 **References** 
