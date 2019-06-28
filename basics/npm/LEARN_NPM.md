@@ -42,6 +42,8 @@ npm ll --g true --json true
 
 npm start
 npm run test, npm tst, npm t
+npm stop
+npm restart // if restart do not exsit will run start then stop script
  
 npm prune // to remove package from node_modules that are not in the package.json
 pnm prune --production 
@@ -86,10 +88,14 @@ npm init -author-name 'Seb1080' // to set the author name default as "Seb1080"
 }
 
 ```
+
 ### npm Scripts
 
 Scripts can serve as single source of throught for all tasks in a project.
+```bash
 
+
+```
 
 ### Publishing on npm
 

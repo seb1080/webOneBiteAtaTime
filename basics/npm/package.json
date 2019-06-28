@@ -5,14 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node test.js",
-    "uglify": "gulp compress" // to run custom command uglify
+    "start:dev": "echo \"Running start:dev script\"",
+    "stop": "echo \"Running stop script\"",
+    "test": "mocha test -u bdd -R spec",
+    "uglify": "echo \"Running reference to gulp script, \""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  },
   "dependencies": {
-    "express": "^4.17.1"
+    "should": "^13.2.3"
   }
 }
