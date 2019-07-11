@@ -27,6 +27,10 @@ git commit -m "commentaire" -> Add comment after a change in the file.
 
 `$ git merge <branch>` // merge the into the ongoing branch
 
+`$ git remote -v` // To display origin
+
+`$ git remote set-url origin https://seb1080...` // To change remote repo
+
 
 # Vim editor in Git bash
 
@@ -192,3 +196,10 @@ git commit -am "comment"
 `git rebase --abort`: to abort the rebasing
 
 `git rebase --skip`; to skip the step
+
+
+## .gitignore file
+
+**References**
+
+[gitignore menerator](https://gitignore.io/)

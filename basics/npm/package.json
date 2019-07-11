@@ -1,0 +1,56 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "node index.js 4000",
+    "stop": "echo \"Running stop script\"",
+    "lint": "echo \"Running jshint script\" jshint ./",
+    "test": "mocha test -u bdd -R spec",
+    "pretest": " echo \"Running pretest script\" npm run lint ",
+    "clean": "rimraf lib/*",
+    "compile": "npm run compile:ts && npm run comile:coffee",
+    "compile:coffee": " echo \"Running compile:coffee script\"  ",
+    "compile:ts": " echo \"Running compile:ts script\"  ",
+    "precompile": "npm run clean",
+    "posttest": " echo \"Running posttest script\" ",
+    "greet": "echo 'Running greet' ",
+    "pregreet": "echo 'Running pregreet' ",
+    "postgreet": "echo 'Running postgreet' ",
+    "uglify": "echo \"Running reference to gulp script, \"",
+    "push:origin": "git push --tags origin HEAD:master",
+    "push:heroku": "git push heroku master",
+    "push:s3": "s3-cli sync ./dist/ s3://example-com/prod-site/",
+    "watch:test": "npm run test -- -w -R min",
+    "watch:lint": "watch 'npm run lint' .  ",
+    "watch:server": "nodemon --ignore client --ignore public index.js",
+    "launch:prod": "heroku open",
+  },
+  "jshintConfig": {
+    "esnext": "true",
+    "noyield": "true"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jshint": "2.10.2",
+    "mocha": "6.1.4",
+    "should": "13.2.3",
+    "supertest": "4.0.2"
+  },
+  "dependencies": {
+    "koa": "2.7.0",
+    "rimraf": "2.6.3"
+  },
+  "engine": {
+    "node": "4.0.0",
+    "npm": "6.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url":"https://gitlab.com/seb1080/webOneBiteAtaTime.git"
+  }
+}
