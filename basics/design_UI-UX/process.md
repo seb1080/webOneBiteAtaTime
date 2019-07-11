@@ -1,15 +1,19 @@
-
 # Design Process
 
 Understand the user journey and his action.
 
-For a web app define a style Page has a index.html.
+For a web app define a style Page as a index.html.
 
 Get inspire by example.
 
-## Define Content Structure
+## Planning Content Structure
 
 Create the tree structure of the information.
+
+make sure to have contents.
+
+## Define Content Structure
+
 
 
 - Define the font
