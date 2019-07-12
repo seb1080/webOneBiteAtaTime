@@ -214,8 +214,6 @@ Scripts can serve as single source of commadn to launch tasks in a project.
     "test:deploy": "npm t -- -R dot",
     "deploy:prod": "",
 }
-
-
 ```
 
 **References** 
@@ -246,6 +244,11 @@ npm info custom-package
 ## Npm Security
 
 npm audit start at npm>=6.0.0 and gretter.
+
+```
+npm audit
+npm audit fix
+```
 
 ### **npm audit** command
   * npm audit will detect security holes
