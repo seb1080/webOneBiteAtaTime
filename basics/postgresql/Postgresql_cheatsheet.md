@@ -32,7 +32,7 @@ psql -U <username> -d <database> -h <hostname>
 psql --username=<username> --dbname=<database> --host=<hostname>
 ```
 
-##### disconnect
+Disconnect
 
 ```sql
 \q
@@ -45,7 +45,7 @@ Clear the screen
 (CTRL + L)
 ```
 
-##### info
+Info
 
 ```sql
 \conninfo
