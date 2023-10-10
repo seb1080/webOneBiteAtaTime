@@ -1,6 +1,7 @@
 # Redis Cheatsheet
 
 -redis-server /path/redis.conf # start redis with the related configuration file
+
 -redis-cli # opens a redis prompt - -[Redis Docs](https://redisdesktopmanager.readthedocs.io/en/latest/) -
 -## TXP Example -
 
@@ -20,7 +21,7 @@ gcc_version:4.9.2
 ...
 ```
 
--```bash
+```bash
 -> keys *
 ->> all keys -
 -> KEYS *geoindex
