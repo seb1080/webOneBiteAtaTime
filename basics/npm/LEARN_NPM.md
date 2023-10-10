@@ -2,7 +2,6 @@
 
 Node Package Manager is a software package registry. A package is a JS module that must contain a package.json. It can be private or public.
 
-
 [npm devhint cheat sheet](https://devhints.io/npm)
 
 [npm apeli cheat sheet](https://kapeli.com/cheat_sheets/npm.docset/Contents/Resources/Documents/index)
@@ -15,9 +14,9 @@ npm help-search install // to search all the reference about install
 
 npm install, npm i
 npm install -h
-npm i karma // will install to dependencies
+npm i lodash // will install to dependencies
 npm i https://github.com/expressjs/express // to install package from git repo
-npm i karma, --save-dev, npm i karma -D // to save to the dev depedencies
+npm i lodash, --save-dev, npm i lodash -D // to save to the dev depedencies
 npm i package -D --save-exact, npm i package -D -E // to set the exact version of the package
 npm install --save --save-exact package // to install the exact vesrsion without ^ or tilde
 
@@ -26,10 +25,10 @@ npm i express@1.x // latest version under 1.
 npm i underscore@">=1.1.0 <1.4.0"
 
 npm view express versions  --json
-npm --version, npm -v // to get the version of npm 
+npm --version, npm -v // to get the version of npm
 
 
-npm uninstall karma --save, npm rm karma -D
+npm uninstall lodash --save, npm rm lodash -D
 npm r underscore -g // to remove global package
 
 npm update --dev
@@ -39,7 +38,7 @@ npm update -g gulp // to update global package
 
 npm list, npm ll, npm ls
 npm ll --depth 0
-npm ll --g true, npm ll --global true 
+npm ll --g true, npm ll --global true
 npm ll --g true --depth 0
 npm ll --g true --long true
 npm ll --g true --json true
@@ -48,23 +47,22 @@ npm run // to list all scripts command
 npm start
 npm run test, npm t, npm tst
 npm stop
-npm restart // if restart do not exsit will run start then stop script
- 
+npm restart // if restart do not exit will run start then stop script
 npm prune // to remove package from node_modules that are not in the package.json
-pnm prune --production 
+pnm prune --production
 
 npm repo express // will set you to the repo page
 
-npm i npm@latest -g // run this as admin to upgrade npm 
-
+npm i npm@latest -g // run this as admin to upgrade npm
 ```
 
 ### npm CLI Niceties
+
 ```bash
 -h, --help // for help
 -s, --silent // to silent the script msg to the terminal
-
 ```
+
 [NPM shorthands and Other CLI](https://docs.npmjs.com/misc/config#shorthands-and-other-cli-niceties)
 
 ### npm init
@@ -92,7 +90,6 @@ npm init -author-name 'Seb1080' // to set the author name default as "Seb1080"
   "author": "",
   "license": "ISC"
 }
-
 ```
 
 **References**
@@ -120,7 +117,7 @@ Scripts can serve as single source of commadn to launch tasks in a project.
     "compile:ts": " echo \"Running compile:ts script\"  ",
     "precompile": "npm run clean",
     // post hook
-    "posttest": " echo \"Running posttest script\" ", 
+    "posttest": " echo \"Running posttest script\" ",
     "greet": "echo 'Running greet' ",
     "pregreet": "echo 'Running pregreet' ",
     "postgreet": "echo 'Running postgreet' ",
@@ -188,8 +185,7 @@ Scripts can serve as single source of commadn to launch tasks in a project.
     "compile:ts": " echo \"Running compile:ts script\"  ",
     "precompile": "npm run clean",
     // post hook
-    "posttest": " echo \"Running posttest script\" ", 
-  
+    "posttest": " echo \"Running posttest script\" ",
     "uglify": "echo \"Running reference to gulp script, \""
     // Using '|' the 'pipe' result from command on the left to the operation to the right
     // Using '>' the redirection operator create or overright a file by a new one
@@ -199,7 +195,7 @@ Scripts can serve as single source of commadn to launch tasks in a project.
     "prebuild": "npm run build:clean",
     "build": "npm run build:less && npm run build:bundle",
     "version:patch":"npm version patch",
-    // **Script to deploy** 
+    // **Script to deploy**
     "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch && npm run push && npm run launch:prod",
     "test:deploy": "npm t -- -R dot",
     "deploy:prod": "",
@@ -209,14 +205,14 @@ Scripts can serve as single source of commadn to launch tasks in a project.
 
 ```bash
 "scripts": {
-// **Script to deploy** 
+// **Script to deploy**
     "deploy:prod": "bash ./deployProd.sh",
     "test:deploy": "npm t -- -R dot",
     "deploy:prod": "",
 }
 ```
 
-**References** 
+**References**
 
 [Course Source](https://app.pluralsight.com/library/courses/npm-build-tool-introduction)
 [Npm asa build tool](https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
@@ -228,9 +224,9 @@ Create a account on npm.
 [npm create a account](https://www.npmjs.com/signup)
 
 ```bash
-npm adduser 
+npm adduser
 Username:
-Password: 
+Password:
 Email:
 
 // set git repo
@@ -239,7 +235,7 @@ npm init // name, version, entry-point matter
 
 npm publish
 npm info custom-package
-``` 
+```
 
 ## Npm Security
 
@@ -252,7 +248,7 @@ npm audit fix
 
 ### **npm audit** command
   * npm audit will detect security holes
-  * Upgrade to fixed versions where possible 
+  * Upgrade to fixed versions where possible
 
 **References**
 

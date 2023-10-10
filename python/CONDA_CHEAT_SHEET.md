@@ -10,9 +10,9 @@ $ python --version
 
 `conda --version` Check conda version
 
-`conda info`	 Verify conda is installed, check version
+`conda info` Verify conda is installed, check version
 
-`conda update conda`	Update conda package and environment manager
+`conda update conda` Update conda package and environment manager
 
 `conda update anaconda`	Update the anaconda meta package
 
@@ -28,23 +28,23 @@ $ python --version
 
 `conda create --name snowflakes biopython`
 
-`conda create -n snowflakes biopython`	Create an environment and install program(s)
+`conda create -n snowflakes biopython` Create an environment and install program(s)
 
 `conda activate snowflakes`	Activate the new environment to use it
 
 `conda deactivate`	Deactivate the environment
 
-`conda create -n bunnies python=3.9 astroid`	Create a new environment, specify Python version
+`conda create -n bunnies python=3.9 astroid` Create a new environment, specify Python version
 
 `conda create -n foo instrain awscli samtools python=3.8` Create a new environment with a set of packages and specific version of Python
 
-`conda create -n flowers --clone snowflakes`	Make exact copy of an environment
+`conda create -n flowers --clone snowflakes` Make exact copy of an environment
 
 `conda remove -n flowers --all`	Delete an environment
 
 `conda env list` List all envs
 
-`conda env export > env.yml`	Save the current Package-specific environment to a file
+`conda env export > env.yml` Save the current Package-specific environment to a file
 
 `conda env export --file env.yml` Saving an entire environment to a file
 
@@ -54,7 +54,7 @@ $ python --version
 
 `conda env update -n coolbase --file environment.yml`	install and/or update packages from environment.yml
 
-`conda env remove --name bamqc` Remove Virtual Environment
+`conda env remove --name <env-name> --all` Remove Virtual Environment
 
 `CONDA_SUBDIR=osx-arm64 conda create -n test_env --dry-run python=3.8 llvm-openmp cython numpy pip "matplotlib-base>=3.0.3" "protobuf >=3.11.2,<4.0.0" "scipy >=1.3.2,<2.0.0"`	Conda dry run environment on a specific platform
 
@@ -64,7 +64,7 @@ $ python --version
 
 `conda search --full-name python`
 
-`conda search -f python`	Check versions of Python available to install
+`conda search -f python` Check versions of Python available to install
 
 `conda search ipython=8.3.0 --info | sed '/file name/,/timestamp/d'` For quick checking package dependencies (for example, for all python versions)
 
@@ -94,7 +94,7 @@ $ python --version
 
 ## Managing Packages, Including Python
 
-`conda list`	View list of packages and versions installed in active environment
+`conda list` View list of packages and versions installed in active environment
 
 `conda list | grep pandas` Search package in the list
 
@@ -134,7 +134,7 @@ $ python --version
 
 `conda install m2-patch posix`	Windows only
 
-`conda install --use-local click`	
+`conda install --use-local click`
 
 `conda skeleton pypi pyinstrument`
 
@@ -142,13 +142,13 @@ $ python --version
 
 ## Removing Packages or Environments
 
-`conda remove --name bunnies beautiful-soup`	Remove one package from any named environment
+`conda remove --name bunnies beautiful-soup` Remove one package from any named environment
 
-`conda remove beautiful-soup`	Remove one package from the active environment
+`conda remove beautiful-soup` Remove one package from the active environment
 
-`conda remove --name bunnies beautiful-soup astroid`	Remove multiple packages from any environment
+`conda remove --name bunnies beautiful-soup astroid` Remove multiple packages from any environment
 
-`conda remove --name snakes --all`	Remove an environment (remove all packages)
+`conda remove --name snakes --all` Remove an environment (remove all packages)
 
 `conda uninstall packagename` Remove one package. Alias for conda remove
 

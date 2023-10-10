@@ -30,7 +30,7 @@ window.clearInterval();
 
 Inside of Node.js, the top-level scope is not the global scope, it is the local scope of the module. In the comparaison in the browser the top-level scope is the `window` Object.
 
-So in the browser, if we create a variable `let newVariable = 10` 
+So in the browser, if we create a variable `let newVariable = 10`
 
 it can also be represent as `let window.newVariable = 10`
 

@@ -18,7 +18,7 @@ Sébastien Blais-F. (me)
 
 Visibility, gain credibility by design and functionality
 
-1. To feel a demand for my knowledge.(small business, StreamScan, ADJM, Ugo Negroni a-g., Empire Gold, Marina, Anagraph, Jakarto)
+1. To feel a demand for my knowledge.(small business)
 
 2. To turn those visitors into client.
 
@@ -28,13 +28,13 @@ Visibility, gain credibility by design and functionality
 
 5. To be seen as a specialist in my area of expertise.
 
-6. Move out of Linkedin, create a real network of relationship
+6. Move out of LinkedIn, create a real network of relationship
 
-## Who is the Audiance ?
+## Who is the Audience ?
 
 Small business owner, gouvernement, business partners
 
-## What is important for the Audiance ?
+## What is important for the Audience ?
 
 Understand my work, thrust the quality of my work, contact me
 
@@ -47,9 +47,9 @@ Understand my work, thrust the quality of my work, contact me
 
 # Tech Specs
 
-Mobile-first, responsive Design, 
+Mobile-first, responsive Design,
 
-Nuxt.js, i18n, Blog, 
+Nuxt.js, i18n, Blog,
 
 No back-end
 
