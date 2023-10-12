@@ -5,20 +5,20 @@
 
 - Stateless: dependent only on the input parameters that are supplied.
 
-- Stateful: relies on the `session state` of some kind stored in a particular werver to process the request.
+- Stateful: relies on the `session state` of some kind stored in a particular server to process the request.
 
-To avoid statefull nature cookies need to be use on the client side.
+To avoid stateful nature cookies need to be use on the client side.
 
 
-...SPA, 
+...SPA,
 
-...PWA  
+...PWA
 
 
 ...RESTful API
 
 
-# ProgressiveWorkOut Case Study
+# Progressive WorkOut Case Study
 
 Front-end     HTTPS request       Back-end                 Database
 PWA
@@ -46,7 +46,7 @@ Example base on the progressiveWorkOut
 - Functional Components: Comp. is render has a template with props. Func. comp. are not reactive.
 
 
-# root                                      
+# root
   App.vue
                 v-toolbar
                 v-content
@@ -55,17 +55,17 @@ Example base on the progressiveWorkOut
   LoginPage.vue
                 TheLoginForm
 
-  HomePage.vue 
+  HomePage.vue
 
 
-  ExercisePage.vue 
+  ExercisePage.vue
                 ExerciseCreation
                 ExerciseList
 
   MetricPage.vue
 
 
-  SettingsPage.vue 
+  SettingsPage.vue
 
 
   ProfilePage.vue
@@ -77,10 +77,6 @@ Example base on the progressiveWorkOut
 [Planing Front End App](https://developer.telerik.com/featured/planning-front-end-javascript-application/)
 [Offline-first](https://developer.chrome.com/apps/offline_apps)
 [Field Guide to Web App](http://www.html5rocks.com/webappfieldguide/toc/index/)
-[]()
-[]()
-[]()
-
 
 # Semantic Versioning
 

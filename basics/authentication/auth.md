@@ -15,7 +15,7 @@
 
 - Authentication: The process of identifying a user as the person they clain to be, ex: password, driving License.
 
-- Authorization: The process to validate that the use have the proper right to access part of the web application.  
+- Authorization: The process to validate that the use have the proper right to access part of the web application.
 
 ### Cookie-based Sessions
 

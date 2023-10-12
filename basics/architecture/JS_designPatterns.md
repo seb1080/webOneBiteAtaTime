@@ -13,20 +13,20 @@ The skills will be properly acquire when I will by able to explain the patterns 
 
 3. **Removing barier to learning**
   - have a clean desk
-  - have cofee cup on the desk
+  - have coffe cup on the desk
   - have a apple on the desk
   - have delicious chocolate bar on the desk
   - have water to the desk
   - have great chair, keyboard, mouse, 2 monitors
   - have ritual of schedule learning time during the week
 
-4. **Pre-commit** 
+4. **Pre-commit**
   - Do the research phase of 2-3 hrs.
   - Define in the commitment of 20 hrs is worted.
   - Put in place the scheduale to learn the next skill.
-  - Evaluate what could interfer the success of the time frame. 
+  - Evaluate what could interfer the success of the time frame.
   - Have a ultimate goal to over at the end of the learning process and a reward.
-  - Have multiple gaol and reward during the learning process. 
+  - Have multiple gaol and reward during the learning process.
 
 ----------------------------------------------------------------------------------------
 
@@ -63,12 +63,12 @@ _Reference_
 
 #### Singleton Pattern
 
-**Singleton** is thus know because it restricts instantiation of a class to a single object. 
+**Singleton** is thus know because it restricts instantiation of a class to a single object.
 It differ from static classes as we can delay their initialization, because it may require some information that is not available during the initialization time.
 
 In JS, **Singleton** serve as a shared resource *namespacing* which isolate code from the global namespace, to provide a single point of access for functions.
 
-One caracteristic of the **Singleton** is the *immuability*. 
+One caracteristic of the **Singleton** is the *immuability*.
 
 **The old way** using closures and IIFE it is possible to write and Store(Redux).
 `UserStore` will be set to the result of the IIFE - an object that exposes 2 functions, but that does not grant direct access to the collection of data.
@@ -222,15 +222,15 @@ class Truck {
     this.state = state || "used";
     this.wheelSize = wheelSize || "large";
     this.color = color || "blue";
-  }  
+  }
 }
 
 class VehicleFactory {
   constructor(vehicleType){
     this.vehicleClass = Car; // default vehiculeClass
-    if (vehicleType === "truck") {               
+    if (vehicleType === "truck") {
         this.vehicleClass = Truck;
-    } 
+    }
   }
 
   createVehicle(options) {
@@ -353,7 +353,7 @@ console.log( jeep.toString() )
 #### Observer Pattern
 
 
-### Structural 
+### Structural
 
 Structural patterns focus on ways to manage relationships between object to make the application architecture scalable.
 
@@ -417,7 +417,7 @@ Divide the application in 3 parts:
   * **View**: Represent the layout and apperance of what a user interact with.
   * **ViewModel**: It is a abstraction of the **View** exposing public proterties and commands. MVVM have a binder, which automates communication between the view and its bound properties in the view model.
 
-  **MVVM** vs. **MVP** A view directly binds to properties on the viewModel to send and receive updates.   
+  **MVVM** vs. **MVP** A view directly binds to properties on the viewModel to send and receive updates.
 
 ![Vue.js Design Pattern](./img/MVVMPattern.png)
 
