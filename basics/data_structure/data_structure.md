@@ -1,6 +1,6 @@
 [Data Structure](https://www.geeksforgeeks.org/data-structures/)
 
-in computer science a data structuure is a data organization and storeage format that enables efficent access and modification.
+in computer science a data structure is a data organization and storage format that enables efficient access and modification.
 
 - Array
 - Linked List
