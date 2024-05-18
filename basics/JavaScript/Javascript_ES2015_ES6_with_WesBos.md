@@ -1,13 +1,14 @@
-# Javascript ES6 for Everyone.
+# Javascript ES6 for Everyone
 
-# Module_1 New Variables
+## Module_1 - New Variables
 
-In JavaScript, variable names (including function names) must be valid identifiers. An identifier must start with a-z, A-Z, $, or \_. It can then contain any of those characters plus the numerals 0-9.
+In JavaScript, variable names (including function names) must be valid identifiers.
+An identifier must start with a-z, A-Z, $, or \_. It can then contain any of those characters plus the numerals 0-9.
 
 ## Before
 
-var : The scope of var is the enclosing function scope or the global scope.
-var can be update.
+var: The scope of var is the enclosing function scope or the global scope.
+var: can be update.
 
 ```js
 var width = 10;
@@ -24,9 +25,9 @@ if (true) {
 
 let and const are block-Scoped, inside the {}
 
-let : can be update, mutable
+let: can be update, mutable
 
-const : can not be update, mutable
+const: can not be update, mutable
 
 ```js
 let width = 12;
@@ -46,21 +47,21 @@ if (true) {
 - use `let` if rebinding is needed
 - don't use var
 
-# Module_2 Function Improvements
+## Module_2 - Function Improvements
 
 ## Arrow functions
 
-ref: (https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/)
-
 Arrow functions are anonymous function that don't have it own this, arguments, super, new.target.
 
+[Arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/)
+
 ```js
-// Implicite return
-const arr2 = numbers.map(number => `${number} arr2`);
+// Implicit return
+const arr2 = numbers.map((number) => `${number} arr2`);
 console.log(arr2);
 
-// Explicite return
-const arr3 = numbers.map(number => {
+// Explicit return
+const arr3 = numbers.map((number) => {
   return `${number} arr3`;
 });
 console.log(arr3);
@@ -71,14 +72,14 @@ const arr4 = numbers.map(() => {
 });
 console.log(arr4);
 
-// Implicite Object return
+// Implicit Object return
 const race = `100m Dash`;
 const winners = ["seb", "seb1080", "paco"];
 // The () of the return
 const win = winners.map((winner, i) => ({
   name: winner,
   race: race,
-  place: i
+  place: i,
 }));
 // so cool
 console.table(win);
@@ -126,14 +127,14 @@ The arrow functions should not be use for :
 
   // Don't use () => {} has a constructor
   class Car {
-    constructor(make, colour) {
+    constructor(make, color) {
       this.make = make
-      this.colour = colour
+      this.color = color
     }
   }
   // () => {} can be use to add a method to a class
   Car.prototype.summarize = function() {
-    return `This car is a ${this.make} in the colour ${this.colour}`
+    return `This car is a ${this.make} in the color ${this.color}`
   }
 
   // Arrow functions don't access the arguments object.
@@ -162,29 +163,28 @@ function calculateBill(total, tax = 0.13, tip = 0.15) {
 }
 ```
 
-# Module_3 Templating String
+## Module_3 - Templating String
 
 ```js
 const string = `string`;
 
-const temString = ` template ${string} 
+const temString = ` template ${string}
                     are awesome`;
-// Template string is great for formating HTML markup
+// Template string is great for formatting HTML markup
 const dogs = [
   { name: "Snickers", age: 2 },
   { name: "Hugo", age: 8 },
   { name: "Croby", age: 6 },
-  { name: "Snopy" }
+  { name: "Snopy" },
 ];
 
 const markup = `<ul class="dogs">
     ${dogs
       .map(
-        dog =>
+        (dog) =>
           `<li>${dog.name}
 
     ${dog.age ? `is ${dog.name} year old` : "have no age"}
-    
     </li>`
       )
       .join("")}
@@ -210,7 +210,7 @@ const sentence = tagging`My dog's name is ${name} and he is ${age} year old`;
 document.body.innerHTML = sentence;
 ```
 
-# Module_4 Additional String Imporvements
+## Module_4 - Additional String Improvements
 
 ```js
 const str = `newString`;
@@ -224,7 +224,7 @@ str.includes("Str"); // true
 str.repeat(3); // newStringnewStringnewString
 ```
 
-# Module_5 Destructuring
+## Module_5 - Destructuring
 
 Destructuring allow to extract properties, key from a object, map, set into a variable.
 
@@ -233,10 +233,10 @@ Destructuring allow to extract properties, key from a object, map, set into a va
 ```js
 const object = {
   prop1: "Seb",
-  prop2: "Blais"
+  prop2: "Blais",
 };
 
-const { prop1, prop2 } = object; // Desstruring
+const { prop1, prop2 } = object; // Deconstruction
 
 const seb = {
   first: "Seb",
@@ -244,12 +244,12 @@ const seb = {
   links: {
     social: {
       twitter: "https://twitter.com/seb",
-      facebook: "https://facebook.com/seb.developer"
+      facebook: "https://facebook.com/seb.developer",
     },
     web: {
-      blog: "https://seb.com"
-    }
-  }
+      blog: "https://seb.com",
+    },
+  },
 };
 
 // rename facebook for fb
@@ -258,7 +258,7 @@ const { twitter, facebook: fb } = seb.links.social;
 // Create a object
 const settings = {
   width: 300,
-  color: "black"
+  color: "black",
 };
 
 // Set default value if the settings object don't have the prop
@@ -277,11 +277,11 @@ const [name, id, website] = arr; // Destructuring Array
 
 const data = "aaaaaaaaaa,bbbbbbbbb,cccccccc,ddd";
 
-const [a, b, c, d] = data.splti(","); // Destruc String into a Array
+const [a, b, c, d] = data.split(","); // Deconstruct string into a Array
 
 const team = ["Seb", "Marco", "Mick", "Gab", "Frank"];
 
-const [capitain, assistant, ...marins] = team; // Rest Operator
+const [captain, assistant, ...marins] = team; // Rest Operator
 ```
 
 ## Swapping variables
@@ -305,17 +305,17 @@ let [a, , b] = f();
 ## Destructuring Functions
 
 ```js
-function tipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
+function tipCalculator({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
   return total + tip * total + tax * total;
 }
 
 // Arguments can be pass in a different order
-const bill = tipCalc({ tip: 0.2, total: 200 });
+const bill = tipCalculator({ tip: 0.2, total: 200 });
 ```
 
-# Module_6 Iterables & Looping
+## Module_6 Iterables & Looping
 
-## Existing Loopin in js
+## Existing Looping in js
 
 ```js
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib']
@@ -342,14 +342,15 @@ for(const cut of cuts){
 
 // .entries() return a [key, value]
 for(const cut of cuts){
-  // cut can be descructruct into a array
+  // cut can be deconstruction into a array
   if(const [i ,cut] of cuts.entries()) {
     console.log(` ${} is the ${i + 1}`)
   }
 }
 ```
 
-# Module_7 An Array of Array Improvements
+## Module_7 - An Array of Array Improvements
+
 ```js
 // Array.from()
 const nodeList = document.querySelectorAll('.items p')
@@ -395,7 +396,7 @@ let major = ages.some(age => (age >= 18) ) // true
 let allMajor = ages.every(age => (age >= 18) ) // false
 ```
 
-# Module_8 ...Spread Syntax And ...Rest parameters
+## Module_8 - ...Spread Syntax And ...Rest parameters
 
 ...Spread syntax allows an iterable to be expendanded where zero or more arguments are expected. It will apply a array as a individual elements.
 
@@ -416,7 +417,7 @@ const people = Array.from("nodeList"); // Convert arrayList into array
 const deepDish = {
   pizzaName: "Deep Dish",
   size: "Medium",
-  ingredients: ["Marinara", "Italian Sausage", "Dough", "Cheese"]
+  ingredients: ["Marinara", "Italian Sausage", "Dough", "Cheese"],
 };
 
 const arr = ["Milk", "Flour", ...deepDish.ingredients];
@@ -430,14 +431,14 @@ The ...Rest parameter allows us to represent an indefinite number of arguments a
 ```js
 // take amounts has a array
 function calCurrency(rate, ...amounts) {
-  return amounts.map(amount => amount * rate);
+  return amounts.map((amount) => amount * rate);
 }
 ```
 
-# Module_9 Object Literal Upgrades
+## Module_9 Object Literal Upgrades
 
 Object can be initialized using New Object(), Object.create(), or Literal notation.
-Objects consist of properties, wich are used to describe an object. Values of object properties can either contain primitive data types or other objects.
+Objects consist of properties, witch are used to describe an object. Values of object properties can either contain primitive data types or other objects.
 
 ```js
 const fName = 'Seb', lName = 'Blais', age = 11, job = `Web Dev`
@@ -476,33 +477,34 @@ const shirt = {
 }
 ```
 
-# Module_10 Promises
+## Module_10 - Promises
 
 The Promises object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.
 
 A Promise will return a value between now and the end of time.
 
-A Promise can have 3 States :
+A Promise can have 3 States:
 
-    - Pending : Initial state, neither fulfilled or rejected.
-    - Fulfilled : Operation completed successfully.
-    - Rejected : Operation failed.
+* Pending: Initial state, neither fulfilled or rejected.
+* Fulfilled: Operation completed successfully.
+* Rejected: Operation failed.
 
-A pending Promise can eiter be fulfilled with a return value, or rejected with a reason (Error).
+A pending Promise can either be fulfilled with a return value, or rejected with a reason (Error).
 
-JS is a single threaded, bits of scripts can't run at the same time, they have to run one after another. JS share a thread with the same queue as painting, updating styles and event handling. One of the activities will dealy the others one.
+JS is a single threaded, bits of scripts can't run at the same time, they have to run one after another. JS share a thread in the browser with the same queue as painting, updating styles and event handling. One of the activities will delay the others one.
 
-Asynchronous : In programming, asynchronous events are those occuring independently of the main program flow.
+Asynchronous: In programming, asynchronous events are those occurring independently of the main program flow.
 
 ```js
 // Fetching data using fetch that implement a Promise
-const MTLWIFI = `http://donnees.ville.montreal.qc.ca/dataset/08f12925-c6b2-405f-bd01-744674d97bff/resource/11860f23-30c9-4221-ae00-a39af4684210/download/mtlwifi_bornes.geojson`;
-const response = fetch(MTLWIFI)
-  .then(data => data.json()) // convert into desired format
-  .then(data => {
+const MTL_WIFI_URL = `http://donnees.ville.montreal.qc.ca/dataset/08f12925-c6b2-405f-bd01-744674d97bff/resource/11860f23-30c9-4221-ae00-a39af4684210/download/mtlwifi_bornes.geojson`;
+
+const response = fetch(MTL_WIFI_URL)
+  .then((data) => data.json()) // convert into desired format
+  .then((data) => {
     console.log(data);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error(err);
   });
 ```
@@ -517,9 +519,9 @@ const p = new Promise((resolve, reject) => {
   }, 1000);
 });
 
-p.then(data => {
+p.then((data) => {
   console.log(data);
-}).catch(err => {
+}).catch((err) => {
   console.error(err);
 });
 ```
@@ -527,29 +529,29 @@ p.then(data => {
 Promise.all(iterable) method returns a single Promise that resolve when all of the promises in the iterable argument have resolved or when the iterable argument contains no promises.
 
 ```js
-const p1 = new Promise(resolve => {
+const p1 = new Promise((resolve) => {
   setTimeout(() => {
     resolve({ temp: 20, location: `Montreal` });
   }, 2000);
 });
-const p2 = new Promise(resolve => {
+const p2 = new Promise((resolve) => {
   setTimeout(() => {
     resolve({ text: `What a nice day`, location: `Montreal` });
   }, 500);
 });
 
-Promise.all([p1, p2]).then(responses => {
-  const [wheater, tweet] = responses;
-  console.log(`responses : `, wheater, responses, tweet);
+Promise.all([p1, p2]).then((responses) => {
+  const [weather, tweet] = responses;
+  console.log(`responses : `, weather, responses, tweet);
 });
 ```
 
-# Module_11 Symbol
+## Module_11 - Symbol
 
-A symbol value may be used as an identifier, but symbol are not enumerabal it is not possible to loop over them.
+A symbol value may be used as an identifier, but symbol are not enumerable it is not possible to loop over them.
 Every symbol value returned from Symbol() is unique.
 
-Actual data type : Number, String, Object, boolean, Null, undefined and new ES6 Symbol.
+Actual data type: Number, String, Object, boolean, Null, undefined and new ES6 Symbol.
 
 ```js
 const sym1 = Symbol();
@@ -558,21 +560,23 @@ const symStr = Symbol("foo"); // the param is a Descriptor
 
 const classRoom = {
   [Symbol(`Frederik`)]: { grade: 100, gender: `male` },
-  [Symbol(`Frederik`)]: { grade: 78, gender: `female` }
+  [Symbol(`Frederik`)]: { grade: 78, gender: `female` },
 };
 
-const syms = Object.getOwnPropertySymbols(classRoom);
-console.log(syms);
+const symbols = Object.getOwnPropertySymbols(classRoom);
+console.log(symbols);
+
 // Display the values sof the ClassRoom
-const data = syms.map(sum => classRoom[sym]);
+const data = symbols.map((sym) => classRoom[sym]);
+
 console.log(data);
 ```
 
-# Module_12 Code Quality with EsLint
+## Module_12 - Code Quality with EsLint
 
 Use EsLint
 
-# Module_13 Javasript Modules and using npm
+## Module_13 - Javascript Modules and using npm
 
 A Javascript code module is simply some JS code located in a registered location.
 
@@ -586,6 +590,7 @@ export newFunc function() { return true }
 ```
 
 The import statement allow to import bindings which are exported by another module.
+
 ```js
 // app.js
 import { _ } from "lodash";
@@ -594,7 +599,7 @@ import insane from "insane";
 import { apiKey as key, old, dog } from "./src/config";
 ```
 
-# Module_14 ES6 Tooling
+# Module_14 - ES6 Tooling
 
 ## Webpack
 
@@ -607,18 +612,18 @@ Really handy for prototyping, don't use for production.
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>System JS</title>
-</head>
-<body>
-  <h1>Browser-sync is a create Tool</h1>
-  <script src="https://jspm.io/system@0.19.js"></script>
-  <script>
-    System.config( { transpiler: 'babel'} )
-    System.import('./main.js')
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>System JS</title>
+  </head>
+  <body>
+    <h1>Browser-sync is a create Tool</h1>
+    <script src="https://jspm.io/system@0.19.js"></script>
+    <script>
+      System.config({ transpiler: "babel" });
+      System.import("./main.js");
+    </script>
+  </body>
 </html>
 ```
 
@@ -648,7 +653,7 @@ Babel use JS plugins to convert the latest and greatest version of ES into older
 
 ### Polyfill
 
-# Module_15 Classes
+## Module_15 - Classes
 
 Review the pre ES2015 syntax for prototype.based Object. The body of a class is executed in strict mode.
 
@@ -692,7 +697,7 @@ function Dog(name, breed) {
   this.breed = breed;
 }
 // Adding methods to Dog
-Dog.prototype.bark = function() {
+Dog.prototype.bark = function () {
   console.log(`Bark Bark! My name is ${this.name}`);
 };
 // Declaring a instance of Dog
@@ -729,7 +734,7 @@ class Dog {
 ```
 
 Static method calls are made directly on the class and not callable on
-instance of the class. Static methods are ofthen used to create utilities functions.
+instance of the class. Static methods are often used to create utilities functions.
 
 Extending a Class into a new Class
 
@@ -762,6 +767,10 @@ class Dog extends Animal {
 
 Extending the Array Object
 
+The `arguments` object is a local variable within non-arrow functions.
+
+[Functions arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments)
+
 ```js
 class MovieCollection extends Array {
   constructor(name, ...items) {
@@ -784,7 +793,7 @@ const movies = new MovieCollection(
 );
 ```
 
-# Module_16 Generators
+## Module_16 - Generators
 
 The Generator object is returned by a generator function and it conforms to both the iterable protocol and the iterator protocol.
 
@@ -796,7 +805,7 @@ const inventors = [
   { first: "Marie", last: "Curie", year: 1867 },
   { first: "Johannes", last: "Kepler", year: 1571 },
   { first: "Nicolaus", last: "Copernicus", year: 1473 },
-  { first: "Max", last: "Planck", year: 1858 }
+  { first: "Max", last: "Planck", year: 1858 },
 ];
 
 function* loop(arr) {
@@ -809,13 +818,13 @@ const inventorGen = loop(inventors);
 inventorGen.next().value; // to be call
 ```
 
-Generator can be usefull for multi fetching calls.
+Generator can be useful for multi fetching calls.
 
 ```js
 function ajax(url) {
   fetch(url)
-    .then(data => data.json())
-    .then(data => dataGen.next(data));
+    .then((data) => data.json())
+    .then((data) => dataGen.next(data));
 }
 
 function* steps() {
@@ -836,22 +845,24 @@ const dataGen = steps();
 dataGen.next(); // kick it off
 ```
 
-# Module_17 Proxies
+## Module_17 - Proxies
 
 The Proxy object is used to define custom behavior for fundamental operations.
-Proxy allow to overwright default behavior of default Object.
+Proxy allow to overwrite default behavior of default Object.
 
 ```js
 const person = { name: `Seb`, age: 99 };
 const personProxy = new Proxy(person, {});
 ```
 
-# Module_18 Set and WeakSet
+## Module_18 - Set and WeakSet
 
 The Set object lets you store unique values of any type, whether primitive values or object references.
 
 In a Set the key and the value are the exact same thing.
 All the key-value in a Set are unique.
+
+You can iterate through the elements of a set in insertion order.
 
 ```js
 const group = new Set();
@@ -863,7 +874,7 @@ group.add("Niki");
 group.values(); // will return a SetIterator {}
 ```
 
-The Weakset object lets you store weakly held objects in a collection.
+WeakSet is a collection of garbage-collectable values, including objects and non-registered symbols. A value in the WeakSet may only occur once. It is unique in the WeakSet's collection.
 
 The WeakSet contain only Objects, there is not iterable on a WeakSet. The WeakSet don't have a clear() method, because the Weakset clean it self up.
 
@@ -874,10 +885,9 @@ let dog2 = { name: `doggy`, age: 1 };
 const weakSauce = new WeakSet([dog1, dog2]);
 ```
 
-# Module_19 Map and WeakMap
+## Module_19 - Map and WeakMap
 
-The Map object holds a key-values pairs. Any data Structure
-(both objects and primitives values) may abe used as either a key of a value.
+The Map object holds key-value pairs and remembers the original insertion order of the keys. Any JS types (both objects and primitives values) may abe used as either a key of a value.
 
 The advantage of a Map() over a regular Object is that the map key can be all type of data structure.
 
@@ -889,7 +899,8 @@ dogs.set(`Summy`, 2);
 dogs.set(`Hugo`, 6);
 ```
 
-WeakMap object is a collection of key/value pairs in which the keys are weakly referenced.The keys must be objects and the values can be arbitrary values.
+WeakMap object is a collection of key/value pairs in which the keys are weakly referenced.
+The keys must be objects or non-reference Symbol and the values can any JS types.
 
 WeakMap do not have a size.
 
@@ -904,13 +915,13 @@ dog1 = null;
 console.log(weakSauce);
 ```
 
-# Module_20 Async + Await Flow Control
+## Module_20 - Async + Await Flow Control
 
 The async function declaration defines an asynchronous function, which returns an AsyncFunction object.
 
 ```js
 function resolveAfterSec(nbSec) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve("resolved");
     }, nbSec * 1000);
@@ -928,11 +939,11 @@ Promisify of a Call Back
 
 ```js
 navigator.geolocation.getCurrentPosition(
-  function(pos) {
+  function (pos) {
     console.log("it worked!");
     console.log(pos);
   },
-  function(err) {
+  function (err) {
     console.log("it failed!");
     console.log(err);
   }
@@ -953,7 +964,7 @@ async function go() {
 go();
 ```
 
-# Module_21 ES7, ES8 + Beyond
+## Module_21 - ES2016 (ES7), ES2017 (ES8) + Beyond
 
 Class Properties, padStart(), padEnd(), ES7 Exponential Operator,
 Function Arguments trailing Comma, Object.entries(), Object.values()
@@ -970,7 +981,7 @@ class Dog() {
 
 // padStart & padEnd
 const seb = `Seb`
-seb.padStart(12, `**`) // nb Caratere, padding caractere
+seb.padStart(12, `**`) // nb of character, padding character
 
 // ES7
 Array.includes(`str`)
@@ -1000,7 +1011,7 @@ Object.entries(inventory)
 
 const nav = Object.keys(inventory).map(item => `<li>${item}</li>`).join('')
 
-// Object.values() : returns an array of a given object's own enumarable property values.
+// Object.values() : returns an array of a given object's own enumerable property values.
 const totalInventory = Object.values(inventory).reduce( (a,b) => a + b)
 
 Object.entries(inventory).forEach( [key, val] => {
@@ -1008,9 +1019,9 @@ Object.entries(inventory).forEach( [key, val] => {
 })
 ```
 
-# Glossary
+## Glossary
 
-arguments : Aguments is Array-like object corresponding to the arguments passed to a function.
+arguments : Arguments is Array-like object corresponding to the arguments passed to a function.
 
 arrow function : () => {}
 
@@ -1022,8 +1033,8 @@ Array.findIndex() : The findIndex() method returns the index of the first elemen
 
 Array.of() : The Array.of() method creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments.
 
-asynchronous : In programming, asynchronous events are those occuring independently of the main program flow.
-Ex :Ajax call, can retrieve data from server asynchronously in the background without stoping the main thread of the browser.
+asynchronous : In programming, asynchronous events are those occurring independently of the main program flow.
+Ex :Ajax call, can retrieve data from server asynchronously in the background without stopping the main thread of the browser.
 
 const : Variables constante
 
@@ -1036,7 +1047,7 @@ Iterator object that contains the key/value pairs for each index in the array.
 
 fetch() : This method takes one mandatory argument, the path of the resource to fetch. It returns a Promise that resolve to a Response.
 
-let :  
+let :
  let dog1 = { name: 'Snickers', age: 3 }
 let dog2 = { name: 'sunny', age: 1 }
 
