@@ -3,7 +3,7 @@
 In 2000, Roy Fielding, proposed an architectural approach for web-services know as
 **Representational State Transfer (REST)**. REST is not tied to HTTP. These API's provide way to identify a resource by its URI, which can be used to transfer a representation or a resource's current state over HTTP.
 
-REST API should be language agnostic. 
+REST API should be language agnostic.
 
 [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) or the Hypermedia As The Engine Of Application State is the important feature of every scalable and flexible REST API.
 
@@ -61,13 +61,10 @@ Treat the resource like a noun and HTTP methods as verbs.
 `PATCH /blogposts/12` partial change
 
 ## Actions
-  
 - Sorting: To sort a list of item in a list
-        
     `GET /blogposts?sort=date`
 
 - Filtering: To filter a list of item in a list
-        
     `GET /blogposts?language=french&location=canada`
 
 - Searching: To search a value in the database
@@ -75,9 +72,8 @@ Treat the resource like a noun and HTTP methods as verbs.
     `GET /compagnies?search=TheNewWeb`
 
 - Pagination: To GET a slice of the list by page
-
     `GET /blogposts?page=23`
-  
+
 ## Rate limiting
 
 `X-Rate-Limit-Limit`: The number of allowed requests in the current period
@@ -105,7 +101,7 @@ Use the HTTP Status Codes to return feed back to the user.
 
 A well desing RESTful API include versining.
 
-It can be in the URI as: 
+It can be in the URI as:
 `GET https://api.example.com/v1.0.0/authors/2/blogposts/13`
 
 Or passing into the header with:
@@ -122,7 +118,7 @@ GET
 
 **Don't leave the user hanging with our proper error response**
 
-TWITTER 
+TWITTER
 
 request
 `GET https://api.twitter.com/1.1/account/settings.json`
@@ -139,7 +135,7 @@ response
 }
 ```
 
-FACEBOOK 
+FACEBOOK
 
 request
 `GET https://graph.facebook.com/me/photos`
@@ -165,7 +161,7 @@ response
 [PARSE](https://docs.parseplatform.org/rest/guide/#your-configuration)
 
 
-## References 
+## References
 
 [Learn REST](https://www.restapitutorial.com/)
 
