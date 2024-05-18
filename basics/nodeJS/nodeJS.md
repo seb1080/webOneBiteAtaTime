@@ -1,5 +1,7 @@
 # NodeJS
 
+[Cheat Sheet](http://overapi.com/nodejs)
+
 ...
 
 # Global object
@@ -34,8 +36,7 @@ So in the browser, if we create a variable `let newVariable = 10`
 
 it can also be represent as `let window.newVariable = 10`
 
-
-# Node Module System
+## Node Module System
 
 In the Node.js module system, each file is treated as a separate module.
 
@@ -72,9 +73,8 @@ const os = require('os')
 const fs = require('fs')
 
 ```
-# Events
 
-
+## Events
 
 ```js
 // class EventEmitter
@@ -82,7 +82,8 @@ const EventEmitter = require('events')
 
 
 ```
-# Node package manager (npm)
+
+## Node package manager (npm)
 
 `npm view <package-name>` to view the `package.json` file of a dependency.
 
@@ -139,10 +140,9 @@ const EventEmitter = require('events')
 [npm-package.json](https://docs.npmjs.com/files/package.json)
 [The package.json guide](https://flaviocopes.com/package-json/)
 
-## Yarn
+### Yarn
 
-
-# References
+## References
 
 [nodeJS Documentation](https://nodejs.org/api/modules.html)
 
