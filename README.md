@@ -9,7 +9,7 @@ How to take on such a colossal task? The same way you eat an elephant **One bite
 
 The Goal of this repository is to try build small functionality of web technology in pure HTML5, CSS3 and the latest JavaScript.
 
-This idea have been inspire by Wesbos 
+This idea have been inspire by Wesbos
 [JavaScript 30 Challenge](https://javascript30.com/).
 
 ## Interesting Bite
@@ -58,7 +58,7 @@ This idea have been inspire by Wesbos
 
 * Bite web database
 
-* Bite Accelerated Mobile Project (AMP)  
+* Bite Accelerated Mobile Project (AMP)
 
 * Bite Services workers
 

@@ -4,16 +4,16 @@
 
 [JS tutorial MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 
-## Values & Types
+# Values & Types
 
 There is 7 types of values in ES2015
 
-- Boolean
-- String
-- Number
-- Object
-- Null and Undefined
-- Symbol
+* Boolean
+* String
+* Number
+* Object
+* Null and Undefined
+* Symbol
 
 ## Boolean
 
@@ -45,25 +45,25 @@ Symbol arrive with ES6. A Symbol is an immutable primitive value that is unique.
 
 ```js
 var a;
-typeof a; // "undefined"
+typeof a;    // "undefined"
 
 a = "hello world";
-typeof a; // "string"
+typeof a;    // "string"
 
 a = 42;
-typeof a; // "number"
+typeof a;    // "number"
 
 a = true;
-typeof a; // "boolean"
+typeof a;    // "boolean"
 
 a = null;
-typeof a; // "object" -- weird, bug
+typeof a;    // "object" -- weird, bug
 
 a = undefined;
-typeof a; // "undefined"
+typeof a;    // "undefined"
 
 a = { b: "c" };
-typeof a; // "object"
+typeof a;    // "object"
 ```
 
 null: is a empty or no-existent value. It most be assigned by the developer.
@@ -89,15 +89,15 @@ Explicit coercion is simply that you can see obviously from the code that a conv
 ```js
 // explicit coercion
 var a = "42";
-var b = Number(a);
-a; // "42"
-b; // 42 -- the number!
+var b = Number( a );
+a;    // "42"
+b;    // 42 -- the number!
 
 // implicit coercion
 var a = "42";
 var b = a * 1; // "42" implicitly coerced to 42 here
-a; // "42"
-b; // 42 -- the number!
+a;    // "42"
+b;    // 42 -- the number!
 ```
 
 ### Truthy & Falsy
@@ -105,7 +105,8 @@ b; // 42 -- the number!
 When a non-boolean value is coerced to a boolean, does it become true or false it depend
 
 Specific list of the 6 'falsy' values:
-* Empty string: ""
+
+* ""
 * 0, -0,
 * NaN
 * null
@@ -113,10 +114,11 @@ Specific list of the 6 'falsy' values:
 * false
 
 Specific list of 'truthy' values:
+
 * "hello"
 * 42
 * true
-* Array, Object, Functions: [], {}, () => {}
+* [], {}, () => {} // Array, Object, Functions
 
 It's important to remember that a non-boolean value only follows this "truthy"/"falsy" coercion if it's actually coerced to a boolean.
 
@@ -124,18 +126,19 @@ It's important to remember that a non-boolean value only follows this "truthy"/"
 
 There are four equality operators:
 
-- == (loose-equals),
-- === (strict-equals),
-- != (loose not-equals),
-- !== (strict not-equals).
+* == (loose-equals),
+* === (strict-equals),
+* != (loose not-equals),
+* !== (strict not-equals).
 
 The ! forms are of course the symmetric "not equal" versions of their counterparts; non-equality should not be confused with inequality.
 
 The loose-equality comparison == checks for value equality with coercion allowed, and === checks for value equality without allowing coercion; === is often called "strict equality" for this reason.
 
+
 ## Function Scope
 
-The var keyword will is function scope or the global scope if at the top level. `let` and `const` are block scope.
+The var keyword will is function scope or the global scope if at the top level. let and const are block scope.
 
 ### Hoisting
 
@@ -146,16 +149,18 @@ var a = 2;
 foo(); // declaration is 'hoisted'
 
 function foo() {
-  b = 3;
-  console.log(b); // 3
-  var b; // declaration is "hoisted"
+      b = 3;
+      console.log(b) // 3
+      var b; // declaration is "hoisted"
 }
 console.log(a); // 2
 ```
 
 ## Function as Value
 
-Function itself is a value, just like 42 pr [1,2,3] are. A function itself can be a value that is assigned to variables, or pass to or returned from a function. Function should be consider has a expression.
+Function itself is a value, just like 42 or [1,2,3] are. A function itself can be a value that is assigned to variables, or pass to or returned from a function. Function should be consider has a expression.
+
+**Assign a anonymous function**
 
 ```js
 const foo = () => {}; // assign a anonymous function
@@ -167,9 +172,7 @@ let x = function bar() {};
 
 A closure is the combination of a function and the lexical environment within which that function was declared.
 
-// I am at Closure : https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md
-
-## Objects
+// I am at Closure : <https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md>
 
 ### Object Methods
 
@@ -187,8 +190,8 @@ Functions are subtype of Object. It can be called by other code or by itself or 
 
 ```js
 // function declaration
-function getArea(width, height) {
-  return width * height;
+function getArea(width, height){
+      return width * height;
 }
 console.log(getArea(2 * 4));
 
@@ -219,8 +222,8 @@ const funcName() => {};
 IIFEs are use to create variable scope that wont't affect the surrounding code outside the IIFE.
 
 ```js
-var x = (function IIFE() {
-  return 42;
+var x = (function IIFE(){
+ return 42;
 })();
 x; // 42
 ```
@@ -232,5 +235,5 @@ The AF is a shorter syntax than a function expression and does not have its own 
 ```js
 () => {};
 
-(param) => param + 1;
+param => param + 1
 ```

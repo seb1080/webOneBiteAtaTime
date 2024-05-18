@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
-        "elif"
+        "elif",
+        "IIFE"
     ],
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
