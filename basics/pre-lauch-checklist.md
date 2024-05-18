@@ -1,6 +1,6 @@
 
 
-# Pre-lauch Checklist
+# Pre-launch Checklist
 
 
 ## Images Optimization
@@ -18,7 +18,7 @@
 
 * [test My Site](https://testmysite.thinkwithgoogle.com/)
 
-* [Webspeedtest Cloudinary](https://webspeedtest.cloudinary.com/)
+* [Web speedtest Cloudinary](https://webspeedtest.cloudinary.com/)
 
 * [Webpage test](https://www.webpagetest.org/)
 
