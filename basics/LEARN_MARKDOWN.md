@@ -89,6 +89,8 @@ else in the doc, define the link:
 
 [id]: /url/to/img.jpg "Title"
 
+[![Big-O notation](../basics/data_structure/big-O-notation.png)]
+
 ## Horizontales Lines
 
 Three or more...
