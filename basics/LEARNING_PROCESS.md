@@ -24,7 +24,7 @@ The golden number to become good at a new skill from 0 to knowing your are good 
 
 1. **Deconstruction**: Split the goal in small pieces, identify the source of failure before the beginning. **The goal is to avoid source of failure for 5 sessions**.
 
-2. **Selection**: Identify the 20% that give the 80% of the wanted output. 
+2. **Selection**: Identify the 20% that give the 80% of the wanted output.
 
 3. **Sequencing**: What append if we change the order of the steps.
 
