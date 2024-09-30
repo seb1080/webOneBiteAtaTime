@@ -31,18 +31,15 @@ git commit -m "commentaire" -> Add comment after a change in the file.
 
 `$ git remote set-url origin https://seb1080...` // To change remote repo
 
-
 # Vim editor in Git bash
 
 `i` // to go in edit mode
 `Esc` // to get out of the edit mode
 `:wq` // to save and exit
 
-
 git log -> Give the information about the git file and this list of the commit .
 
 git log --author="name of the author" -> will give you the change make by the author
-
 
 git diff -> Show you the difference between commits, commit and working tree
 
@@ -64,7 +61,6 @@ git push -> Sending your version to the server
 
 git fetch ->
 
-
 */ ---------To push a file-------------*/
 
 git status
@@ -79,9 +75,7 @@ git remote -v   <!-- To see the origin available(bithub or bitbucket)----->
 
 git push -u origin
 
-
 */ --------To push file to a newBranch---------------*/
-
 
 git status -> To kow the status of the code
 
@@ -101,16 +95,13 @@ git branch -> to see all branchs in the project
 
 git branch -d |name of the file| -> to delete a branch
 
-
-
 */ ------------- To clone a repo ---------------------------*/
 
 git clone |name of the file|  --> to clone a repo
 
-EX: https://github.com/sylvainnicole/hh2015.git
+EX: <https://github.com/sylvainnicole/hh2015.git>
 
 git commit -a -> pour commenter un fichier .txt
-
 
 */ ---------------- To pull request  ------------------------*/
 
@@ -120,23 +111,17 @@ git status
 
 git status
 
-
 */ ---------------- To pull request  ------------------------*/
 
 node server/app.js  --> Pour activer le serveur en local
 
 */ ---------------- git stash  ------------------------*/
 
-
-
-
 git stash   // to stash the actual change
 
 git branch <name-branch> // to change branch
 
 git stash apply // to apply stash change to the local branch
-
-
 
 ***** git command *******
 
@@ -145,7 +130,7 @@ git reset --hard HEAD : dangerous command to go back at the previous commit.
 Permanently authenticating with Git repositories
 
 $ git config credential.helper store
-$ git push http://example.com/repo.git
+$ git push <http://example.com/repo.git>
 Username: <type your username>
 Password: <type your password>
 
@@ -155,7 +140,6 @@ To rebase a branch on master
 
 $ git checkout <branchName>
 $ git rebase master
-
 
 To create a branch from the local machine
 
@@ -177,16 +161,15 @@ git pull
 git checkout secondBranch
 git merge master
 
-
 To merge git add . & commit -m ' '
 
 git config --global alias.add-commit '!git add -A && git commit'
-or 
+or
 git commit -a -m "message"
-or 
-git add -A && git commit -m "comment" 
+or
+git add -A && git commit -m "comment"
 
-OR 
+OR
 git commit -am "comment"
 
 ## Git rebase worflow
@@ -196,7 +179,6 @@ git commit -am "comment"
 `git rebase --abort`: to abort the rebasing
 
 `git rebase --skip`; to skip the step
-
 
 ## .gitignore file
 
