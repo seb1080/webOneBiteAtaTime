@@ -3,16 +3,17 @@
 *Must use*
 
 ```bash
-conda envs list
+conda env list
 
 # List package name pandas in current env
 conda list | grep pandas
 ```
 
 #### Check conda and python version
+
 ```bash
-$ conda --version
-$ python --version
+conda --version
+python --version
 ```
 
 ## Managing Conda, Miniconda, and Anaconda
@@ -33,15 +34,15 @@ $ python --version
 
 `conda info --envs` Verify environment you are right now
 
-`conda info -e`	Get a list of all my environmentsActive environment shown with *
+`conda info -e` Get a list of all my environmentsActive environment shown with *
 
 `conda create --name snowflakes biopython`
 
 `conda create -n snowflakes biopython` Create an environment and install program(s)
 
-`conda activate snowflakes`	Activate the new environment to use it
+`conda activate snowflakes` Activate the new environment to use it
 
-`conda deactivate`	Deactivate the environment
+`conda deactivate` Deactivate the environment
 
 `conda create -n bunnies python=3.9 astroid` Create a new environment, specify Python version
 
@@ -49,7 +50,7 @@ $ python --version
 
 `conda create -n flowers --clone snowflakes` Make exact copy of an environment
 
-`conda remove -n flowers --all`	Delete an environment
+`conda remove -n flowers --all` Delete an environment
 
 `conda env list` List all envs
 
@@ -57,17 +58,17 @@ $ python --version
 
 `conda env export --file env.yml` Saving an entire environment to a file
 
-`conda env export --from-history > env.yml`	Save the current Cross-platform compitible environment to a file
+`conda env export --from-history > env.yml` Save the current Cross-platform compitible environment to a file
 
-`conda env create -f env.yml`	Load the Package-specific environment from a file
+`conda env create -f env.yml` Load the Package-specific environment from a file
 
-`conda env update -n coolbase --file environment.yml`	install and/or update packages from environment.yml
+`conda env update -n coolbase --file environment.yml` install and/or update packages from environment.yml
 
 `conda env remove --name <env-name> --all` Remove Virtual Environment
 
-`CONDA_SUBDIR=osx-arm64 conda create -n test_env --dry-run python=3.8 llvm-openmp cython numpy pip "matplotlib-base>=3.0.3" "protobuf >=3.11.2,<4.0.0" "scipy >=1.3.2,<2.0.0"`	Conda dry run environment on a specific platform
+`CONDA_SUBDIR=osx-arm64 conda create -n test_env --dry-run python=3.8 llvm-openmp cython numpy pip "matplotlib-base>=3.0.3" "protobuf >=3.11.2,<4.0.0" "scipy >=1.3.2,<2.0.0"` Conda dry run environment on a specific platform
 
-`for py in 3.8 3.9 3.10; do echo -e "\n*****  python $py  *****"; conda create --dry-run --quiet -n __test__ python=$py pandas=1.4.2; done`	Conda dry run creating an environment and installing packages (pandas 1.4.2) for different python versions
+`for py in 3.8 3.9 3.10; do echo -e "\n*****  python $py  *****"; conda create --dry-run --quiet -n __test__ python=$py pandas=1.4.2; done` Conda dry run creating an environment and installing packages (pandas 1.4.2) for different python versions
 
 ## Managing Python
 
@@ -77,7 +78,7 @@ $ python --version
 
 `conda search ipython=8.3.0 --info | sed '/file name/,/timestamp/d'` For quick checking package dependencies (for example, for all python versions)
 
-`conda create -n snakes python=3.4`	Install different version of Python in new environment
+`conda create -n snakes python=3.4` Install different version of Python in new environment
 
 ## Managing .condarc Configuration
 
@@ -163,7 +164,6 @@ $ python --version
 
 `conda clean --all` Delete unused packages and caches
 
-
 ## Conda World
 
 ### Anaconda Cloud
@@ -174,15 +174,15 @@ $ python --version
 
 `anaconda upload my-notebook.ipynb` Upload my-notebook.ipynb to `http://notebooks.anaconda.org/<USERNAME>/my-notebook`
 
-### conda-build 
+### conda-build
 
 `conda-build .` Build a recipe from the current folder
 
 `conda build --test /home/user/miniconda3/conda-bld/noarch/pytest-cov-2.12.1-py_0.tar.bz2`  test the package in your environment (for regression testing)
 
-`conda build gdal-feedstock	`
+`conda build gdal-feedstock `
 
-`conda build sep`   
+`conda build sep`
 
 `conda-build --python 2.7 click`
 
