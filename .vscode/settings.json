@@ -1,7 +1,9 @@
 {
     "cSpell.words": [
         "elif",
-        "IIFE"
+        "Geospatial",
+        "IIFE",
+        "linestring"
     ],
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
