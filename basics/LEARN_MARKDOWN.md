@@ -50,7 +50,7 @@ Alternatively, for H1 and H2, an underline-ish style:
 
 - Unordered list can use asterisks
 
-* Or minuses
+- Or minuses
 
 - Or pluses
 
@@ -65,7 +65,7 @@ Alternatively, for H1 and H2, an underline-ish style:
 Or leave it empty and use the [link text itself]
 
 URLs and URLs in angle brackets will automatically get turned into links.
-http://www.example.com or <http://www.example.com> and sometimes
+<http://www.example.com> or <http://www.example.com> and sometimes
 example.com (but not on Github, for example).
 
 Some text to show that the reference links can follow later.
@@ -87,7 +87,6 @@ else in the doc, define the link:
 
 ![alt text][id]
 
-[id]: /url/to/img.jpg "Title"
 
 [![Big-O notation](../basics/data_structure/big-O-notation.png)]
 

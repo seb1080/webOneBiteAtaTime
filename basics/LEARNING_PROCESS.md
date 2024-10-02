@@ -5,18 +5,19 @@ The golden number to become good at a new skill from 0 to knowing your are good 
 1. **Deconstructing** the skill in sub-skill. Define a target performance level. The Skill level can be measure.
 
 2. **Self-Correct** Researching the most important sub-skills. Identify the pattern coming back from the different sources.
-  - Book
-  - Tutorial
-  - Trainer
-  - Website
+
+- Book
+- Tutorial
+- Trainer
+- Website
 
 3. **Removing barier to learning** Identify and remove anything that distracts you from focusing on the target skill. Make the learning process fun.
-  - Create a aggredable env. to learn
-  - add positive feed back
-  - give small goal to go over
+
+- Create a aggredable env. to learn
+- add positive feed back
+- give small goal to go over
 
 4. **Pre-commit** of a min of 20 hrs before to start the learning process.
-
 
 [https://www.youtube.com/watch?v=EtJy69cEOtQ](https://www.youtube.com/watch?v=EtJy69cEOtQ)
 
@@ -37,14 +38,16 @@ The golden number to become good at a new skill from 0 to knowing your are good 
 1. **Deconstructing** Define in a measurable way the target Skill to aquire and deconstruct ithas sub-skills.
 
 2. **Self-Correct** Researching the most important sub-skills. Identify the pattern coming back from the different sources.
-  - Book
-  - Tutorial
-  - Trainer
-  - Website
+
+- Book
+- Tutorial
+- Trainer
+- Website
 
 3. **Removing barier to learning** Identify and remove anything that distracts you from focusing on the target skill. Make the learning process fun.
-  - Create a aggredable env. to learn
-  - add positive feed back
-  - give small goal to go over
+
+- Create a aggredable env. to learn
+- add positive feed back
+- give small goal to go over
 
 4. **Pre-commit** of a min of 20 hrs before to start the learning process.

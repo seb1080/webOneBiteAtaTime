@@ -8,7 +8,7 @@ Vue use the Model-View-ViewModel architecture pattern.
 
 |         View         |     ViewModel        |         Model          |
 | -------------------- |:--------------------:| ----------------------:|
-| Template or render() |    Vue instance      |        Back End    	   |
+| Template or render() |    Vue instance      |        Back End        |
 
 ## Vue component Instance
 
@@ -53,7 +53,7 @@ new Vue({
 
 ## JS Expressions
 
-Enverything inside the moustache {{ }}, would be avaluated as JS.
+Everything inside the moustache {{ }}, would be evaluated as JS.
 
 Each binding can only contain one single expression
 
@@ -77,7 +77,7 @@ new Vue({
 
 ## Directives
 
-Directives are special attributes with the v- prefix. The porpuse of a directive is to reactively apply effects to the DOM when the value of its expression change.
+Directives are special attributes with the v- prefix. The purpose of a directive is to reactively apply effects to the DOM when the value of its expression change.
 
 - v-if
 - v-else
@@ -124,7 +124,7 @@ new Vue({
 
 ### Modifiers
 
-Some directive can take "modifiers". Exammple, .prevent call event.preventDefault()
+Some directive can take "modifiers". Example, .prevent call event.preventDefault()
 
 ```html
 <form v-on:submit.prevent="onSubmit">...</form>
@@ -301,7 +301,7 @@ new Vue({
 
 ## Filters
 
-Filters can be use to apply common text formating. Filters can be use in 2 places {{ }} moustaches and v-bind expressions.
+Filters can be use to apply common text formatting. Filters can be use in 2 places {{ }} moustaches and v-bind expressions.
 
 ```js
 <template lang="pug">
@@ -353,7 +353,7 @@ Components are reusable Vue instances with a name: `<custom-comp></custom-comp>`
 
 Data must be a function, so that each instance can maintain an independent copy of the returned data object.
 
-Components can be locally registrated or globally register, it is a better practice to register components locally.
+Components can be locally registered or globally register, it is a better practice to register components locally.
 
 ## Props
 
@@ -363,7 +363,7 @@ All Props form a *one-way-down binding* between the child props and the parent o
 
 ```js
 <template>
-  <blog-post v-bind:childprop="parentData"></blog-post>
+  <blog-post v-bind:child prop="parentData"></blog-post>
   <blog-post title="My journey with Vue"></blog-post>
   <blog-post
     v-for="post in posts"
@@ -399,6 +399,7 @@ props: {
   author: Object
 }
 ```
+
 ### Props Validations & Type Checks
 
 Components can specify requirements for its props, such as the types.
@@ -409,17 +410,17 @@ Components can specify requirements for its props, such as the types.
 
 *We recommend you always use kebab-case for event name*
 
-In some context we may want to pass event and data from child to parent compoment.
+In some context we may want to pass event and data from child to parent component.
 
 `$emit()` can be call in the template or in the script tag. Once in the parent component the event will trigger a action.
 
 ```html
-<!-- child componment -->
+<!-- child component -->
 <button v-on:click="$emit('enlarge-text')">
   Enlarge text
 </button>
 
-<!-- parent componment -->
+<!-- parent component -->
 <blog-post
   v-on:enlarge-text="postFontSize += 0.1"
 ></blog-post>
@@ -428,12 +429,12 @@ In some context we may want to pass event and data from child to parent compomen
 We can pass data as a second argument to the $emit() function.
 
 ```html
-<!-- child componment -->
+<!-- child component -->
 <button v-on:click="$emit('enlarge-text', 0.1)">
   Enlarge text
 </button>
 
-<!-- parent componment -->
+<!-- parent component -->
 <blog-post
   ...
   v-on:enlarge-text="postFontSize += $event"
@@ -505,7 +506,7 @@ The default Slot Content allow to define default content.
 
 ### Compilation Scope
 
-Everyting in the parent template is compiled in the parent scope, everything in the child template is compiled in the child scope.
+Everything in the parent template is compiled in the parent scope, everything in the child template is compiled in the child scope.
 
 ### Scoped Slots
 
@@ -527,11 +528,9 @@ Scoped-slots allow to pass `template`, `component` or content from a parent to a
 
 #### Destructuring slot-scope
 
-
-
 ## Dynamic Component
 
-Dynamic Component allow to swtich dynamicly between component.
+Dynamic Component allow to switch dynamically between component.
 
 ```html
 <!-- Component changes when currentTabComponent changes -->
@@ -540,7 +539,7 @@ Dynamic Component allow to swtich dynamicly between component.
 
 `Keep-alive` will cached the component instances once it have been created.
 
-```html 
+```html
 <keep-alive>
   <component v-bind:is="currentTabComponent"></component>
 </keep-alive>
@@ -561,8 +560,6 @@ Vue.component('async-example', function (resolve, reject) {
 })
 ```
 
-## 
-
 ## Special Attributes
 
 ### key
@@ -570,7 +567,6 @@ Vue.component('async-example', function (resolve, reject) {
 ### Refs
 
 ref is used to register a reference to a element or a child component.
-
 
 ## Transitions & Animations
 

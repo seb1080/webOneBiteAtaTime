@@ -1,6 +1,7 @@
 *Browser Market Share 2018*
 
 DESKTOP
+
 * Chrome: 67%
 * Firefox: 11%
 * Safari: 6%
@@ -8,6 +9,7 @@ DESKTOP
 * Opera: 2%
 
 MOBILE
+
 * Chrome: 57%
 * Safari: 18%
 * UC Borwser: 10%
@@ -33,29 +35,13 @@ MOBILE
 
 7. Data Storage: Persistence layerUse to store cookies or other data. sessionStorage, localStorage, cacheStorage, indexedDB, FileSystem.
 
-*note* Chrome run multiple instances of the (RE) for each tab. 
+*note* Chrome run multiple instances of the (RE) for each tab.
 
 ![browser layer](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/layers.png)
 
-
 ->  ## Rendering Engines
 
-
-
-
-
-
-
-
-
-
-
-
 ![CSS box model](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/image046.jpg)
-
-
-
-
 
 **Reference**
 

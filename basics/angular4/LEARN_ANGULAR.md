@@ -2,13 +2,13 @@
 
 Reference [styleguide](https://angular.io/guide/styleguide)
 
-This is a simple view of the ANGULAR project structure. 
+This is a simple view of the ANGULAR project structure.
 
 Project of reference : [Angular Example](https://github.com/gothinkster/angular-realworld-example-app/tree/master/src)
-                            
-src   -----------   app        ------   auth  -------------------- auth.module.ts   
+
+src   -----------   app        ------   auth  -------------------- auth.module.ts
 README.md         assets                home                       auth.module.html
-package.json      environments          app.component.ts          auth.module.ts 
+package.json      environments          app.component.ts          auth.module.ts
 main.ts                                 app.component.html        auth.component.ts
 index.html                              app-routing.module.ts     auth-routing.module.ts
 test.ts                                 app.module.ts
@@ -101,11 +101,12 @@ export class MapComponent implements OnInit {
   }
 }
 ```
+
 [Documentation](https://angular.io/guide/architecture-components)
 
 ## Lifecycle Hooks
 
-Angular creates, updates, and destroys components as the user moves through the application. 
+Angular creates, updates, and destroys components as the user moves through the application.
 
 [Documentation](https://angular.io/guide/lifecycle-hooks)
 
@@ -121,37 +122,37 @@ Initialize the directive/component after Angular first displays the data-bound p
 
 Called once, after the first ngOnChanges().
 
-### ngDoCheck()	
+### ngDoCheck() 
 
 Detect and act upon changes that Angular can't or won't detect on its own.
 
 Called during every change detection run, immediately after ngOnChanges() and ngOnInit().
 
-### ngAfterContentInit()	
+### ngAfterContentInit() 
 
 Respond after Angular projects external content into the component's view / the view that a directive is in.
 
 Called once after the first ngDoCheck().
 
-### ngAfterContentChecked()	
+### ngAfterContentChecked() 
 
 Respond after Angular checks the content projected into the directive/component.
 
 Called after the ngAfterContentInit() and every subsequent ngDoCheck().
 
-### ngAfterViewInit()	
+### ngAfterViewInit() 
 
 Respond after Angular initializes the component's views and child views / the view that a directive is in.
 
 Called once after the first ngAfterContentChecked().
 
-### ngAfterViewChecked()	
+### ngAfterViewChecked() 
 
 Respond after Angular checks the component's views and child views / the view that a directive is in.
 
 Called after the ngAfterViewInit and every subsequent ngAfterContentChecked().
 
-### ngOnDestroy()	
+### ngOnDestroy() 
 
 Cleanup just before Angular destroys the directive/component. Unsubscribe Observables and detach event handlers to avoid memory leaks.
 
@@ -162,7 +163,7 @@ Called just before Angular destroys the directive/component.
 Services handle the data access for components. Angular will use dependendcy injection to inject into component constructor to make data available to a component.
 
 ```bash
-$ ng generate service <name>
+ng generate service <name>
 ```
 
 Generate skeleton `NameService` in `src/app/name.service.ts`
@@ -179,6 +180,7 @@ export class NameService {
 
 }
 ```
+
 Notice that the new service imports the Angular Injectable symbol and annotates the class with the @Injectable() decorator. This marks the class as one that participates in the dependency injection system.
 
 The NameService could get hero data from anywhere—a web service, local storage, or a mock data source.
@@ -208,26 +210,10 @@ export class NameService {
 
 To make the `NameService` available for the dependency injection system it most be register has a `provider`.
 
-
 # Debugging in the Chrome console
 
 `$0` to select a element of the page.
 
-`ng.probe($0)` 
+`ng.probe($0)`
 
-`ng.probe($0).componentInstance` 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+`ng.probe($0).componentInstance`

@@ -1,19 +1,19 @@
 # Review of You don't know JS
 
-[You don't know JS](https://github.com/getify/You-Dont-Know-JS)
+- [You don't know JS](https://github.com/getify/You-Dont-Know-JS)
 
-[JS tutorial MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
+- [JS tutorial MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 
-# Values & Types
+## Values & Types
 
 There is 7 types of values in ES2015
 
-* Boolean
-* String
-* Number
-* Object
-* Null and Undefined
-* Symbol
+- Boolean
+- String
+- Number
+- Object
+- Null and Undefined
+- Symbol
 
 ## Boolean
 
@@ -21,15 +21,15 @@ Boolean can be true or false.
 
 ## Number
 
-A Number ca be +Infinity, -Infinity, NaN.
+A Number ca be -Infinity, +Infinity, NaN.
 
 ## String
 
-In JS Strings are immutable. They have to be between '',"" or ``.
+In JS Strings are immutable. They have to be between '', "" or ``.
 
 ## Null
 
-Null have one value null. It is explicitly nothing.
+Null: is a empty or no-existent value. It most be assigned by the developer.
 
 ## Undefined
 
@@ -66,14 +66,12 @@ a = { b: "c" };
 typeof a;    // "object"
 ```
 
-null: is a empty or no-existent value. It most be assigned by the developer.
-
 ```js
 let a = null;
 console.log(a); // null
 ```
 
-undefined : a variable have been declared, but not defined.
+undefined: a variable have been declared, but not defined.
 
 ```js
 let b;
@@ -106,19 +104,19 @@ When a non-boolean value is coerced to a boolean, does it become true or false i
 
 Specific list of the 6 'falsy' values:
 
-* ""
-* 0, -0,
-* NaN
-* null
-* undefined
-* false
+- ""
+- 0, -0,
+- NaN
+- null
+- undefined
+- false
 
 Specific list of 'truthy' values:
 
-* "hello"
-* 42
-* true
-* [], {}, () => {} // Array, Object, Functions
+- "hello"
+- 42
+- true
+- [], {}, () => {} // Array, Object, Functions
 
 It's important to remember that a non-boolean value only follows this "truthy"/"falsy" coercion if it's actually coerced to a boolean.
 
@@ -126,23 +124,22 @@ It's important to remember that a non-boolean value only follows this "truthy"/"
 
 There are four equality operators:
 
-* == (loose-equals),
-* === (strict-equals),
-* != (loose not-equals),
-* !== (strict not-equals).
+- == (loose-equals),
+- === (strict-equals),
+- != (loose not-equals),
+- !== (strict not-equals).
 
 The ! forms are of course the symmetric "not equal" versions of their counterparts; non-equality should not be confused with inequality.
 
 The loose-equality comparison == checks for value equality with coercion allowed, and === checks for value equality without allowing coercion; === is often called "strict equality" for this reason.
 
-
 ## Function Scope
 
-The var keyword will is function scope or the global scope if at the top level. let and const are block scope.
+The `var` keyword is function scope or the global scope if at the top level. `let` and `const` are block scope.
 
 ### Hoisting
 
-IN JS, every `var` variable and function declaration will bring to the top of its current scope.
+In JS, every `var` variable and function declaration will bring to the top of its current scope.
 
 ```js
 var a = 2;
@@ -170,19 +167,31 @@ let x = function bar() {};
 
 ## Closure
 
-A closure is the combination of a function and the lexical environment within which that function was declared.
+A closure is the combination of a function and the lexical environment within which that function was declared. In other words, a closure gives a function access to its outer scope. In JavaScript, closures are created every time a function is created, at function creation time.
 
-// I am at Closure : <https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md>
+```js
+function init() {
+  var name = "Mozilla"; // name is a local variable created by init
+  function displayName() {
+    // displayName() is the inner function, that forms a closure
+    console.log(name); // use variable declared in the parent function
+  }
+  displayName();
+}
+init();
+```
 
-### Object Methods
-
-Objects.freeze() : Prevent the creation of new properties.
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 
 Notice typeof "abc" returns "string", not string. Notice how in this snippet the a variable holds every different type of value, and that despite appearances, typeof a is not asking for the "type of a", but rather for the "type of the value currently in a." Only values have types in JavaScript; variables are just simple containers for those values.
 
+### Object Methods
+
+Objects.freeze(): Prevent the creation of new properties, existing properties cannot be removed, thier enumerability, configurability, writability, or value cannot be changed, and the object's prototype cannot be re-assigned.
+
 ## Arrays
 
-An Array is an Object that holds values ina numerically indexed positions.
+An Array is an Object that holds values in a numerically indexed positions.
 
 ## Functions
 

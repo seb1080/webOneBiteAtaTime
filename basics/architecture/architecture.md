@@ -32,11 +32,11 @@ Example base on the progressiveWorkOut
 
 - root: Can contain the element that repeat on every page, Ex: toolbar, content frame and     router-view
 
-- Pages: Containt the structure of the page
+- Pages: Contain the structure of the page
 
-- Smart components that containt logic Ex: TheLoginForm
+- Smart components that contain logic Ex: TheLoginForm
 
-- Base components: Dumb or Pure comp. that only recieve props and render to the page.
+- Base components: Dumb or Pure comp. that only receive props and render to the page.
 
 - Functional Components: Comp. is render has a template with props. Func. comp. are not reactive.
 

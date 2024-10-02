@@ -1,4 +1,4 @@
-***** SQL command *******
+# SQL command
 
 mysql -u root -p : to lauch mysql
 

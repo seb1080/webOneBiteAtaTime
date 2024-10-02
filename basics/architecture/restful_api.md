@@ -13,18 +13,17 @@ REST API should be language agnostic.
 
 - Stateless: The server should not save any states between different requests. The state of the session is exclusively left to the responsibility of the client. **All REST interactions are stateless. That is, each request contains all of the information necessary for a connector to understand the request, independent of any requests that may have preceded it.**
 
-- Cacheable: The Client should be able to store responses in a cache forthe greater performance.
+- Cacheable: The Client should be able to store responses in a cache for the greater performance.
 
 - Client-server architecture: Client in the web browser and the Server on the back-end.
 
-- Layered System: The client can't tell wheter it is connected directly to the end server, or to an intermediary. INtermediary servers can improve system scalability by enabling load-balancing and by providing shared caches. layers may also enforce security policies.
+- Layered System: The client can't tell whether it is connected directly to the end server, or to an intermediary. INtermediary servers can improve system scalability by enabling load-balancing and by providing shared caches. layers may also enforce security policies.
 
 - Code on Demand (optional): Server are able to temporarily extend client fonctionnality by transfering logic.Could be passing JS components.
 
-
 # API Design
 
-- Resources: A resource is an object that's is referenced by it self. 
+- Resources: A resource is an object that's is referenced by it self.
 
 - Collection: A collection is a group of resource.
 
@@ -61,6 +60,7 @@ Treat the resource like a noun and HTTP methods as verbs.
 `PATCH /blogposts/12` partial change
 
 ## Actions
+
 - Sorting: To sort a list of item in a list
     `GET /blogposts?sort=date`
 
@@ -112,8 +112,6 @@ GET
 
 ## Caching
 
-
-
 ## Error Handling
 
 **Don't leave the user hanging with our proper error response**
@@ -124,6 +122,7 @@ request
 `GET https://api.twitter.com/1.1/account/settings.json`
 
 response
+
 ```json
 {
   "errors":[
@@ -141,6 +140,7 @@ request
 `GET https://graph.facebook.com/me/photos`
 
 response
+
 ```json
 {
   "error": {
@@ -159,7 +159,6 @@ response
 [Twilio](https://www.twilio.com/docs/api/rest/)
 [Google Map](https://developers.google.com/maps/documentation/)
 [PARSE](https://docs.parseplatform.org/rest/guide/#your-configuration)
-
 
 ## References
 

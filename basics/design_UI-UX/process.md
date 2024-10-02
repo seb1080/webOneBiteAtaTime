@@ -14,13 +14,8 @@ make sure to have contents.
 
 ## Define Content Structure
 
-
-
 - Define the font
 - Create Wireframe mobile first
-
-
-
 
 **Don't forget to add space in the layout**
 
@@ -32,7 +27,6 @@ Define the 2 or 3 color that will be use to define the identity of the web appli
 
 ## Get Great Images
 
-FREE - 
-[Unsplash](https://unsplash.com/) - 
+FREE -
+[Unsplash](https://unsplash.com/) -
 [pixabay](https://pixabay.com/)
- 
