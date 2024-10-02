@@ -1,10 +1,10 @@
-**Question: What's the difference between undefined and not defined in JavaScript ?**
+## Question: What's the difference between undefined and not defined in JavaScript ?
 
 let x // declaring x
 console.log(x) // undefined
 console.log(y) // ReferenceError: y is not defined
 
-**Question: What is the difference between undefined and null ?**
+## Question: What is the difference between undefined and null ?
 
 undefined: Variable have been created, but not value have been assigned to the variable.
 
@@ -13,7 +13,7 @@ null: The value have be explicitly assign to the variable by the developer.
 typeof undefined // undefined
 typeof null // "object"
 
-**Question: What will be the output of the following code ?**
+## Question: What will be the output of the following code ?
 
 ```js
 var y = 1;
@@ -23,7 +23,7 @@ if (function f() {}) {
 console.log(y);
 ```
 
-**Question: What is the difference between var, let, const ?**
+## Question: What is the difference between var, let, const ?
 
 var is function scoped variable, 'var' variables get hoisted.
 
@@ -33,13 +33,13 @@ let is block scoped function that allow reassignment
 
 const is block scoped function that don't allow reassignment
 
-**Question: What is the difference between '==' and '===' ?**
+## Question: What is the difference between '==' and '===' ?
 
 '==': loose-equals operator that will use implicit coercion to optimize the success of equality. Will only look for equality of values.
 
 '===' strict-equals operator that will not implicitly convert the type to match the corresponding value. Will look for equality of types and values.
 
-**Question: what are the 6 falsy values in JS ?**
+## Question: what are the 6 falsy values in JS ?
 
 * false
 * 0
@@ -48,11 +48,11 @@ const is block scoped function that don't allow reassignment
 * null
 * undefined
 
-**Question: What is the use of arrow functions ?**
+## Question: What is the use of arrow functions ?
 
 Arrow functions are use and like for there concise syntax. AF are anonymous function and change the 'this' binds in the function.
 
-What is 'this' keyword in JavaScript?
+## What is 'this' keyword in JavaScript?
 
 The 'this' keyword have different between strict mode and non-strict mode.
 
@@ -87,9 +87,9 @@ function f2() {
 f2() === undefined; // true
 ```
 
-**Question: What is prototypal inheritance ?**
+## Question: What is prototypal inheritance ?
 
-In JS every Object has a property prototype, when a Object is created from a parent Object it inherante the parent properties. If you need to create 100 000 child object then some 100 of them use a methods from the parent rater then having the method in all the child, the method can be add to the prototype of the parent then will be accesible to his child with out carrying arrow the method.
+In JS every Object has a property prototype, when a Object is created from a parent Object it inherent the parent properties. If you need to create 100 000 child object then some 100 of them use a methods from the parent rater then having the method in all the child, the method can be add to the prototype of the parent then will be accesible to his child with out carrying arrow the method.
 
 ```js
 // define a Object, using function has a constructor
@@ -103,43 +103,43 @@ const toyota = new car("toyota");
 console.log(toyota.getModel());
 ```
 
-**Question: What is the diffenre between function declaration and function expression ?**
+## Question: What is the difference between function declaration and function expression ?
 
 function declaration is a the declaration of a named function vs function expression is the assignation of a anonymous function to a variable.
 
-```
+```js
 // function declaration
 function getArea(width, height){
-      return width * height;
+  return width * height;
 }
 console.log(getArea(2 * 4))
 
 // function expression
 const feetToMeter = function(feet) {
-      return feet * 0.3048
+  return feet * 0.3048
 }
-```
 
 console.log(funcD())
 console.log(funcE())
 
 function funcD() {
-console.log('functiuon declaration')
+  console.log('function declaration')
 }
 
 var funcE = function() {
-console.log('functiuon expression')
+console.log('function expression')
 }
+```
 
-**Question: What is promises and why do we use it?
+## Question: What is promises and why do we use it?
 
-The Promise object represents the eventual completion or failure of an asynchronous operation, and this resulting value.
+The Promise object represents the eventual completion or failure of an asynchronous operation, and the resulting value.
 
 JS Promise is a snippet of code that will execute with the expectation to return either (resolve or reject)
 
 The Promise that have been introduced to JS with the ES6 implementation avoid using function callback making the code cleaner and easier to read and maintain.
 
-**Question: What is closure and how do you use it ?**
+## Question: What is closure and how do you use it ?
 
 A closure is the combination of a function and the lexical env. within that function was declared.
 
@@ -156,13 +156,13 @@ function makeFunc() {
 }
 ```
 
-This code is working because JS form Closures. A closure is the combination of a function and the lexical environment within which that function was declared. This environment consists of any local variables that were in-scope at the time the closure was created. In this case displayName maintains a reference to it lexical environement.
+This code is working because JS form Closures. A closure is the combination of a function and the lexical environment within which that function was declared. This environment consists of any local variables that were in-scope at the time the closure was created. In this case displayName maintains a reference to it lexical environment.
 
 Consequently, you can use a closure anywhere that you might normally use an object with only a single method.
 
-**Question: What is the Heap, the Call Stack, the Web API Container, the Callback Queue and the Event loop and how a callBack task get send to the stack ?**
+## Question: What is the Heap, the Call Stack, the Web API Container, the Callback Queue and the Event loop and how a callBack task get send to the stack ?
 
-![V8 JS runtime Engine](../assets/img/JS_runtime_env.png)
+![V8 JS runtime Engine](JS_runtime_env.png)
 
 Heap: The memory heap store variables and objects it is the mostly a unstructured region of memory.
 
@@ -174,7 +174,9 @@ Callback Queue: A message Queue, it is a list of messages to be processed and th
 
 Event Loop: is responsible for the execution of the Callbacks in the Task Queue then pushing it in the stack, when it is empty.
 
-**Question: Explain the single thread execution of JS in the V8 engine ?**
+## Question: Explain the single thread execution of JS in the V8 engine ?
+
+V8 engine use a single async no-blocking thread to process function calls.
 
 ## What is the delete operator in JS?
 
@@ -199,21 +201,21 @@ console.log(Employee.firstname);
 
 There are three types of errors:
 
-### Load time errors:
+### Load time errors
 
 Errors which come up when loading a web page like improper syntax errors are known as Load time errors and it generates the errors dynamically.
 
-### Run time errors:
+### Run time errors
 
 Errors that come due to misuse of the command inside the HTML language.
 
-### Logical Errors:
+### Logical Errors
 
 These are the errors that occur due to the bad logic performed on a function which is having different operation.
 
-# WEB **questions
+# WEB
 
-## What are Javascript Cookies ?**
+## What are Javascript Cookies ?
 
 An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to the user's web browser. The browser may store it and send it back with the next request to the same server.
 

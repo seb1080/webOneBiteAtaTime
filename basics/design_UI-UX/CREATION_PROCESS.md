@@ -63,12 +63,12 @@ Netlify, JAMStack, CMS
 
 ## Content and information structure planning ?
 
-Group the content, structure the information, define design style, define the navigation structure and experience, gathering inspiration. 
+Group the content, structure the information, define design style, define the navigation structure and experience, gathering inspiration.
 
-* text
-* images or svg
-* icons
-* videos
+- text
+- images or svg
+- icons
+- videos
 
 ## Create the Layouts
 
@@ -77,8 +77,9 @@ Define Page structure and navigation on wireframes.
 1. Sketching layouts (wireframes)
 
 2. Choice the Font-Familly palette (1,2,3,4 fonts)
-  - Fonts-Family: Karla
-  - Font-weight: Bold
+
+- Fonts-Family: Karla
+- Font-weight: Bold
 
 3. Choice the colors palette (2,3,5,6 colors)
 
@@ -139,7 +140,6 @@ Those test are run to valid the performance of the website.
   Weight target under 200K for the website.
 
 load Speed under 3 sec
-
 
 ## References
 

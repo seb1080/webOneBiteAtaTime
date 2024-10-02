@@ -1,54 +1,17 @@
-# Learning Process
-
-1. **Deconstructing** Define the JS patterns to cover.
-
-The skills will be properly acquire when I will by able to explain the patterns with code to someone. The patterns need to be implement in a markdown including code and explanation.
-
-- Learning JS DP
-
-- Learning JS DP for Front End Architecture (Vue.js or React.js)
-
-- Learning JS DP
-- Learning JS DP for Front End Architecture (Vue.js or React.js)
-
-2. **Self-Correct** Identify the Js Patterns to be learn and redefine the learning goal.
-
-3. **Removing barrier to learning**
-
-4. **Pre-commit**
-
-- Do the research phase of 2-3 hrs.
-- Define in the commitment of 20 hrs is worted.
-- Put in place the scheduale to learn the next skill.
-- Evaluate what could interfer the success of the time frame.
-- Have a ultimate goal to over at the end of the learning process and a reward.
-- Have multiple gaol and reward during the learning process.
-
-4. **Pre-commit**
-
-- Do the research phase of 2-3 hrs.
-- Define in the commitment of 20 hrs is worked.
-- Put in place the schedule to learn the next skill.
-- Evaluate what could interner the success of the time frame.
-- Have a ultimate goal to over at the end of the learning process and a reward.
-- Have multiple gaol and reward during the learning process.
-
----
-
 # Learning JS Design Patterns
 
-Design patterns are reusable solution to commonly occuring problems in software design.
+Design patterns are reusable solution to commonly occurring problems in software design.
 Patterns are about reusable designs and interactions of objects.
 
-The 23 gang og Four(GoF) patterns are generally consided the fondation for all other patterns.
+The 23 gang og Four(GoF) patterns are generally consider the fondation for all other patterns.
 DP are categorize has: Creational, Structural, Behavioral, Concurrency, Architectural.
 
 - Design Patterns: represents good practice.
-- Anti-Patterns: bad practice. Ex: modifiy the `Object` clas prototype.
+- Anti-Patterns: bad practice. Ex: modify the `Object` class prototype.
 
 Js have multiple design Patterns(DP), they can be Front End, back End or Isomorphic JS (Universal JS).
 
-### Creational DP
+## Creational DP
 
 Creational patterns focus on ways to create objects of classes.
 
@@ -66,14 +29,14 @@ _Reference_
 [JavaScript Patterns](http://shop.oreilly.com/product/9780596806767.do)
 [JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
 
-#### Singleton Pattern
+### Singleton Pattern
 
 **Singleton** is thus know because it restricts instantiation of a class to a single object.
 It differ from static classes as we can delay their initialization, because it may require some information that is not available during the initialization time.
 
 In JS, **Singleton** serve as a shared resource _namespacing_ which isolate code from the global namespace, to provide a single point of access for functions.
 
-One caracteristic of the **Singleton** is the _immuability_.
+One characteristic of the **Singleton** is the _immuability_.
 
 **The old way** using closures and IIFE it is possible to write and Store(Redux).
 `UserStore` will be set to the result of the IIFE - an object that exposes 2 functions, but that does not grant direct access to the collection of data.

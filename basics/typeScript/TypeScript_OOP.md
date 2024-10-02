@@ -21,8 +21,6 @@ The 6 pillars of OOP:
 
 ### 5. Dependency Inversion (DIP)
 
-
-
 ## Ref
 
 [OOP Design principal with TS](https://github.com/jafari-dev/oop-expert-with-typescript)

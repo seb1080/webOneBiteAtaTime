@@ -1,23 +1,23 @@
 ***** yeoman command *******
 
-Test the version : npm -v, bower -v, yo -v 
+Test the version : npm -v, bower -v, yo -v
 
-To start a project 
+To start a project
 
-	yo <generator name>
+ yo <generator name>
 
-	bower install
+ bower install
 
-	sudo npm install gulp --save-dev
+ sudo npm install gulp --save-dev
 
 ***** generator-gulp-angular command *******
 
-		yo --version
-		gulp --version
-		bower --version
+  yo --version
+  gulp --version
+  bower --version
 
-		mkdir <projectFolderName> & cd _
+  mkdir <projectFolderName> & cd _
 
-		yo gulp-angular
+  yo gulp-angular
 
-		gulp serve
+  gulp serve

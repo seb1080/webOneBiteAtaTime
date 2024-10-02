@@ -1,8 +1,13 @@
 # TypeScript Note
 
+TypeScript is a strongly typed programming language that builds on JavaScript. It was originally designed by Anders Hejlsberg in 2012 and is currently developed and maintained by Microsoft as an open source project.
+
+TypeScript compiles to JavaScript and can be executed in any JavaScript runtime (e.g., a browser or server Node.js).
+
 TypeScript is a language that aims at easing development of large scale applications written in JavaScript. TypeScript is just like ES2015 with type-checking.
 
 - [TS documentation](https://www.typescriptlang.org/docs/)
+- [Typescript book](https://gibbok.github.io/typescript-book/book/typescript-introduction/)
 
 ## Installation & launch
 
@@ -12,6 +17,8 @@ npm install -g typescript
 // to compile
 tsc app.ts
 ```
+
+The TypeScript compiler has two main responsibilities: checking for type errors and compiling to JavaScript.
 
 ## Hello World
 
@@ -41,17 +48,19 @@ let user = new Student("Jane", "M.", "User");
 document.body.innerHTML = greeter(user);
 ```
 
-## Primitive Types
+## Primitive Types (Built-in)
 
 | Type      | Code                                                      |
 | --------- | --------------------------------------------------------- |
 | Any type  | `any` (explicitly untyped)                                |
-| Number    | `number`                                                  |
-| void type | `void` (null or undefined, use for function returns only) |
-| Boolean   | `boolean`                                                 |
 | String    | `string`                                                  |
-| Undefined | `undefined`                                               |
+| Boolean   | `boolean`                                                 |
 | Null      | `null`                                                    |
+| Symbol    | `symbol`                                                  |
+| Number    | `number`                                                  |
+| bigint    | `bigint`                                                  |
+| void type | `void` (null or undefined, use for function returns only) |
+| Undefined | `undefined`                                               |
 | never     | `never`                                                   |
 | unknown   | `unknown`                                                 |
 | date      | `date`                                                    |
@@ -124,19 +133,140 @@ const squareIt = function (rect: { h: number = 10; w: number = 10 }) {
 };
 ```
 
+### Functions Overloads
+
+Function overloads in TypeScript allow you to define multiple function signatures for a single function name, enabling you to define functions that can be called in multiple ways.
+
+```ts
+// Overloads
+function sayHi(name: string): string;
+function sayHi(names: string[]): string[];
+
+// Implementation
+function sayHi(name: unknown): unknown {
+    if (typeof name === 'string') {
+        return `Hi, ${name}!`;
+    } else if (Array.isArray(name)) {
+        return name.map(name => `Hi, ${name}!`);
+    }
+    throw new Error('Invalid value');
+}
+
+sayHi('xx'); // Valid
+sayHi(['aa', 'bb']); // Valid
+```
+
 ### Names types
 
 Interface, Class, Enum
 
-#### Interfaces vs. Types
+#### Types vs. Interfaces
 
 ## Types
+
+Several built-in utility types can be used to manipulate types.
+
+```ts
+type A = Awaited<Promise<string>>; // string
+
+type Person = {
+    name: string;
+    age: number;
+};
+
+type A = Partial<Person>; // { name?: string | undefined; age?: number | undefined; }
+
+type Person = {
+    name?: string;
+    age?: number;
+};
+
+type A = Required<Person>; // { name: string; age: number; }
+
+type Person = {
+    name: string;
+    age: number;
+};
+
+type A = Readonly<Person>;
+
+const a: A = { name: 'Simon', age: 17 };
+a.name = 'John'; // Invalid
+
+type Product = {
+    name: string;
+    price: number;
+};
+
+const products: Record<string, Product> = {
+    apple: { name: 'Apple', price: 0.5 },
+    banana: { name: 'Banana', price: 0.25 },
+};
+
+console.log(products.apple); // { name: 'Apple', price: 0.5 }
+
+type MyType = Uppercase<'abc'>; // "ABC"
+
+type MyType = Capitalize<'abc'>; // "Abc"
+```
+
+## Types Utilities
+
+In TypeScript, types are used to define the shape of data and enforce type checking.
+
+Type do not support type merging.
+
+```ts
+type TypeName = {
+    property1: Type1;
+    // ...
+    method1(arg1: ArgType1, arg2: ArgType2): ReturnType;
+    // ...
+};
+```
+
+### Type intersection
+
+For types, you use the & operator to combine multiple types into a single type (intersection).
+
+```ts
+interface A {
+    x: string;
+    y: number;
+}
+
+type B = A & {
+    j: string;
+};
+
+const c: B = {
+    x: 'x',
+    y: 123,
+    j: 'j',
+};
+
+type Department = 'dep-x' | 'dep-y'; // Union
+
+type Person = {
+    name: string;
+    age: number;
+};
+
+type Employee = {
+    id: number;
+    department: Department;
+};
+
+type EmployeeInfo = Person & Employee; // Intersection
+```
 
 ## Interfaces
 
 Interfaces are used to type-check whether an object fits a certain structure.
 
 Interfaces provide code contract to ensure consistency across objects. The compiler will enforce the contract.
+
+In TypeScript, interfaces define the structure of objects, specifying the names and types of properties or methods that an object must have.
 
 ```ts
 interface Person {
@@ -162,7 +292,39 @@ interface IAutoOptions {
 }
 ```
 
-## Classes
+## Interface Merging and Extension
+
+`Careful` Merging allows you to combine multiple declarations of the same name into a single definition
+
+```ts
+interface X {
+    a: string;
+}
+
+interface X {
+    b: number;
+}
+
+const person: X = {
+    a: 'a',
+    b: 7,
+};
+```
+
+## Interface Union
+
+```ts
+interface A {
+    x: 'x';
+}
+interface B {
+    y: 'y';
+}
+
+type C = A | B; // Union of interfaces
+```
+
+## Class
 
 ```ts
 class Menu {
@@ -202,6 +364,47 @@ var newMenu = new Menu(["pancakes", "waffles", "orange juice"], 1);
 // Call the list method.
 newMenu.list();
 ```
+
+### Class Constructor
+
+Constructors can be marked as private or protected.
+
+Private Constructors: Can be called only within the class itself. Private constructors are often used in scenarios where you want to enforce a singleton pattern or restrict the creation of instances to a factory method within the class
+
+Protected Constructors: Protected constructors are useful when you want to create a base class that should not be instantiated directly but can be extended by subclasses.
+
+```ts
+class BaseClass {
+    protected constructor() {}
+}
+
+class DerivedClass extends BaseClass {
+    private value: number;
+
+    constructor(value: number) {
+        super();
+        this.value = value;
+    }
+}
+
+// Attempting to instantiate the base class directly will result in an error
+// const baseObj = new BaseClass(); // Error: Constructor of class 'BaseClass' is protected.
+
+// Create an instance of the derived class
+const derivedObj = new DerivedClass(10);
+```
+
+### Access Modifiers
+
+The private modifier restricts access to the class member only within the containing class.
+
+The protected modifier allows access to the class member within the containing class and its derived classes.
+
+The public modifier provides unrestricted access to the class member, allowing it to be accessed from anywhere.”
+
+### This
+
+In TypeScript, the this keyword refers to the current instance of a class within its methods or constructors. It allows you to access and modify the properties and methods of the class from within its own scope. It provides a way to access and manipulate the internal state of an object within its own methods.
 
 ## Classes abstracts
 
@@ -289,8 +492,6 @@ function setContents<Type>(box: Box<Type>, newContents: Type) {
   box.contents = newContents;
 }
 
-
-
 function firstElement<Type>(arr: Type[]): Type | undefined {
   return arr[0];
 }
@@ -303,13 +504,78 @@ const n = firstElement([1, 2, 3]);
 const u = firstElement([]);
 ```
 
+### Generic Classes
+
+```ts
+class Container<T> {
+    private item: T;
+
+    constructor(item: T) {
+        this.item = item;
+    }
+
+    getItem(): T {
+        return this.item;
+    }
+}
+
+const numberContainer = new Container<number>(123);
+console.log(numberContainer.getItem()); // 123
+
+const stringContainer = new Container<string>('hello');
+console.log(stringContainer.getItem()); // hello
+```
+
 ## declare keyword
 
 The TypeScript `declare` keyword is used to declare variables that may not have originated from a TypeScript file.
 
-## References
+## Type Predicates
 
-[Pluralsight](https://www.pluralsight.com/courses/typescript)
+```ts
+
+const isString = (value: unknown): value is string => typeof value === 'string';
+
+const foo = (bar: unknown) => {
+    if (isString(bar)) {
+        console.log(bar.toUpperCase());
+    } else {
+        console.log('not a string');
+    }
+};
+```
+
+## Type Indexing
+
+Type indexing refers to the ability to define types that can be indexed by a key that is not known in advance, using an index signature to specify the type for properties that are not explicitly declared.
+
+```ts
+type Dictionary<T> = {
+    [key: string]: T;
+};
+const myDict: Dictionary<string> = { a: 'a', b: 'b' };
+console.log(myDict['a']); // Returns a
+```
+
+## Predefined Conditional Types
+
+In TypeScript, Predefined Conditional Types are built-in conditional types provided by the language.
+
+```ts
+Required<Type>: This type makes all properties in Type required.
+
+Partial<Type>: This type makes all properties in Type optional.
+
+Readonly<Type>: This type makes all properties in Type readonly.
+```
+
+## template
+
+```ts
+
+```
+
+## References
 
 [Handbook](https://www.typescriptlang.org/docs/handbook/basic-types.html)
 

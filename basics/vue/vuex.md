@@ -140,7 +140,6 @@ To call a mutation handler, you need to call `store.commit('increment', 10)`.
 
 `mapMutations` helper which maps component methods to `store.commit`
 
-
 ```js
 import { mapMutations } from 'vuex'
 

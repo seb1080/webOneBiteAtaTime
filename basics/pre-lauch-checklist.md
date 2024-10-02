@@ -1,10 +1,7 @@
 
-
-# Pre-lauch Checklist
-
+# Pre-launch Checklist
 
 ## Images Optimization
-
 
 ## SEO Checklist
 
@@ -27,4 +24,3 @@
 ## Accessibility checklist
 
 * [Accessibility Deque](https://www.deque.com/axe/)
-
