@@ -1,29 +1,26 @@
-
 # WORKSHOP LEARN POSTGIS FAST
 
--[PostGIS Workshop](https://docs.google.com/presentation/d/1tOrp4MQebozybREHYDlE2ZQRlM9Dkne-nRMyCRWc6KY/edit#slide=id.gdd2fd99493_0_607)
+- [PostGIS Workshop](https://docs.google.com/presentation/d/1tOrp4MQebozybREHYDlE2ZQRlM9Dkne-nRMyCRWc6KY/edit#slide=id.gdd2fd99493_0_607)
+- [PostGIS Intro](https://postgis.net/workshops/postgis-intro/introduction.html)
+- [PostGIS Baby Steps](https://www.youtube.com/playlist?list=PLj5uPTt8jS8zzXfWvtqaT8pYhKWnPRFox)
 
-- [](https://postgis.net/workshops/postgis-intro/introduction.html)
-
-# Learn Spatial SQL
+## Learn Spatial SQL
 
 [PostGIS follows the OGC/SQL-MM standards.](https://postgis.net/docs/manual-dev/using_postgis_dbmanagement.html#RefObject)
 
-[Loading SQL in Jupyter notebook](https://postgis.gishub.org/chapters/installation.html)
-
-[Crunchydata](https://www.crunchydata.com/developers/tutorials)
+[CrunchyData](https://www.crunchydata.com/developers/tutorials)
 
 ## postGIS workshop
 
+```bash
 docker run --name=workshopDB -d -e POSTGRES_USER=workshopDB -e POSTGRES_PASS=workshopDB -e POSTGRES_DBNAME=workshopDB -p 5432:5432 --restart=always mdillon/postgis
+```
 
 ### Learning source
 
 <https://postgis.net/documentation/training/>
 
 <https://www.naturalearthdata.com/>
-
-- [PostGIS Baby Steps](https://www.youtube.com/playlist?list=PLj5uPTt8jS8zzXfWvtqaT8pYhKWnPRFox)
 
 ### Créer les extensions nécessaire sur la bd PostgresSQL locale
 
