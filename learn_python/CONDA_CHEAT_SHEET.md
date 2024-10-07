@@ -7,6 +7,8 @@ conda env list
 
 # List package name pandas in current env
 conda list | grep pandas
+
+conda env export
 ```
 
 #### Check conda and python version
@@ -180,7 +182,7 @@ python --version
 
 `conda build --test /home/user/miniconda3/conda-bld/noarch/pytest-cov-2.12.1-py_0.tar.bz2`  test the package in your environment (for regression testing)
 
-`conda build gdal-feedstock `
+`conda build gdal-feedstock`
 
 `conda build sep`
 

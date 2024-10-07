@@ -1,4 +1,10 @@
 
+# WORKSHOP LEARN POSTGIS FAST
+
+-[PostGIS Workshop](https://docs.google.com/presentation/d/1tOrp4MQebozybREHYDlE2ZQRlM9Dkne-nRMyCRWc6KY/edit#slide=id.gdd2fd99493_0_607)
+
+- [](https://postgis.net/workshops/postgis-intro/introduction.html)
+
 # Learn Spatial SQL
 
 [PostGIS follows the OGC/SQL-MM standards.](https://postgis.net/docs/manual-dev/using_postgis_dbmanagement.html#RefObject)
@@ -19,7 +25,7 @@ docker run --name=workshopDB -d -e POSTGRES_USER=workshopDB -e POSTGRES_PASS=wor
 
 - [PostGIS Baby Steps](https://www.youtube.com/playlist?list=PLj5uPTt8jS8zzXfWvtqaT8pYhKWnPRFox)
 
-### Créer les extensions nécessaire sur la bd postgres locale
+### Créer les extensions nécessaire sur la bd PostgresSQL locale
 
 Il faut créer les extensions suivantes (Vous pouvez exécuter les commandes dans un client BD tel que DBeaver):
 
