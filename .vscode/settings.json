@@ -7,7 +7,8 @@
         "EWKT",
         "Geospatial",
         "IIFE",
-        "linestring"
+        "linestring",
+        "srid"
     ],
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
