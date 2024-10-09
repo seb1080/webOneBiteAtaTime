@@ -38,6 +38,7 @@ mntHydroUrl = ''
 #### Water flood
 floodingUrl = 'https://www.donneesquebec.ca/recherche/dataset/cartographie-des-inondations-du-printemps-2023'
 
+
 # %%
 response = requests.get(adminBoundariesUrl)
 response.raise_for_status()
@@ -46,6 +47,23 @@ zip_file.extractall(path=dataFolderRelativePath)
 adminBoundariesPath = dataFolderRelativePath + '/SDA.gdb'
 # layers = fiona.listlayers(adminBoundariesPath)
 municipalitiesBoundaries = gpd.read_file(adminBoundariesPath, layer='munic_s')
+municipalitiesBoundaries.to_csv(f'{dataFolderRelativePath}/municipalitiesBoundaries.csv', index=False)
+municipalitiesBoundaries.plot()
+municipalitiesBoundaries.crs
+
+# %%
+st_Lawrence_river_overlap_path = f'{dataFolderRelativePath}/st-lawrence-river-overlap.json'
+st_LawrenceRiverOverlap = gpd.read_file(st_Lawrence_river_overlap_path)
+st_LawrenceRiverOverlap
+
+# Create a new GeoDataFrame with the merged polygon
+st_LawrenceRiverOverlap = gpd.GeoDataFrame(geometry=[st_LawrenceRiverOverlap.unary_union])
+# Save the merged GeoDataFrame to a new file
+st_LawrenceRiverOverlap.to_file(f'{dataFolderRelativePath}/merged_st_lawrence_river_overlap.json', driver='GeoJSON')
+st_LawrenceRiverOverlap.set_crs(epsg=4326, inplace=True)
+st_LawrenceRiverOverlap = st_LawrenceRiverOverlap.to_crs(epsg=4269)
+st_LawrenceRiverOverlap.crs
+st_LawrenceRiverOverlap.plot()
 
 # %%
 response = requests.get(MRC_CsvUrl)
@@ -70,28 +88,29 @@ response.raise_for_status()
 zip_file = zipfile.ZipFile(io.BytesIO(response.content))
 zip_file.extractall(path=dataFolderRelativePath)
 
-# %%
-grhqPath = dataFolderRelativePath + '/GRHQ_00AA.gdb'
-grhq_layers = fiona.listlayers(grhqPath)
-grhq_layers
-RH_R = gpd.read_file(grhqPath, layer='RH_R')
 
 # %%
-# Explore RHG_L
-RH_R = RH_R.to_crs(epsg=4326)
-RH_R.head()
-RH_R.describe()
-RH_R.plot()
-subset_RH_R = RH_R[0:400]
-subset_RH_R.plot()
+# Create a new DataFrame from all the polygon of municipalitiesBoundaries that are overlap by the st_LawrenceRiverOverlap dataFrame
+costalMunicipalitiesIntersect = gpd.overlay(municipalitiesBoundaries, st_LawrenceRiverOverlap, how='intersection')
 
-# %%
-# Create a Folium map centered around the approximate center of the dataset
-customMap = folium.Map(location=[45, -73], zoom_start=10)
+# Create a new GeoPandas dataFrame from columns 'MUS_CO_GEO', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC' in costalMunicipalitiesIntersect
+costalMunicipalities =  costalMunicipalitiesIntersect[['MUS_CO_GEO', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC']]
+costalMunicipalities.head()
 
-# Add the GeoDataFrame to the map
-folium.GeoJson(subset_RH_R).add_to(customMap)
+# update costalMunicipalities by merging costalMunicipalities and municipalitiesBoundaries on 'MUS_CO_GEO'
+costalMunicipalities = costalMunicipalities.merge(municipalitiesBoundaries, on='MUS_CO_GEO')
+costalMunicipalities.head()
+costalMunicipalities = costalMunicipalities[['MUS_CO_GEO', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC', 'geometry_y']]
 
-customMap
+# %% rename the column 'geometry_y' to 'geometry'
+costalMunicipalities.rename(columns={'geometry_y': 'geometry'}, inplace=True)
+# Set the geometry column
+costalMunicipalities = costalMunicipalities.set_geometry('geometry')
+costalMunicipalities.crs = municipalitiesBoundaries.crs
+
+
+costalMunicipalities.plot()
+
+
 
 # %%
