@@ -107,10 +107,22 @@ costalMunicipalities.rename(columns={'geometry_y': 'geometry'}, inplace=True)
 # Set the geometry column
 costalMunicipalities = costalMunicipalities.set_geometry('geometry')
 costalMunicipalities.crs = municipalitiesBoundaries.crs
-
-
 costalMunicipalities.plot()
 
-
+# %%
+# Export the costalMunicipalities to a GeoJSON file
+costalMunicipalities.to_file(f'{dataFolderRelativePath}/costalMunicipalities.json', driver='GeoJSON')
 
 # %%
+# Create a folium map centered around the St. Lawrence River
+customMap = folium.Map(location=[46.8, -71.2], zoom_start=7)
+
+# Add the costalMunicipalities polygons to the map
+for _, row in costalMunicipalities.iterrows():
+    sim_geo = gpd.GeoSeries(row['geometry']).simplify(tolerance=0.001)
+    geo_json = sim_geo.to_json()
+    geo_json_layer = folium.GeoJson(data=geo_json, style_function=lambda x: {'fillColor': 'blue'})
+    geo_json_layer.add_to(customMap)
+
+# Save the map to an HTML file
+customMap
