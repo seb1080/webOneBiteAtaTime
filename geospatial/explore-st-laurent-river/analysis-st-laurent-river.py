@@ -75,7 +75,8 @@ mrc = pd.read_csv(csv_data)
 response = requests.get(municipalities_CsvUrl)
 response.raise_for_status()
 csv_data = StringIO(response.text)
-municipalities = pd.read_csv(csv_data)
+municipalitiesRaw = pd.read_csv(csv_data)
+municipalitiesRaw['mcode'] = municipalitiesRaw['mcode'].astype(int)
 
 response = requests.get(MRC_CsvUrl)
 response.raise_for_status()
@@ -95,23 +96,32 @@ costalMunicipalitiesIntersect = gpd.overlay(municipalitiesBoundaries, st_Lawrenc
 
 # Create a new GeoPandas dataFrame from columns 'MUS_CO_GEO', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC' in costalMunicipalitiesIntersect
 costalMunicipalities =  costalMunicipalitiesIntersect[['MUS_CO_GEO', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC']]
-costalMunicipalities.head()
 
 # update costalMunicipalities by merging costalMunicipalities and municipalitiesBoundaries on 'MUS_CO_GEO'
 costalMunicipalities = costalMunicipalities.merge(municipalitiesBoundaries, on='MUS_CO_GEO')
-costalMunicipalities.head()
 costalMunicipalities = costalMunicipalities[['MUS_CO_GEO', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC', 'geometry_y']]
-
-# %% rename the column 'geometry_y' to 'geometry'
-costalMunicipalities.rename(columns={'geometry_y': 'geometry'}, inplace=True)
+costalMunicipalities.rename(columns={'geometry_y': 'geometry', 'MUS_CO_GEO':'mcode'}, inplace=True)
 # Set the geometry column
 costalMunicipalities = costalMunicipalities.set_geometry('geometry')
 costalMunicipalities.crs = municipalitiesBoundaries.crs
-costalMunicipalities.plot()
+costalMunicipalities['mcode'] = costalMunicipalities['mcode'].astype(int)
+costalMunicipalities.set_index('mcode', inplace=True)
+# costalMunicipalities.plot()
+
+costalMunicipalities.head()
+costalMunicipalities.mcode.astype(int)
+
+municipalitiesRaw.set_index('mcode', inplace=True)
+municipalities = municipalitiesRaw[['mcode', 'munnom', 'madr1', 'mcourriel', 'mweb', 'mtel', 'trvpub', 'mesurg', 'urban']]
+
+municipalities.head(20)
+municipalities.describe()
+costalMunicipalities.head(20)
+costalMunicipalities.describe()
 
 # %%
-# Export the costalMunicipalities to a GeoJSON file
-costalMunicipalities.to_file(f'{dataFolderRelativePath}/costalMunicipalities.json', driver='GeoJSON')
+outPutMunicipalities = costalMunicipalities.merge(municipalities, on='mcode')
+outPutMunicipalities
 
 # %%
 # Create a folium map centered around the St. Lawrence River

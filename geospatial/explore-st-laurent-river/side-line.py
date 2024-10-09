@@ -32,3 +32,10 @@ folium.GeoJson(subset_RH_R).add_to(customMap)
 customMap
 
 # %%
+
+
+
+# %%
+# Find string 'Percé' in the column 'munnom' of municipalities
+perce_municipalities = municipalities[municipalities['munnom'].str.contains('Percé', case=False, na=False)]
+perce_municipalities
