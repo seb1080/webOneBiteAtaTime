@@ -18,7 +18,8 @@ adminBoundariesUrl = 'https://diffusion.mern.gouv.qc.ca/Diffusion/RGQ/Vectoriel/
 
 # Répertoire des municipalités du Québec
 # https://www.donneesquebec.ca/recherche/dataset/repertoire-des-municipalites-du-quebec
-municipalitiesUrl = 'https://www.donneesquebec.ca/recherche/dataset/repertoire-des-municipalites-du-quebec'
+municipalities_CsvUrl = 'https://donneesouvertes.affmunqc.net/repertoire/MUN.csv'
+MRC_CsvUrl = 'https://donneesouvertes.affmunqc.net/repertoire/MRC_CM_Arg.csv'
 
 # Géobase du réseau hydrographique du Québec (GRHQ)
 # https://www.donneesquebec.ca/recherche/dataset/grhq
@@ -42,20 +43,44 @@ zip_file = zipfile.ZipFile(io.BytesIO(response.content))
 zip_file.extractall(path=dataFolderRelativePath)
 adminBoundariesPath = dataFolderRelativePath + '/SDA.gdb'
 # layers = fiona.listlayers(adminBoundariesPath)
-municipalities = gpd.read_file(adminBoundariesPath, layer='munic_s')
+municipalitiesBoundaries = gpd.read_file(adminBoundariesPath, layer='munic_s')
+
+# %%
+response = requests.get(MRC_CsvUrl)
+response.raise_for_status()
+csv_data = StringIO(response.text)
+mrc = pd.read_csv(csv_data)
+
+# %%
+response = requests.get(municipalities_CsvUrl)
+response.raise_for_status()
+csv_data = StringIO(response.text)
+municipalities = pd.read_csv(csv_data)
+
+response = requests.get(MRC_CsvUrl)
+response.raise_for_status()
+csv_data = StringIO(response.text)
+mrc = pd.read_csv(csv_data)
 
 # %%
 response = requests.get(grhqUrl)
 response.raise_for_status()
 zip_file = zipfile.ZipFile(io.BytesIO(response.content))
 zip_file.extractall(path=dataFolderRelativePath)
+# adminBoundariesPath = dataFolderRelativePath + '/SDA.gdb'
+# layers = fiona.listlayers(adminBoundariesPath)
+# municipalitiesBoundaries = gpd.read_file(adminBoundariesPath, layer='regio_s')
 
-adminBoundariesPath = dataFolderRelativePath + '/SDA.gdb'
-layers = fiona.listlayers(adminBoundariesPath)
-municipalities = gpd.read_file(adminBoundariesPath, layer='regio_s')
+# %%
+# Explore municipalitiesBoundaries
+municipalitiesBoundaries.head()
+municipalitiesBoundaries.describe()
+
+# The column 'mcode' of municipalities match with 'MUS_CO_GEO' of municipalitiesBoundaries
+# %%
 
 # %%
 # Explore municipalities
 municipalities.head()
 municipalities.describe()
-municipalities.plot()
+# %%
