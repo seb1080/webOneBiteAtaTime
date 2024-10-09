@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"BATIMENT",
+			"fiona",
+			"GEOMETRIE",
+			"listlayers",
+			"sjoin"
+		]
+	}
+}
