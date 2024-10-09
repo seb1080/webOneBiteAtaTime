@@ -20,10 +20,12 @@ adminBoundariesUrl = 'https://diffusion.mern.gouv.qc.ca/Diffusion/RGQ/Vectoriel/
 # https://www.donneesquebec.ca/recherche/dataset/repertoire-des-municipalites-du-quebec
 municipalities_CsvUrl = 'https://donneesouvertes.affmunqc.net/repertoire/MUN.csv'
 MRC_CsvUrl = 'https://donneesouvertes.affmunqc.net/repertoire/MRC_CM_Arg.csv'
+# The column 'mcode' of municipalities match with 'MUS_CO_GEO' of municipalitiesBoundaries
+
 
 # Géobase du réseau hydrographique du Québec (GRHQ)
 # https://www.donneesquebec.ca/recherche/dataset/grhq
-grhqUrl = 'https://diffusion.mern.gouv.qc.ca/Diffusion/RGQ/Vectoriel/Carte_Topo/Local/GRHQ/FGDB/'
+grhqUrl = 'https://diffusion.mern.gouv.qc.ca/Diffusion/RGQ/Vectoriel/Carte_Topo/Local/GRHQ/FGDB/00/00.zip'
 
 # Caractérisation des berges de la partie fluviale du Saint-Laurent et analyse de l'évolution des facteurs hydro-climatiques influençant les aléas d'érosion et d'inondation
 # https://catalogue.ogsl.ca/fr/dataset/ca-cioos_448d2828-d249-4d77-ad68-563512977150
@@ -67,20 +69,29 @@ response = requests.get(grhqUrl)
 response.raise_for_status()
 zip_file = zipfile.ZipFile(io.BytesIO(response.content))
 zip_file.extractall(path=dataFolderRelativePath)
-# adminBoundariesPath = dataFolderRelativePath + '/SDA.gdb'
-# layers = fiona.listlayers(adminBoundariesPath)
-# municipalitiesBoundaries = gpd.read_file(adminBoundariesPath, layer='regio_s')
 
 # %%
-# Explore municipalitiesBoundaries
-municipalitiesBoundaries.head()
-municipalitiesBoundaries.describe()
-
-# The column 'mcode' of municipalities match with 'MUS_CO_GEO' of municipalitiesBoundaries
-# %%
+grhqPath = dataFolderRelativePath + '/GRHQ_00AA.gdb'
+grhq_layers = fiona.listlayers(grhqPath)
+grhq_layers
+RH_R = gpd.read_file(grhqPath, layer='RH_R')
 
 # %%
-# Explore municipalities
-municipalities.head()
-municipalities.describe()
+# Explore RHG_L
+RH_R = RH_R.to_crs(epsg=4326)
+RH_R.head()
+RH_R.describe()
+RH_R.plot()
+subset_RH_R = RH_R[0:400]
+subset_RH_R.plot()
+
+# %%
+# Create a Folium map centered around the approximate center of the dataset
+customMap = folium.Map(location=[45, -73], zoom_start=10)
+
+# Add the GeoDataFrame to the map
+folium.GeoJson(subset_RH_R).add_to(customMap)
+
+customMap
+
 # %%
