@@ -1,11 +1,14 @@
 {
     "cSpell.words": [
+        "cartesian",
         "Carto",
         "Creational",
         "elif",
+        "EWKT",
         "Geospatial",
         "IIFE",
-        "linestring"
+        "linestring",
+        "srid"
     ],
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
