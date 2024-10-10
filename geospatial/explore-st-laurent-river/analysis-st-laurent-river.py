@@ -93,16 +93,21 @@ zip_file.extractall(path=dataFolderRelativePath)
 # %%
 # Create a new DataFrame from all the polygon of municipalitiesBoundaries that are overlap by the st_LawrenceRiverOverlap dataFrame
 costalMunicipalitiesIntersect = gpd.overlay(municipalitiesBoundaries, st_LawrenceRiverOverlap, how='intersection')
-
-# Create a new GeoPandas dataFrame from columns 'MUS_CO_GEO', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC' in costalMunicipalitiesIntersect
+costalMunicipalitiesIntersect.head()
 costalMunicipalities =  costalMunicipalitiesIntersect[['MUS_CO_GEO', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC']]
-
-# update costalMunicipalities by merging costalMunicipalities and municipalitiesBoundaries on 'MUS_CO_GEO'
 costalMunicipalities = costalMunicipalities.merge(municipalitiesBoundaries, on='MUS_CO_GEO')
-costalMunicipalities = costalMunicipalities[['MUS_CO_GEO', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC', 'geometry_y']]
-costalMunicipalities.rename(columns={'geometry_y': 'geometry', 'MUS_CO_GEO':'mcode'}, inplace=True)
-# Set the geometry column
 costalMunicipalities = costalMunicipalities.set_geometry('geometry')
+
+costalMunicipalities.head()
+costalMunicipalities.plot()
+# Export costalMunicipalities to a .CSV
+costalMunicipalities.to_csv(f'{dataFolderRelativePath}/costalMunicipalities.csv', index=False)
+
+
+# costalMunicipalities = costalMunicipalities[['MUS_CO_GEO', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC', 'geometry']]
+
+costalMunicipalities.rename(columns={'MUS_CO_GEO':'mcode'}, inplace=True)
+# Set the geometry column
 costalMunicipalities.crs = municipalitiesBoundaries.crs
 costalMunicipalities['mcode'] = costalMunicipalities['mcode'].astype(int)
 costalMunicipalities.set_index('mcode', inplace=True)
