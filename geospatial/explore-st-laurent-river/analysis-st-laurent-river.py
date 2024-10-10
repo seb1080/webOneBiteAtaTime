@@ -93,47 +93,25 @@ zip_file.extractall(path=dataFolderRelativePath)
 # %%
 # Create a new DataFrame from all the polygon of municipalitiesBoundaries that are overlap by the st_LawrenceRiverOverlap dataFrame
 costalMunicipalitiesIntersect = gpd.overlay(municipalitiesBoundaries, st_LawrenceRiverOverlap, how='intersection')
-costalMunicipalitiesIntersect.head()
 costalMunicipalities =  costalMunicipalitiesIntersect[['MUS_CO_GEO', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC']]
 costalMunicipalities = costalMunicipalities.merge(municipalitiesBoundaries, on='MUS_CO_GEO')
+costalMunicipalities = costalMunicipalities.rename(columns={'geometry_y':'geometry'})
 costalMunicipalities = costalMunicipalities.set_geometry('geometry')
-
 # Export costalMunicipalities to a .CSV
-costalMunicipalities.to_csv(f'{dataFolderRelativePath}/costalMunicipalities.csv', index=False)
-costalMunicipalities.plot()
-
-# Rename column 'MUS_CO_GEO' to 'mcode'
-costalMunicipalities.rename(columns={'MUS_CO_GEO':'mcode'}, inplace=True)
-costalMunicipalities.rename(columns={'MUS_NM_MUN_x':'MUS_NM_MUN', 'MUS_NM_NMC_x': 'MUS_NM_NMC', 'MUS_NM_MRC_x': 'MUS_NM_MRC'}, inplace=True)
-costalMunicipalities.drop(columns=['SHAPE_Length', 'SHAPE_Area'], inplace=True)
-costalMunicipalities = costalMunicipalities[['mcode', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC', 'geometry']]
-costalMunicipalities.head()
-
-
-# Set the geometry column
-costalMunicipalities.crs = municipalitiesBoundaries.crs
-costalMunicipalities['mcode'] = costalMunicipalities['mcode'].astype(int)
-costalMunicipalities.set_index('mcode', inplace=True)
 # costalMunicipalities.plot()
+costalMunicipalities.rename(columns={'MUS_CO_GEO':'mcode'}, inplace=True)
+costalMunicipalities['mcode'] = costalMunicipalities['mcode'].astype(int)
+costalMunicipalities = costalMunicipalities[['mcode', 'MUS_NM_MUN', 'MUS_NM_NMC', 'MUS_NM_MRC', 'geometry']]
 
-costalMunicipalities.head()
-costalMunicipalities.mcode.astype(int)
-
-municipalitiesRaw.set_index('mcode', inplace=True)
+# %%
+# municipalitiesRaw.set_index('mcode', inplace=True)
 municipalities = municipalitiesRaw[['mcode', 'munnom', 'madr1', 'mcourriel', 'mweb', 'mtel', 'trvpub', 'mesurg', 'urban']]
-
-municipalities.head(20)
-municipalities.describe()
+municipalities['mcode'] = municipalities['mcode'].astype(int)
+# %%
+costalMunicipalities = costalMunicipalities.merge(municipalities, on='mcode')
+costalMunicipalities = costalMunicipalities[['mcode', 'munnom', 'MUS_NM_NMC', 'madr1', 'mcourriel', 'mweb', 'mtel', 'trvpub', 'mesurg', 'urban', 'geometry']]
+costalMunicipalities.to_csv(f'{dataFolderRelativePath}/costalMunicipalities.csv', index=False)
 costalMunicipalities.head(20)
-costalMunicipalities.describe()
-
-# %%
-outPutMunicipalities = costalMunicipalities.merge(municipalities, on='mcode')
-outPutMunicipalities
-
-# %%
-
-
 
 # %%
 # Create a folium map centered around the St. Lawrence River
@@ -148,3 +126,4 @@ for _, row in costalMunicipalities.iterrows():
 
 # Save the map to an HTML file
 customMap
+# %%
