@@ -48,8 +48,8 @@ adminBoundariesPath = dataFolderRelativePath + '/SDA.gdb'
 # layers = fiona.listlayers(adminBoundariesPath)
 municipalitiesBoundaries = gpd.read_file(adminBoundariesPath, layer='munic_s')
 municipalitiesBoundaries.to_csv(f'{dataFolderRelativePath}/municipalitiesBoundaries.csv', index=False)
-municipalitiesBoundaries.plot()
-municipalitiesBoundaries.crs
+# municipalitiesBoundaries.plot()
+# municipalitiesBoundaries.crs
 
 # %%
 st_Lawrence_river_overlap_path = f'{dataFolderRelativePath}/st-lawrence-river-overlap.json'
@@ -84,10 +84,10 @@ csv_data = StringIO(response.text)
 mrc = pd.read_csv(csv_data)
 
 # %%
-response = requests.get(grhqUrl)
-response.raise_for_status()
-zip_file = zipfile.ZipFile(io.BytesIO(response.content))
-zip_file.extractall(path=dataFolderRelativePath)
+# response = requests.get(grhqUrl)
+# response.raise_for_status()
+# zip_file = zipfile.ZipFile(io.BytesIO(response.content))
+# zip_file.extractall(path=dataFolderRelativePath)
 
 
 # %%
@@ -109,9 +109,23 @@ municipalities = municipalitiesRaw[['mcode', 'munnom', 'madr1', 'mcourriel', 'mw
 municipalities['mcode'] = municipalities['mcode'].astype(int)
 # %%
 costalMunicipalities = costalMunicipalities.merge(municipalities, on='mcode')
-costalMunicipalities = costalMunicipalities[['mcode', 'munnom', 'MUS_NM_NMC', 'madr1', 'mcourriel', 'mweb', 'mtel', 'trvpub', 'mesurg', 'urban', 'geometry']]
-costalMunicipalities.to_csv(f'{dataFolderRelativePath}/costalMunicipalities.csv', index=False)
-costalMunicipalities.head(20)
+costalMunicipalities = costalMunicipalities[['mcode', 'munnom', 'geometry']]
+subSet_costalMunicipalities = costalMunicipalities.head(1)
+# %% How to validate the geometry column is valid
+is_valid = subSet_costalMunicipalities['geometry'].apply(wkt.loads).apply(lambda x: x.is_valid)
+is_valid
+
+type(subSet_costalMunicipalities['geometry'])
+geom = subSet_costalMunicipalities['geometry']
+geom
+
+# Convert the pandas DataFrame to a GeoPandas GeoDataFrame
+subSet_costalMunicipalities_gdf = gpd.GeoDataFrame(subSet_costalMunicipalities, geometry='geometry')
+
+subSet_costalMunicipalities.to_csv(f'{dataFolderRelativePath}/subsetCostalMunicipalities.csv', index=False)
+
+# Geopandas export subSet_costalMunicipalities to a Geojson file
+subSet_costalMunicipalities.to_file(f'{dataFolderRelativePath}/subsetCostalMunicipalities.geojson', driver='GeoJSON')
 
 # %%
 # Create a folium map centered around the St. Lawrence River
