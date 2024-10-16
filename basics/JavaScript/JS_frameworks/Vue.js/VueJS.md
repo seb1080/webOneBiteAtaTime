@@ -408,7 +408,7 @@ Components can specify requirements for its props, such as the types.
 
 ## Emits & events
 
-*We recommend you always use kebab-case for event name*
+**We recommend you always use kebab-case for event name*
 
 In some context we may want to pass event and data from child to parent component.
 
