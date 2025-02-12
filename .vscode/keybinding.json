@@ -1,0 +1,7 @@
+[
+  {
+    "key": "ctrl+alt+i",
+    "command": "inlineChat.start",
+    "when": "editorFocus && inlineChatHasProvider && inlineChatPossible && !editorReadonly && !editorSimpleInput"
+  }
+]
