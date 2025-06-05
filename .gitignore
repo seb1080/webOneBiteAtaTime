@@ -1,6 +1,7 @@
-# Ignore .evn files
-*.env
+# ignore file starting with .env
+.env*
 
+# Ignore file under the file supabase
 supabase/
 
 # General
