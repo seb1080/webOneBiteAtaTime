@@ -1,3 +1,8 @@
+# Ignore .evn files
+*.env
+
+supabase/
+
 # General
 .DS_Store
 .AppleDouble

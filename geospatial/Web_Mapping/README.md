@@ -105,4 +105,4 @@ Additionally, instead of displaying data for any location, a tiled map shows dat
 - [Vector tiles Standards](https://docs.mapbox.com/data/tilesets/guides/vector-tiles-standards/)
 - [Proto Buf](https://protobuf.dev/)
 
-- [Awesome Vectorl tiles](https://github.com/mapbox/awesome-vector-tiles)
+- [Awesome Vector tiles](https://github.com/mapbox/awesome-vector-tiles)

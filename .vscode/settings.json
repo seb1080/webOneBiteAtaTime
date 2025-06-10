@@ -9,7 +9,8 @@
         "Geospatial",
         "IIFE",
         "linestring",
-        "srid"
+        "srid",
+        "supabase"
     ],
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
