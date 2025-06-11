@@ -6,14 +6,17 @@
         "Creational",
         "elif",
         "EWKT",
+        "geometrie",
         "Geospatial",
         "IIFE",
         "linestring",
+        "REGLEMENT",
         "srid",
-        "supabase"
+        "supabase",
+        "tuto"
     ],
     "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8"
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "python.formatting.provider": "none"
 }
