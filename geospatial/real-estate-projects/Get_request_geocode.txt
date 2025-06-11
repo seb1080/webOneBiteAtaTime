@@ -1,0 +1,4 @@
+curl  -X GET \
+  'https://atlas.microsoft.com/geocode?api-version=2022-02-01-preview&subscription-key=subscription-key&query=809%20Av%20Painchaud%2C%20Qu%C3%A9bec%2C%20Qc' \
+  --header 'Accept: */*' \
+  --header 'User-Agent: Thunder Client (https://www.thunderclient.com)'

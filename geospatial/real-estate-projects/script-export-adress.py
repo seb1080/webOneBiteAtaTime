@@ -30,3 +30,10 @@ response = (
     .execute()
 )
 print(response)
+
+# %%
+try:
+    response = supabase.table("projects").select("*").execute()
+    print(response)
+except Exception as e:
+    print(f"Error deleting record: {e}")
