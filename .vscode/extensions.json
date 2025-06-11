@@ -9,5 +9,4 @@
         "4ops.terraform",
         "tamasfe.even-better-toml",
     ],
-    "unwantedRecommendations": []
 }

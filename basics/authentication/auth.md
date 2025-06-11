@@ -83,7 +83,7 @@ HMACSHA256(
 
 - JSON Web Encryption (JWE)
 
-- Base64url is a group of similiar binary-to-text encoding schemes that represent binary data in a ASCII string format by translating it into radix-64 representation with url safe character.
+- Base64url is a group of similar binary-to-text encoding schemes that represent binary data in a ASCII string format by translating it into radix-64 representation with url safe character.
 
 - HMAC:
 
@@ -94,7 +94,7 @@ HMACSHA256(
 [JWT specs OpenID](https://openid.net/specs/draft-jones-json-web-token-07.html#anchor1)
 [JWT Claims](https://www.iana.org/assignments/jwt/jwt.xhtml)
 
-### Multi-factor Authetifcation (2FA)
+### Multi-factor Authentication (2FA)
 
 ### TOTP Hardaware device
 
@@ -108,9 +108,9 @@ HMACSHA256(
 
 ## Malicious attack
 
-- Session hijacking: Cookie Hijacking is the exploitation of a valid `session key` to gain unauthorized access to information or fonctionnality of a computer system.
+- Session hijacking: Cookie Hijacking is the exploitation of a valid `session key` to gain unauthorized access to information or functionality of a computer system.
 
-The session Hijacking can take the `source-routed` IP packets or the `blind hijacking` or `man-in-the-middle attack` using a sniffing programm to watch for the conversation.
+The session Hijacking can take the `source-routed` IP packets or the `blind hijacking` or `man-in-the-middle attack` using a sniffing program to watch for the conversation.
 
 ### Attack
 
@@ -120,7 +120,7 @@ The session Hijacking can take the `source-routed` IP packets or the `blind hija
 
 - X-XSS Protection: Use `x-xss-protection` in the header of the request
 
-- Cross-Site Request Forgery (CSRF): is an attack that forces an end user to execute unwanted actions on a web app. in which they're currently autheticated.
+- Cross-Site Request Forgery (CSRF): is an attack that forces an end user to execute unwanted actions on a web app. in which they're currently authenticated.
 
 - Distributed Denial of Service (DDoS): is a comprised of several infected systems which all target a specific system with the objective of rendering it inoperable.
 
