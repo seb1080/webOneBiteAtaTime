@@ -7,6 +7,5 @@
         "ms-toolsai.datawrangler",
         "ms-python.black-formatter",
         "4ops.terraform",
-        "tamasfe.even-better-toml",
     ],
 }
