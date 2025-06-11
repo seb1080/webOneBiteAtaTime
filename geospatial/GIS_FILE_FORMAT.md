@@ -37,3 +37,9 @@ Relationship classes
 Terrains
 Topologies
 The default maximum size of datasets in file geodatabases is 1 TB. The maximum size can be increased to 256 TB for large datasets (usually raster).
+
+## Well Know Text (WKT)
+
+“Well-known text” is a scheme for writing a simple features geometry into a standard text string.
+
+- [Well-Known Text (WKT)](https://libgeos.org/specifications/wkt/)
