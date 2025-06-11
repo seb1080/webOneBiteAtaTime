@@ -8,12 +8,14 @@
 
 There is 7 types of values in ES2015
 
+```bash
 - Boolean
 - String
 - Number
 - Object
 - Null and Undefined
 - Symbol
+```
 
 ## Boolean
 
@@ -33,7 +35,7 @@ Null: is a empty or no-existent value. It most be assigned by the developer.
 
 ## Undefined
 
-A variable that has no value is undefined.
+A variable that has no value is undefined. A variable have been declared, but not defined.
 
 ## Object
 
@@ -71,11 +73,36 @@ let a = null;
 console.log(a); // null
 ```
 
-undefined: a variable have been declared, but not defined.
-
 ```js
 let b;
 console.log(b); // undefined
+```
+
+## Commun Javascript constructor and namespace
+
+### Number constructor
+
+### String constructor
+
+### Temporal namespace
+
+- [MDN Date constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+- [Temporal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal)
+
+Date represent a single moment in time in a platform-independent format. Date objects encapsulate an integral number that represents milliseconds since the midnight at the beginning of January 1, 1970, UTC (the epoch).
+
+Temporal is not a constructor. It is a namespace like `Math` and `Intl`. It contains several classes and namespaces, each of which is designed to handle a specific aspect of date and time management.
+
+## Short-circuiting in boolean operators
+
+In x && y, y will not be evaluated if x evaluates to false, because the whole expression is guaranteed to be false.
+
+In x || y, y will not be evaluated if x evaluated to true, because the whole expression is guaranteed to be true.
+
+```js
+The same can be used to fall back multiple times:
+envVariable || configValue || defaultConstValue // select the first "truthy" of these
+
 ```
 
 ### Coercion
@@ -230,8 +257,26 @@ const funcName() => {};
 
 IIFEs are use to create variable scope that wont't affect the surrounding code outside the IIFE.
 
+- [MDN IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
+
 ```js
-var x = (function IIFE(){
+// standard IIFE
+(function () {
+  // statements…
+})();
+
+// arrow function variant
+(() => {
+  // statements…
+})();
+
+// async IIFE
+(async () => {
+  // statements…
+})();
+
+
+var x = (function (){
  return 42;
 })();
 x; // 42
