@@ -8,10 +8,11 @@ An identifier must start with a-z, A-Z, $, or \_. It can then contain any of tho
 ## Before
 
 var: The scope of var is the enclosing function scope or the global scope.
+
 var: can be update.
 
 ```js
-var width = 10;
+var width = 10; // Definition of a variable
 var width = 30; // var can be reassign
 width = 23; // var can be update
 
@@ -443,7 +444,7 @@ Objects consist of properties, witch are used to describe an object. Values of o
 ```js
 const fName = 'Seb', lName = 'Blais', age = 11, job = `Web Dev`
 
-const person = { fName, lName, age, job} // Object Literal,
+const person = { fName, lName, age, job } // Object Literal,
 // don't need to specify the name of the property
 
 const me = Object.create(person)
@@ -485,9 +486,9 @@ A Promise will return a value between now and the end of time.
 
 A Promise can have 3 States:
 
-* Pending: Initial state, neither fulfilled or rejected.
-* Fulfilled: Operation completed successfully.
-* Rejected: Operation failed.
+- Pending: Initial state, neither fulfilled or rejected.
+- Fulfilled: Operation completed successfully.
+- Rejected: Operation failed.
 
 A pending Promise can either be fulfilled with a return value, or rejected with a reason (Error).
 
@@ -547,6 +548,8 @@ Promise.all([p1, p2]).then((responses) => {
 ```
 
 ## Module_11 - Symbol
+
+Symbol is a built-in object whose constructor returns a symbol primitive — also called a Symbol value or just a Symbol — that's guaranteed to be unique.
 
 A symbol value may be used as an identifier, but symbol are not enumerable it is not possible to loop over them.
 Every symbol value returned from Symbol() is unique.
@@ -630,7 +633,7 @@ Really handy for prototyping, don't use for production.
 ```js
 // main.js
 import { sum, kebabCase } from "npm:lodash";
-import { calculTip } from "./costumModule";
+import { calculTip } from "./customModule";
 
 console.log(kebabCase("Seb is becoming a better Web Dev"));
 const amount = 14;

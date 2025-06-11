@@ -9,6 +9,7 @@
         "Geospatial",
         "IIFE",
         "linestring",
+        "multiband",
         "srid",
         "supabase"
     ],

@@ -1,13 +1,11 @@
-# Postgres Cheatsheet
+# Postgres Cheat Sheet
 
 This is a collection of the most common commands I run while administering Postgres databases. The variables shown between the open and closed tags, "<" and ">", should be replaced with a name you choose. Postgres has multiple shortcut functions, starting with a forward slash, "\". Any SQL command that is not a shortcut, must end with a semicolon, ";". You can use the keyboard UP and DOWN keys to scroll the history of previous commands you've run.
 
-## Setup
+## Setup installation, Ubuntu
 
-##### installation, Ubuntu
-
-http://www.postgresql.org/download/linux/ubuntu/
-https://help.ubuntu.com/community/PostgreSQL
+<http://www.postgresql.org/download/linux/ubuntu/>
+<https://help.ubuntu.com/community/PostgreSQL>
 
 ```shell
 sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ wily-pgdg main" > \
@@ -22,7 +20,7 @@ psql
 
 Connect
 
-http://www.postgresql.org/docs/current/static/app-psql.html
+<http://www.postgresql.org/docs/current/static/app-psql.html>
 
 ```sql
 psql
@@ -53,7 +51,7 @@ Info
 
 Configure
 
-http://www.postgresql.org/docs/current/static/runtime-config.html
+<http://www.postgresql.org/docs/current/static/runtime-config.html>
 
 ```shell
 sudo nano $(locate -l 1 main/postgresql.conf)
@@ -151,7 +149,7 @@ SELECT current_database();
 
 Create database
 
-http://www.postgresql.org/docs/current/static/sql-createdatabase.html
+<http://www.postgresql.org/docs/current/static/sql-createdatabase.html>
 
 ```sql
 CREATE DATABASE <database_name> WITH OWNER <username>;
@@ -159,7 +157,7 @@ CREATE DATABASE <database_name> WITH OWNER <username>;
 
 ##### delete database
 
-http://www.postgresql.org/docs/current/static/sql-dropdatabase.html
+<http://www.postgresql.org/docs/current/static/sql-dropdatabase.html>
 
 ```sql
 DROP DATABASE IF EXISTS <database_name>;
@@ -167,7 +165,7 @@ DROP DATABASE IF EXISTS <database_name>;
 
 ##### rename database
 
-http://www.postgresql.org/docs/current/static/sql-alterdatabase.html
+<http://www.postgresql.org/docs/current/static/sql-alterdatabase.html>
 
 ```sql
 ALTER DATABASE <old_name> RENAME TO <new_name>;
@@ -183,7 +181,7 @@ SELECT rolname FROM pg_roles;
 
 Create user
 
-http://www.postgresql.org/docs/current/static/sql-createuser.html
+<http://www.postgresql.org/docs/current/static/sql-createuser.html>
 
 ```sql
 CREATE USER <user_name> WITH PASSWORD '<password>';
@@ -191,7 +189,7 @@ CREATE USER <user_name> WITH PASSWORD '<password>';
 
 ##### drop user
 
-http://www.postgresql.org/docs/current/static/sql-dropuser.html
+<http://www.postgresql.org/docs/current/static/sql-dropuser.html>
 
 ```sql
 DROP USER IF EXISTS <user_name>;
@@ -199,7 +197,7 @@ DROP USER IF EXISTS <user_name>;
 
 ##### alter user password
 
-http://www.postgresql.org/docs/current/static/sql-alterrole.html
+<http://www.postgresql.org/docs/current/static/sql-alterrole.html>
 
 ```sql
 ALTER ROLE <user_name> WITH PASSWORD '<password>';
@@ -216,7 +214,7 @@ psql
 
 ##### grant all permissions on database
 
-http://www.postgresql.org/docs/current/static/sql-grant.html
+<http://www.postgresql.org/docs/current/static/sql-grant.html>
 
 ```sql
 GRANT ALL PRIVILEGES ON DATABASE <db_name> TO <user_name>;
@@ -272,7 +270,7 @@ SELECT nspname FROM pg_catalog.pg_namespace;
 
 Create schema
 
-http://www.postgresql.org/docs/current/static/sql-createschema.html
+<http://www.postgresql.org/docs/current/static/sql-createschema.html>
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS <schema_name>;
@@ -280,7 +278,7 @@ CREATE SCHEMA IF NOT EXISTS <schema_name>;
 
 ##### drop schema
 
-http://www.postgresql.org/docs/current/static/sql-dropschema.html
+<http://www.postgresql.org/docs/current/static/sql-dropschema.html>
 
 ```sql
 DROP SCHEMA IF EXISTS <schema_name> CASCADE;
@@ -317,7 +315,7 @@ WHERE table_name = '<table_name>';
 
 Create table
 
-http://www.postgresql.org/docs/current/static/sql-createtable.html
+<http://www.postgresql.org/docs/current/static/sql-createtable.html>
 
 ```sql
 CREATE TABLE <table_name>(
@@ -336,7 +334,7 @@ CREATE TABLE <table_name> (
 
 ##### delete table
 
-http://www.postgresql.org/docs/current/static/sql-droptable.html
+<http://www.postgresql.org/docs/current/static/sql-droptable.html>
 
 ```sql
 DROP TABLE IF EXISTS <table_name> CASCADE;
@@ -346,7 +344,7 @@ DROP TABLE IF EXISTS <table_name> CASCADE;
 
 ##### add column
 
-http://www.postgresql.org/docs/current/static/sql-altertable.html
+<http://www.postgresql.org/docs/current/static/sql-altertable.html>
 
 ```sql
 ALTER TABLE <table_name> IF EXISTS
@@ -389,7 +387,7 @@ VALUES ( <value1>,<value2> );
 
 ##### read all data
 
-http://www.postgresql.org/docs/current/static/sql-select.html
+<http://www.postgresql.org/docs/current/static/sql-select.html>
 
 ```sql
 SELECT * FROM <table_name>;
@@ -401,7 +399,7 @@ SELECT * FROM <table_name>;
 SELECT * FROM <table_name> LIMIT 1;
 ```
 
-#Search for data
+# Search for data
 
 ```sql
 SELECT * FROM <table_name> WHERE <column_name> = <value>;
@@ -409,7 +407,7 @@ SELECT * FROM <table_name> WHERE <column_name> = <value>;
 
 ##### insert data
 
-http://www.postgresql.org/docs/current/static/sql-insert.html
+<http://www.postgresql.org/docs/current/static/sql-insert.html>
 
 ```sql
 INSERT INTO <table_name> VALUES( <value_1>, <value_2> );
@@ -417,7 +415,7 @@ INSERT INTO <table_name> VALUES( <value_1>, <value_2> );
 
 ##### edit data
 
-http://www.postgresql.org/docs/current/static/sql-update.html
+<http://www.postgresql.org/docs/current/static/sql-update.html>
 
 ```sql
 UPDATE <table_name>
@@ -427,7 +425,7 @@ WHERE <column_1> = <value>;
 
 ##### delete all data
 
-http://www.postgresql.org/docs/current/static/sql-delete.html
+<http://www.postgresql.org/docs/current/static/sql-delete.html>
 
 ```sql
 DELETE FROM <table_name>;
@@ -444,7 +442,7 @@ WHERE <column_name> = <value>;
 
 ##### run local script, on remote host
 
-http://www.postgresql.org/docs/current/static/app-psql.html
+<http://www.postgresql.org/docs/current/static/app-psql.html>
 
 ```shell
 psql -U <username> -d <database> -h <host> -f <local_file>
@@ -454,7 +452,7 @@ psql --username=<username> --dbname=<database> --host=<host> --file=<local_file>
 
 ##### backup database data, everything
 
-http://www.postgresql.org/docs/current/static/app-pgdump.html
+<http://www.postgresql.org/docs/current/static/app-pgdump.html>
 
 ```shell
 pg_dump <database_name>
@@ -480,7 +478,7 @@ pg_dump --schema-only <database_name>
 
 ##### restore database data
 
-http://www.postgresql.org/docs/current/static/app-pgrestore.html
+<http://www.postgresql.org/docs/current/static/app-pgrestore.html>
 
 ```shell
 pg_restore -d <database_name> -a <file_pathway>
@@ -498,7 +496,7 @@ pg_restore --dbname=<database_name> --schema-only <file_pathway>
 
 ##### export table into CSV file
 
-http://www.postgresql.org/docs/current/static/sql-copy.html
+<http://www.postgresql.org/docs/current/static/sql-copy.html>
 
 ```sql
 \copy <table_name> TO '<file_path>' CSV
@@ -512,7 +510,7 @@ http://www.postgresql.org/docs/current/static/sql-copy.html
 
 ##### import CSV file into table
 
-http://www.postgresql.org/docs/current/static/sql-copy.html
+<http://www.postgresql.org/docs/current/static/sql-copy.html>
 
 ```sql
 \copy <table_name> FROM '<file_path>' CSV
@@ -526,10 +524,10 @@ http://www.postgresql.org/docs/current/static/sql-copy.html
 
 ## Debugging
 
-http://www.postgresql.org/docs/current/static/using-explain.html
+<http://www.postgresql.org/docs/current/static/using-explain.html>
 
-http://www.postgresql.org/docs/current/static/runtime-config-logging.html
+<http://www.postgresql.org/docs/current/static/runtime-config-logging.html>
 
 ## Advanced Features
 
-http://www.tutorialspoint.com/postgresql/postgresql_constraints.htm
+<http://www.tutorialspoint.com/postgresql/postgresql_constraints.htm>

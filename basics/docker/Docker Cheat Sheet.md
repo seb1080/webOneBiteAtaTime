@@ -1,10 +1,19 @@
-# DOCKER CHEATSHEAT
+
+# DOCKER CHEAT SHEET
+
+```bash
+docker volume ls # list the volume
+
+```
+
+```bash
+docker ps # See a list of all running containers
 
 docker build -t friendlyname . # Create image using this directory's Dockerfile
 docker run -p 4000:80 friendlyname # Run "friendlyname" mapping port 4000 to 80
 docker run -d -p 4000:80 friendlyname # Same thing, but in detached mode
 docker exec -it [container-id] bash or docker exec --interactive --tty bash # Enter a running container, (-i) Keep STDIN open, (-t) Allocates a pseudo terminal connected to the container.
-docker ps # See a list of all running containers
+
 docker stop <hash> # Gracefully stop the specified container
 docker ps -a # See a list of all containers, even the ones not running
 docker kill <hash> # Force shutdown of the specified container
@@ -21,9 +30,11 @@ docker system prune # Remove all unused containers, networks, images (both dangl
 docker system prune -a # Remove all unused containers, networks, images not just dangling ones (Docker 17.06.1-ce and superior)
 docker volume prune # Remove all unused local volumes
 docker network prune # Remove all unused networks
+```
 
 ## DOCKER COMPOSE
 
+```bash
 docker-compose up # Create and start containers
 docker-compose up -d # Create and start containers in detached mode
 docker-compose down # Stop and remove containers, networks, images, and volumes
@@ -35,6 +46,7 @@ docker-compose config # Validate and view the Compose file
 docker-compose scale <service_name>=<replica> # Scale special service(s)
 docker-compose top # Display the running processes
 docker-compose run -rm -p 2022:22 web bash # Start web service and runs bash as its command, remove old container.
+```
 
 ## DOCKER SERVICES
 
@@ -80,7 +92,7 @@ docker-machine ssh myvm1 "docker stack deploy -c <file> <app>" # Deploy an app
 
 [15 Docker Commands You Should Know, explain the flags](https://towardsdatascience.com/15-docker-commands-you-should-know-970ea5203421)
 
-## POSTGERS in DOCKER
+## PostgreSQL in DOCKER
 
 Create the docker container.
 
@@ -97,7 +109,7 @@ CREATE DATABASE
 postgres=#\q
 ```
 
-Access the container. That will create a database inside the Postgresql container.
+Access the container. That will create a database inside the PostgreSQL container.
 
 ```bash
 docker exec -it taxi-pg-test bash
