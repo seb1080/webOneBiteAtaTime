@@ -2,67 +2,16 @@
 
 This is a collection of the most common commands I run while administering Postgres databases. The variables shown between the open and closed tags, "<" and ">", should be replaced with a name you choose. Postgres has multiple shortcut functions, starting with a forward slash, "\". Any SQL command that is not a shortcut, must end with a semicolon, ";". You can use the keyboard UP and DOWN keys to scroll the history of previous commands you've run.
 
-## Setup installation, Ubuntu
+## Install in Docker for macOS
 
-<http://www.postgresql.org/download/linux/ubuntu/>
-<https://help.ubuntu.com/community/PostgreSQL>
+```bash
+docker pull postgis/postgis
 
-```shell
-sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ wily-pgdg main" > \
-  /etc/apt/sources.list.d/pgdg.list
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install -y postgresql-9.5 postgresql-client-9.5 postgresql-contrib-9.5
+docker run --platform linux/arm64 postgis/postgis
 
-sudo su - postgres
-psql
-```
+docker volume create my-postgis-volume
 
-Connect
-
-<http://www.postgresql.org/docs/current/static/app-psql.html>
-
-```sql
-psql
-
-psql -U <username> -d <database> -h <hostname>
-
-psql --username=<username> --dbname=<database> --host=<hostname>
-```
-
-Disconnect
-
-```sql
-\q
-\!
-```
-
-Clear the screen
-
-```sql
-(CTRL + L)
-```
-
-Info
-
-```sql
-\conninfo
-```
-
-Configure
-
-<http://www.postgresql.org/docs/current/static/runtime-config.html>
-
-```shell
-sudo nano $(locate -l 1 main/postgresql.conf)
-sudo service postgresql restart
-```
-
-##### debug logs
-
-```shell
-# print the last 24 lines of the debug log
-sudo tail -24 $(find /var/log/postgresql -name 'postgresql-*-main.log')
+docker run --name my-postgis-container -e POSTGRES_PASSWORD=password -d postgis/postgis
 ```
 
 ## Recon
