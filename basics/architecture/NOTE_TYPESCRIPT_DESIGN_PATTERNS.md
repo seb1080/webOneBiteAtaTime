@@ -4,34 +4,47 @@ Design patterns are reusable solution to commonly occurring problems in software
 Patterns are about reusable designs and interactions of objects.
 
 The gang of Four (GoF) patterns are generally consider the fondation for all other patterns.
-DP are categorize has: Creational, Structural, Behavioral, Concurrency, Architectural.
+Design Pattern are categorize has: Creational, Structural, Behavioral, Concurrency, Architectural.
 
 - **Design Patterns**: represents good practice.
 - **Anti-Patterns**: bad practice. Ex: modify the `Object` class prototype.
 
-Js have multiple design Patterns(DP), they can be Front End, back End or Isomorphic JS (Universal JS).
+Js have multiple design Patterns, they can be Front End, back End or Isomorphic JS (Universal JS).
 
-## Creational Design Pattern
+## Design Pattern
 
-| Category       | Pattern         | Use Case                                                      |
-|----------------|------------------|---------------------------------------------------------------|
-| Creational     | Singleton        | Ensure a class has only one instance                          |
-| Creational     | Factory Method   | Create objects without specifying exact class                 |
-| Creational     | Abstract Factory | Create families of related objects without specifying classes |
-| Creational     | Prototype        | Clone objects without coupling to their specific classes      |
-| Creational     | Builder          | Construct complex objects step-by-step                        |
-| Structural     | Adapter          | Convert interface of a class into another expected interface  |
-| Structural     | Decorator        | Add behavior to objects dynamically                           |
-| Structural     | Facade           | Provide a simplified interface to a subsystem                 |
-| Structural     | Composite        | Treat individual and group of objects uniformly               |
-| Structural     | Proxy            | Provide surrogate for another object to control access        |
-| Structural     | Mixins           | Reuse functionality across multiple classes (TypeScript)      |
-| Behavioral     | Observer         | Notify multiple objects when state changes                    |
-| Behavioral     | Strategy         | Select algorithm behavior at runtime                          |
-| Behavioral     | Command          | Encapsulate requests as objects                               |
-| Behavioral     | Template Method  | Define skeleton of an algorithm, defer steps to subclasses    |
-| Behavioral     | Iterator         | Access items of a collection sequentially without exposure    |
-| Organizational | Module           | Encapsulate code into reusable, self-contained components     |
+Structural patterns focus on ways to manage relationships between object to make the application architecture scalable.
+
+Behavioral patterns focus on communication between objets.
+
+| Category        | Pattern           | Use Case                                                                 |
+|------------------|--------------------|--------------------------------------------------------------------------|
+| **Creational**   | Abstract Factory   | Create families of related objects without specifying classes            |
+|                  | Builder            | Construct complex objects step-by-step                                   |
+|                  | Factory Method     | Create objects without specifying exact class                            |
+|                  | Prototype          | Clone objects without coupling to their specific classes                 |
+|                  | Singleton          | Ensure a class has only one instance                                     |
+
+| **Structural**   | Adapter            | Convert interface of a class into another expected interface             |
+|                  | Composite          | Treat individual and group of objects uniformly                          |
+|                  | Decorator          | Add behavior to objects dynamically                                      |
+|                  | Facade             | Provide a simplified interface to a subsystem                            |
+|                  | Mixins             | Reuse behavior across unrelated classes                                  |
+|                  | Module             | Encapsulate code into reusable, self-contained components                |
+|                  | Proxy              | Provide surrogate for another object to control access                   |
+
+| **Behavioral**   | Command            | Encapsulate requests as objects                                          |
+|                  | Interpreter        | Evaluate language grammar or expression representation                   |
+|                  | Iterator           | Access items of a collection sequentially without exposing structure     |
+|                  | Mediator           | Centralize communication between objects to reduce direct dependencies   |
+|                  | Memento            | Save and restore an object's previous state                              |
+|                  | Observer           | Notify multiple objects when state changes                               |
+|                  | State              | Alter behavior based on internal state                                   |
+|                  | Strategy           | Select algorithm behavior at runtime                                     |
+|                  | Template Method    | Define skeleton of an algorithm, defer steps to subclasses               |
+|                  | Visitor            | Add new operations without modifying existing structure                  |
+
+| **Publish/Subscribe** | Publish/Subscribe  | Decouple sender and receiver through event broadcasting              |
 
 _Reference_
 
@@ -50,6 +63,8 @@ One characteristic of the **Singleton** is the _immuability_.
 
 **The old way** using closures and IIFE it is possible to write and Store(Redux).
 `UserStore` will be set to the result of the IIFE - an object that exposes 2 functions, but that does not grant direct access to the collection of data.
+
+In Typescript Singleton are useful for share resource like database connection, pool, configuration, setting, logger, instance, catching service, external API client.
 
 ```ts
 class Singleton {
@@ -113,113 +128,6 @@ Namespace.Ajax.ajaxCall();
 Namespace.someMethod();
 ```
 
-#### Factory Pattern
-
-The **Factory** pattern concerned wit the notion of creating objects. it doesn't explicitly require us to use a constructor. The **Factory** pattern provide a generic interface for creating objects, where we can specify the type of factory object we wish to be created.
-
-**When to use**
-
-- when a object involve a high level of complexity.
-- When a high
-- When working with high number of object sharing the same properties
-- This is useful for decoupling.
-
-```ts
-interface Shape {
-  draw(): void;
-}
-
-class Circle implements Shape {
-  draw(): void {
-    console.log("Drawing a Circle 🟠");
-  }
-}
-
-class Square implements Shape {
-  draw(): void {
-    console.log("Drawing a Square ⏹️");
-  }
-}
-
-class Triangle implements Shape {
-  draw(): void {
-    console.log("Drawing a Triangle 🔺");
-  }
-}
-
-interface ShapeFactory {
-  createShape(): Shape;
-}
-
-class CircleFactory implements ShapeFactory {
-  createShape(): Shape {
-    return new Circle();
-  }
-}
-
-class SquareFactory implements ShapeFactory {
-  createShape(): Shape {
-    return new Square();
-  }
-}
-
-class TriangleFactory implements ShapeFactory {
-  createShape(): Shape {
-    return new Triangle();
-  }
-}
-
-function renderShape(factory: ShapeFactory) {
-  const shape = factory.createShape();
-  shape.draw();
-}
-
-renderShape(new CircleFactory());   // Drawing a Circle 🟠
-renderShape(new SquareFactory());   // Drawing a Square ⏹️
-renderShape(new TriangleFactory()); // Drawing a Triangle 🔺
-
-
-```
-
-```js
-// A constructor to create new Car
-function Car( options ){
-  this.doors = options.doors || 4;
-  this.state = options.state || 'new';
-  this.color = options.color || "silver";
-}
-// A constructor to create new Truck
-function Truck( options ){
-  this.state = options.state || 'used';
-  this.wheelSize = options.wheelSize || 'large';
-  this.color = options.color || "blue";
-}
-
-function VehicleFactory() {
-  VehicleFactory.prototype.vehicleClass = Car;
-
-  VehicleFactory.prototype.createVehicle = function( options ) {
-      switch(options.vehicleType) {
-        case "car":
-          this.vehiculeClass = Car;
-          break;
-        case "truck":
-          this.vehiculeClass = Truck;
-          break;
-      }
-      return new this.vehiculeClass(options)
-  }
-};
-const canFactory = new VehiculeFactory()
-const var = carFactory.createVehicule({
-  vehiculeType: 'car',
-  color: 'red',
-  doors: 6
-})
-// We expect that car is a instance of the vehiculeClass/prototype Car
-console.log( car instanceof Car);
-```
-
 ```ts
 /* The ES2015+ way */
 class Car {
@@ -269,7 +177,7 @@ const car = carFactory.createVehicle({
 console.log(car instanceof Car); // true
 ```
 
-#### Constructor Pattern
+### Constructor Design Pattern
 
 Object Constructors are used to create specific types of objects.
 
@@ -357,9 +265,9 @@ const jeep = new Car("Jeep", 2009, 20000);
 console.log(jeep.toString());
 ```
 
-#### Abstract Factories Pattern
+### Abstract Factories Pattern
 
-#### Prototype Pattern
+### Prototype Pattern
 
 ```ts
 interface Prototype<T> {
@@ -418,44 +326,130 @@ clonedRect.draw();      // 🟥 Rectangle - Width: 20, Height: 15, Color: red
 console.log(originalCircle === clonedCircle); // false (they're different instances)
 ```
 
-#### Mixins Pattern
+### Mixins Pattern
 
-#### Observer Pattern
+### Observer Pattern
 
-### Structural
+### Factory Method Pattern
 
-Structural patterns focus on ways to manage relationships between object to make the application architecture scalable.
+The **Factory** pattern concerned wit the notion of creating objects. it doesn't explicitly require us to use a constructor. The **Factory** pattern provide a generic interface for creating objects, where we can specify the type of factory object we wish to be created.
 
-- Adapter
-- Bridge
-- Composite
-- Decorator
-- Facade
-- Flyweight
-- Proxy
+**When to use**
 
-### Behavioral DP
+- when a object involve a high level of complexity.
+- When working with high number of object sharing the same properties
+- This is useful for decoupling.
 
-Behavioral patterns focus on communication between objets.
+```ts
+interface Shape {
+  draw(): void;
+}
 
-- Chain of Resp.
-- Command
+class Circle implements Shape {
+  draw(): void {
+    console.log("Drawing a Circle 🟠");
+  }
+}
+
+class Square implements Shape {
+  draw(): void {
+    console.log("Drawing a Square ⏹️");
+  }
+}
+
+class Triangle implements Shape {
+  draw(): void {
+    console.log("Drawing a Triangle 🔺");
+  }
+}
+
+interface ShapeFactory {
+  createShape(): Shape;
+}
+
+class CircleFactory implements ShapeFactory {
+  createShape(): Shape {
+    return new Circle();
+  }
+}
+
+class SquareFactory implements ShapeFactory {
+  createShape(): Shape {
+    return new Square();
+  }
+}
+
+class TriangleFactory implements ShapeFactory {
+  createShape(): Shape {
+    return new Triangle();
+  }
+}
+
+function renderShape(factory: ShapeFactory) {
+  const shape = factory.createShape();
+  shape.draw();
+}
+
+renderShape(new CircleFactory());   // Drawing a Circle 🟠
+renderShape(new SquareFactory());   // Drawing a Square ⏹️
+renderShape(new TriangleFactory()); // Drawing a Triangle 🔺
+```
+
+```js
+// A constructor to create new Car
+function Car( options ){
+  this.doors = options.doors || 4;
+  this.state = options.state || 'new';
+  this.color = options.color || "silver";
+}
+// A constructor to create new Truck
+function Truck( options ){
+  this.state = options.state || 'used';
+  this.wheelSize = options.wheelSize || 'large';
+  this.color = options.color || "blue";
+}
+
+function VehicleFactory() {
+  VehicleFactory.prototype.vehicleClass = Car;
+
+  VehicleFactory.prototype.createVehicle = function( options ) {
+      switch(options.vehicleType) {
+        case "car":
+          this.vehiculeClass = Car;
+          break;
+        case "truck":
+          this.vehiculeClass = Truck;
+          break;
+      }
+      return new this.vehiculeClass(options)
+  }
+};
+const canFactory = new VehiculeFactory()
+const var = carFactory.createVehicule({
+  vehiculeType: 'car',
+  color: 'red',
+  doors: 6
+})
+// We expect that car is a instance of the vehiculeClass/prototype Car
+console.log( car instanceof Car);
+```
+
 - Interpreter
 - Iterator
 - Mediator
 - Memento
-- Observer
+
 - Publish/Subscribe
 - State
 - Strategy
 - Template Method
 - Visitor
 
-### Concurrency DP
+### Concurrency Design Pattern
 
-These DP deal with multi-threaded programming paradigms.
+These Design Pattern deal with multi-threaded programming paradigms.
 
-### Architectural DP
+### Architectural Design Pattern
 
 An **Architectural Pattern** is a general, reusable solution to a commonly occuring problem in software architecture within a given context. Achitectural patterns are similar to software design pattern but have a broader scope.
 
