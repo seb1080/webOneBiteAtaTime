@@ -2,7 +2,7 @@
 
 In computer science a data structure is a data organization and storage format that enables efficient access and modification of the data.
 
-Developer are interested in time and space complexity associated with the fourth fundamental operations: `Access`, `Insertion`, `Deletion` And `search`.
+Developer are interested in time and space complexity associated with the fourth fundamental operations: `Access`, `search`, `Insertion`, And `Deletion`.
 
 A data structure is a way of organizing and storing data in a computer so that it can be access and use efficiently. It's the defined relationship between the data and the operation that can be performed on the data.
 
@@ -190,7 +190,7 @@ Doubly linked list each node has two pointers, one pointer to the next note and 
 
 A circular Linked list is the type of Linked list in which the first and the last note are also connected to each other to form a circle. There is not NULL link.
 
-#### Advanced Data Structure
+## Advanced Data Structure
 
 ### Stack
 

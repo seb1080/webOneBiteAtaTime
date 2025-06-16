@@ -3,31 +3,41 @@
 Design patterns are reusable solution to commonly occurring problems in software design.
 Patterns are about reusable designs and interactions of objects.
 
-The 23 gang og Four(GoF) patterns are generally consider the fondation for all other patterns.
+The gang of Four (GoF) patterns are generally consider the fondation for all other patterns.
 DP are categorize has: Creational, Structural, Behavioral, Concurrency, Architectural.
 
-- Design Patterns: represents good practice.
-- Anti-Patterns: bad practice. Ex: modify the `Object` class prototype.
+- **Design Patterns**: represents good practice.
+- **Anti-Patterns**: bad practice. Ex: modify the `Object` class prototype.
 
 Js have multiple design Patterns(DP), they can be Front End, back End or Isomorphic JS (Universal JS).
 
-## Creational DP
+## Creational Design Pattern
 
-Creational patterns focus on ways to create objects of classes.
-
-- Singleton
-- Abstract Factory
-- Abstract Factories
-- Prototype
-- Mixins
-- Builder
-- Factory Method
-- Module
+| Category       | Pattern         | Use Case                                                      |
+|----------------|------------------|---------------------------------------------------------------|
+| Creational     | Singleton        | Ensure a class has only one instance                          |
+| Creational     | Factory Method   | Create objects without specifying exact class                 |
+| Creational     | Abstract Factory | Create families of related objects without specifying classes |
+| Creational     | Prototype        | Clone objects without coupling to their specific classes      |
+| Creational     | Builder          | Construct complex objects step-by-step                        |
+| Structural     | Adapter          | Convert interface of a class into another expected interface  |
+| Structural     | Decorator        | Add behavior to objects dynamically                           |
+| Structural     | Facade           | Provide a simplified interface to a subsystem                 |
+| Structural     | Composite        | Treat individual and group of objects uniformly               |
+| Structural     | Proxy            | Provide surrogate for another object to control access        |
+| Structural     | Mixins           | Reuse functionality across multiple classes (TypeScript)      |
+| Behavioral     | Observer         | Notify multiple objects when state changes                    |
+| Behavioral     | Strategy         | Select algorithm behavior at runtime                          |
+| Behavioral     | Command          | Encapsulate requests as objects                               |
+| Behavioral     | Template Method  | Define skeleton of an algorithm, defer steps to subclasses    |
+| Behavioral     | Iterator         | Access items of a collection sequentially without exposure    |
+| Organizational | Module           | Encapsulate code into reusable, self-contained components     |
 
 _Reference_
 
-[JavaScript Patterns](http://shop.oreilly.com/product/9780596806767.do)
+- [JavaScript Patterns](http://shop.oreilly.com/product/9780596806767.do)
 [JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
+- [Design Pattern](https://github.com/ankitech/design-pattern)
 
 ### Singleton Pattern
 
@@ -41,52 +51,23 @@ One characteristic of the **Singleton** is the _immuability_.
 **The old way** using closures and IIFE it is possible to write and Store(Redux).
 `UserStore` will be set to the result of the IIFE - an object that exposes 2 functions, but that does not grant direct access to the collection of data.
 
-```js
-var UserStore = (function () {
-  var _data = [];
+```ts
+class Singleton {
+  private static instance: Singleton;
 
-  function add(item) {
-    _data.push(item);
-  }
-  function get(id) {
-    return _data.find((d) => {
-      return d.id === id;
-    });
-  }
-  return {
-    add: add,
-    get: get,
-  };
-})();
-```
+  // Private constructor to prevent instantiation
+  private constructor() {}
 
-**The ES2015+ way**
-
-```js
-const _data = [];
-
-const UserStore = {
-  add: item => _data.push(item),
-  get: id => _data.find(d => d.id === id)
-}
-
-Object.freeze(UserStore)
-export default UserStore.
-// OR
-class UserStoreB {
-  constructor(){
-    this._data = [];
-  }
-  add(item) {
-    this._data.push(item)
-  }
-  get(id){
-    return this._data.find(d => d.id === id)
+  // Public method to get the instance of the Singleton
+  public static getInstance(): Singleton {
+    if (!Singleton.instance) {
+      Singleton.instance = new Singleton();
+    }
+    return Singleton.instance;
   }
 }
-const instance = new UserStoreB();
-Object.freeze(instance);
-export default instance;
+
+const singletonInstance1 = Singleton.getInstance();
 ```
 
 ```js
@@ -143,6 +124,63 @@ The **Factory** pattern concerned wit the notion of creating objects. it doesn't
 - When working with high number of object sharing the same properties
 - This is useful for decoupling.
 
+```ts
+interface Shape {
+  draw(): void;
+}
+
+class Circle implements Shape {
+  draw(): void {
+    console.log("Drawing a Circle 🟠");
+  }
+}
+
+class Square implements Shape {
+  draw(): void {
+    console.log("Drawing a Square ⏹️");
+  }
+}
+
+class Triangle implements Shape {
+  draw(): void {
+    console.log("Drawing a Triangle 🔺");
+  }
+}
+
+interface ShapeFactory {
+  createShape(): Shape;
+}
+
+class CircleFactory implements ShapeFactory {
+  createShape(): Shape {
+    return new Circle();
+  }
+}
+
+class SquareFactory implements ShapeFactory {
+  createShape(): Shape {
+    return new Square();
+  }
+}
+
+class TriangleFactory implements ShapeFactory {
+  createShape(): Shape {
+    return new Triangle();
+  }
+}
+
+function renderShape(factory: ShapeFactory) {
+  const shape = factory.createShape();
+  shape.draw();
+}
+
+renderShape(new CircleFactory());   // Drawing a Circle 🟠
+renderShape(new SquareFactory());   // Drawing a Square ⏹️
+renderShape(new TriangleFactory()); // Drawing a Triangle 🔺
+
+
+```
+
 ```js
 // A constructor to create new Car
 function Car( options ){
@@ -182,7 +220,7 @@ const var = carFactory.createVehicule({
 console.log( car instanceof Car);
 ```
 
-```js
+```ts
 /* The ES2015+ way */
 class Car {
   constructor({ doors, state, color }) {
@@ -237,7 +275,7 @@ Object Constructors are used to create specific types of objects.
 
 **The old way**
 
-```js
+```ts
 var newObject = {};
 
 var newObj = Object.create(Object.prototype);
@@ -305,7 +343,7 @@ console.log(civic.toString());
 
 **The ES6+ way**
 
-```js
+```ts
 class Car {
   constructor({ model, year, miles }) {
     (this.model = model), (this.year = year), (this.miles = miles);
@@ -322,6 +360,63 @@ console.log(jeep.toString());
 #### Abstract Factories Pattern
 
 #### Prototype Pattern
+
+```ts
+interface Prototype<T> {
+  clone(): T;
+}
+
+abstract class Shape implements Prototype<Shape> {
+  constructor(public color: string) {}
+
+  abstract clone(): Shape;
+  abstract draw(): void;
+}
+
+class Circle extends Shape {
+  constructor(public color: string, public radius: number) {
+    super(color);
+  }
+
+  clone(): Circle {
+    return new Circle(this.radius, this.color);
+  }
+
+  draw() {
+    console.log(`🟠 Circle - Radius: ${this.radius}, Color: ${this.color}`);
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(public color: string, public width: number, public height: number) {
+    super(color);
+  }
+
+  clone(): Rectangle {
+    return new Rectangle(this.width, this.height, this.color);
+  }
+
+  draw() {
+    console.log(`🟥 Rectangle - Width: ${this.width}, Height: ${this.height}, Color: ${this.color}`);
+  }
+}
+
+// Client Code
+const originalCircle = new Circle(10, "blue");
+const clonedCircle = originalCircle.clone();
+
+const originalRect = new Rectangle(20, 15, "red");
+const clonedRect = originalRect.clone();
+
+// Usage
+originalCircle.draw();  // 🟠 Circle - Radius: 10, Color: blue
+clonedCircle.draw();    // 🟠 Circle - Radius: 10, Color: blue
+
+originalRect.draw();    // 🟥 Rectangle - Width: 20, Height: 15, Color: red
+clonedRect.draw();      // 🟥 Rectangle - Width: 20, Height: 15, Color: red
+
+console.log(originalCircle === clonedCircle); // false (they're different instances)
+```
 
 #### Mixins Pattern
 
